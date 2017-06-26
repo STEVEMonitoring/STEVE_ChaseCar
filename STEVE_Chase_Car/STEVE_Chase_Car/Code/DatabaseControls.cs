@@ -27,8 +27,6 @@ namespace STEVE_Chase_Car.Code
             selectedDatabase = _database;
             userName = _userName;
             password = _password;
-
-
         }
 
         /// <summary>
@@ -46,9 +44,9 @@ namespace STEVE_Chase_Car.Code
                 return;
             }
 
-            SqlConnection myConn = new SqlConnection("server=localhost;Integrated security=SSPI;database=master");
+            SqlConnection myConn = new SqlConnection(@"Server=" + selectedServer + " ;Integrated security=SSPI;database=master");
 
-            str = "CREATE DATABASE " + selectedDatabase;
+            str = "CREATE DATABASE" + selectedDatabase;
 
             SqlCommand myCommand = new SqlCommand(str, myConn);
             try

@@ -22,7 +22,7 @@ namespace STEVE_Chase_Car
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            DatabaseControls dbControls = new DatabaseControls(TBserver.Text, TBdatabase.Text, TBuserName.Text, TBpassword.Text);
+            DatabaseControls dbControls = new DatabaseControls(@TBserver.Text, TBdatabase.Text, TBuserName.Text, TBpassword.Text);
 
             if (!dbControls.ConnectionOk())
             {
