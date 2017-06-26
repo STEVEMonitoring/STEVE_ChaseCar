@@ -48,6 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,12 +61,20 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="STEVE Chase Car.cs">
+    <Compile Include="Code\DatabaseControls.cs" />
+    <Compile Include="FormsWindows\DBConnectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STEVE Chase Car.Designer.cs">
+    <Compile Include="FormsWindows\DBConnectionScreen.Designer.cs">
+      <DependentUpon>DBConnectionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsWindows\STEVE Chase Car.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsWindows\STEVE Chase Car.Designer.cs">
       <DependentUpon>STEVE Chase Car.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -75,6 +85,9 @@
       <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="TestBench\TestBench.cs" />
+    <EmbeddedResource Include="FormsWindows\DBConnectionScreen.resx">
+      <DependentUpon>DBConnectionScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,7 +97,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="STEVE Chase Car.resx">
+    <EmbeddedResource Include="FormsWindows\STEVE Chase Car.resx">
       <DependentUpon>STEVE Chase Car.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -111,9 +124,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Development\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
