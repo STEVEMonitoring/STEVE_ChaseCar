@@ -33,7 +33,7 @@ namespace STEVE_Chase_Car.Code
         /// Creates a database with the chosen name
         /// </summary>
         /// <returns></returns>
-        public void createDatabase()
+        public bool createDatabase()
         {
             string str;
             if (selectedDatabase == "")
@@ -41,24 +41,25 @@ namespace STEVE_Chase_Car.Code
                 MessageBox.Show("Please enter a correct database name in order to create it", "SQL Database",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                return;
+                return false;
             }
 
-            SqlConnection myConn = new SqlConnection(@"Server=" + selectedServer + " ;Integrated security=SSPI;database=master");
+            SqlConnection myConn = new SqlConnection(@"Server=" + selectedServer + ";Integrated security=SSPI;database=master");
 
-            str = "CREATE DATABASE" + selectedDatabase;
+            str = "CREATE DATABASE " + selectedDatabase;
 
-            SqlCommand myCommand = new SqlCommand(str, myConn);
+            SqlCommand myCommand = new SqlCommand(str, myConn);       
             try
             {
                 myConn.Open();
                 myCommand.ExecuteNonQuery();
-                MessageBox.Show("Database was Successfully Created!", "STEVE_ChaseCar", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Database was Successfully Created!", "STEVE_ChaseCar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "STEVE_ChaseCar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
             }
             finally
             {

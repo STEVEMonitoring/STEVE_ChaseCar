@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.RTBhelp = new System.Windows.Forms.RichTextBox();
+            this.CBjustTesting = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -72,6 +73,7 @@
             this.TBserver.Name = "TBserver";
             this.TBserver.Size = new System.Drawing.Size(183, 20);
             this.TBserver.TabIndex = 3;
+            this.TBserver.Text = ".\\SQLEXPRESS";
             // 
             // TBdatabase
             // 
@@ -79,6 +81,7 @@
             this.TBdatabase.Name = "TBdatabase";
             this.TBdatabase.Size = new System.Drawing.Size(183, 20);
             this.TBdatabase.TabIndex = 4;
+            this.TBdatabase.Text = "STEVE_database";
             // 
             // label1
             // 
@@ -125,11 +128,22 @@
             this.RTBhelp.TabIndex = 9;
             this.RTBhelp.Text = "User name and password may not be required.";
             // 
+            // CBjustTesting
+            // 
+            this.CBjustTesting.AutoSize = true;
+            this.CBjustTesting.Location = new System.Drawing.Point(105, 201);
+            this.CBjustTesting.Name = "CBjustTesting";
+            this.CBjustTesting.Size = new System.Drawing.Size(136, 17);
+            this.CBjustTesting.TabIndex = 10;
+            this.CBjustTesting.Text = "I am just testing this out";
+            this.CBjustTesting.UseVisualStyleBackColor = true;
+            // 
             // DBConnectionScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 373);
+            this.Controls.Add(this.CBjustTesting);
             this.Controls.Add(this.RTBhelp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -160,5 +174,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox RTBhelp;
+        private System.Windows.Forms.CheckBox CBjustTesting;
     }
 }

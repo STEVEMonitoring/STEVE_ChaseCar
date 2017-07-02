@@ -22,6 +22,16 @@ namespace STEVE_Chase_Car
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            /**************************Just for testing ***************************/
+            if (CBjustTesting.Checked)
+            {
+                this.Hide();
+                Form1 newForm1 = new Form1();
+                newForm1.Show();
+                return;
+            }
+            /********************************************************************/
+
             DatabaseControls dbControls = new DatabaseControls(@TBserver.Text, TBdatabase.Text, TBuserName.Text, TBpassword.Text);
 
             if (!dbControls.ConnectionOk())
@@ -29,13 +39,20 @@ namespace STEVE_Chase_Car
                 DialogResult dialogResult = MessageBox.Show("Would you like to create a database with the name " + TBdatabase.Text, "SQL Database", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    dbControls.createDatabase();
+                    if (dbControls.createDatabase())
+                    {
+                        this.Hide();
+                        Form1 newForm1 = new Form1();
+                        newForm1.Show();               
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Connection Established!", "SQL Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Connection Established!", "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                Form1 newForm1 = new Form1();
+                newForm1.Show();
             }
         }
     }
