@@ -32,9 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainScreenTabControl = new System.Windows.Forms.TabControl();
             this.Overview = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.RTBOverviewTop = new System.Windows.Forms.RichTextBox();
             this.Speed = new System.Windows.Forms.TabPage();
             this.Battery = new System.Windows.Forms.TabPage();
             this.Weather = new System.Windows.Forms.TabPage();
+            this.weatherBrowser = new System.Windows.Forms.WebBrowser();
+            this.solarLocation = new System.Windows.Forms.TabPage();
+            this.solarBrowser = new System.Windows.Forms.WebBrowser();
             this.Dev = new System.Windows.Forms.TabPage();
             this.loadDataBTN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,16 +49,16 @@
             this.TBserver = new System.Windows.Forms.TextBox();
             this.TBdatabase = new System.Windows.Forms.TextBox();
             this.testBTN = new System.Windows.Forms.Button();
-            this.RTBOverviewTop = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.bMS_PDO1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTEVE_databaseDataSet = new STEVE_Chase_Car.STEVE_databaseDataSet();
             this.bMS_PDO1TableAdapter = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
             this.tableAdapterManager = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.TableAdapterManager();
             this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
+            this.btnReloadBrowsers = new System.Windows.Forms.Button();
             this.mainScreenTabControl.SuspendLayout();
             this.Overview.SuspendLayout();
+            this.Weather.SuspendLayout();
+            this.solarLocation.SuspendLayout();
             this.Dev.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bMS_PDO1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTEVE_databaseDataSet)).BeginInit();
@@ -64,7 +70,9 @@
             this.mainScreenTabControl.Controls.Add(this.Speed);
             this.mainScreenTabControl.Controls.Add(this.Battery);
             this.mainScreenTabControl.Controls.Add(this.Weather);
+            this.mainScreenTabControl.Controls.Add(this.solarLocation);
             this.mainScreenTabControl.Controls.Add(this.Dev);
+            this.mainScreenTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.mainScreenTabControl.Location = new System.Drawing.Point(12, 12);
             this.mainScreenTabControl.Multiline = true;
             this.mainScreenTabControl.Name = "mainScreenTabControl";
@@ -87,6 +95,34 @@
             this.Overview.Text = "Overview";
             this.Overview.UseVisualStyleBackColor = true;
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.richTextBox2.Location = new System.Drawing.Point(736, 419);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(700, 445);
+            this.richTextBox2.TabIndex = 2;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.richTextBox1.Location = new System.Drawing.Point(3, 419);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(700, 445);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // RTBOverviewTop
+            // 
+            this.RTBOverviewTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RTBOverviewTop.Location = new System.Drawing.Point(3, 3);
+            this.RTBOverviewTop.Margin = new System.Windows.Forms.Padding(7);
+            this.RTBOverviewTop.Name = "RTBOverviewTop";
+            this.RTBOverviewTop.Size = new System.Drawing.Size(1433, 416);
+            this.RTBOverviewTop.TabIndex = 0;
+            this.RTBOverviewTop.Text = "Some text in here";
+            // 
             // Speed
             // 
             this.Speed.Location = new System.Drawing.Point(4, 36);
@@ -108,6 +144,7 @@
             // 
             // Weather
             // 
+            this.Weather.Controls.Add(this.weatherBrowser);
             this.Weather.Location = new System.Drawing.Point(4, 36);
             this.Weather.Name = "Weather";
             this.Weather.Size = new System.Drawing.Size(1439, 867);
@@ -115,8 +152,37 @@
             this.Weather.Text = "Weather";
             this.Weather.UseVisualStyleBackColor = true;
             // 
+            // weatherBrowser
+            // 
+            this.weatherBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weatherBrowser.Location = new System.Drawing.Point(0, 0);
+            this.weatherBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.weatherBrowser.Name = "weatherBrowser";
+            this.weatherBrowser.Size = new System.Drawing.Size(1439, 867);
+            this.weatherBrowser.TabIndex = 0;
+            // 
+            // solarLocation
+            // 
+            this.solarLocation.Controls.Add(this.solarBrowser);
+            this.solarLocation.Location = new System.Drawing.Point(4, 36);
+            this.solarLocation.Name = "solarLocation";
+            this.solarLocation.Size = new System.Drawing.Size(1439, 867);
+            this.solarLocation.TabIndex = 5;
+            this.solarLocation.Text = "Solar Location";
+            this.solarLocation.UseVisualStyleBackColor = true;
+            // 
+            // solarBrowser
+            // 
+            this.solarBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.solarBrowser.Location = new System.Drawing.Point(0, 0);
+            this.solarBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.solarBrowser.Name = "solarBrowser";
+            this.solarBrowser.Size = new System.Drawing.Size(1439, 867);
+            this.solarBrowser.TabIndex = 0;
+            // 
             // Dev
             // 
+            this.Dev.Controls.Add(this.btnReloadBrowsers);
             this.Dev.Controls.Add(this.loadDataBTN);
             this.Dev.Controls.Add(this.label2);
             this.Dev.Controls.Add(this.label1);
@@ -189,34 +255,6 @@
             this.testBTN.Text = "Connect DB -  do not remove";
             this.testBTN.UseVisualStyleBackColor = true;
             // 
-            // RTBOverviewTop
-            // 
-            this.RTBOverviewTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RTBOverviewTop.Location = new System.Drawing.Point(3, 3);
-            this.RTBOverviewTop.Margin = new System.Windows.Forms.Padding(7);
-            this.RTBOverviewTop.Name = "RTBOverviewTop";
-            this.RTBOverviewTop.Size = new System.Drawing.Size(1433, 416);
-            this.RTBOverviewTop.TabIndex = 0;
-            this.RTBOverviewTop.Text = "Some text in here";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 419);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(700, 445);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.richTextBox2.Location = new System.Drawing.Point(736, 419);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(700, 445);
-            this.richTextBox2.TabIndex = 2;
-            this.richTextBox2.Text = "";
-            // 
             // bMS_PDO1BindingSource
             // 
             this.bMS_PDO1BindingSource.DataMember = "BMS_PDO1";
@@ -241,6 +279,16 @@
             // 
             this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
             // 
+            // btnReloadBrowsers
+            // 
+            this.btnReloadBrowsers.Location = new System.Drawing.Point(0, 3);
+            this.btnReloadBrowsers.Name = "btnReloadBrowsers";
+            this.btnReloadBrowsers.Size = new System.Drawing.Size(225, 83);
+            this.btnReloadBrowsers.TabIndex = 30;
+            this.btnReloadBrowsers.Text = "Reload Browsers";
+            this.btnReloadBrowsers.UseVisualStyleBackColor = true;
+            this.btnReloadBrowsers.Click += new System.EventHandler(this.btnReloadBrowsers_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +306,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mainScreenTabControl.ResumeLayout(false);
             this.Overview.ResumeLayout(false);
+            this.Weather.ResumeLayout(false);
+            this.solarLocation.ResumeLayout(false);
             this.Dev.ResumeLayout(false);
             this.Dev.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bMS_PDO1BindingSource)).EndInit();
@@ -288,6 +338,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loadDataBTN;
+        private System.Windows.Forms.WebBrowser weatherBrowser;
+        private System.Windows.Forms.TabPage solarLocation;
+        private System.Windows.Forms.WebBrowser solarBrowser;
+        private System.Windows.Forms.Button btnReloadBrowsers;
     }
 }
 

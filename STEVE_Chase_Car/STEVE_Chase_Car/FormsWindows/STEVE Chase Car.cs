@@ -24,6 +24,15 @@ namespace STEVE_Chase_Car
         public Form1()
         {
             InitializeComponent();
+            initWebbrowser();
+        }
+
+        private void initWebbrowser()
+        {
+            weatherBrowser.ScriptErrorsSuppressed = true;
+            solarBrowser.ScriptErrorsSuppressed = true;
+            weatherBrowser.Navigate("https://www.yr.no/place/Sweden/");
+            solarBrowser.Navigate("https://www.wolframalpha.com/input/?i=sun");
         }
 
 
@@ -130,6 +139,11 @@ namespace STEVE_Chase_Car
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnReloadBrowsers_Click(object sender, EventArgs e)
+        {
+            initWebbrowser();
         }
     }
 }
