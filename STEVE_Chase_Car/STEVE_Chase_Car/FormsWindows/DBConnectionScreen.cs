@@ -22,17 +22,19 @@ namespace STEVE_Chase_Car
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+
+            DatabaseControls dbControls = new DatabaseControls(@TBserver.Text, TBdatabase.Text);
+
             /**************************Just for testing ***************************/
             if (CBjustTesting.Checked)
             {
                 this.Hide();
                 Form1 newForm1 = new Form1();
+                newForm1.mainScreenDbControl = dbControls;
                 newForm1.Show();
                 return;
             }
             /********************************************************************/
-
-            DatabaseControls dbControls = new DatabaseControls(@TBserver.Text, TBdatabase.Text, TBuserName.Text, TBpassword.Text);
 
             if (!dbControls.ConnectionOk())
             {
@@ -43,7 +45,8 @@ namespace STEVE_Chase_Car
                     {
                         this.Hide();
                         Form1 newForm1 = new Form1();
-                        newForm1.Show();               
+                        newForm1.mainScreenDbControl = dbControls;
+                        newForm1.Show();            
                     }
                 }
             }

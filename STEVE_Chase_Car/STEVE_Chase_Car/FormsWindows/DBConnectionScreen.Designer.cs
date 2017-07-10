@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBConnectionScreen));
             this.btnConnect = new System.Windows.Forms.Button();
-            this.TBuserName = new System.Windows.Forms.TextBox();
-            this.TBpassword = new System.Windows.Forms.TextBox();
             this.TBserver = new System.Windows.Forms.TextBox();
             this.TBdatabase = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.RTBhelp = new System.Windows.Forms.RichTextBox();
@@ -51,22 +48,6 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // TBuserName
-            // 
-            this.TBuserName.Location = new System.Drawing.Point(89, 85);
-            this.TBuserName.Name = "TBuserName";
-            this.TBuserName.Size = new System.Drawing.Size(183, 20);
-            this.TBuserName.TabIndex = 1;
-            // 
-            // TBpassword
-            // 
-            this.TBpassword.HideSelection = false;
-            this.TBpassword.Location = new System.Drawing.Point(89, 111);
-            this.TBpassword.Name = "TBpassword";
-            this.TBpassword.PasswordChar = '*';
-            this.TBpassword.Size = new System.Drawing.Size(183, 20);
-            this.TBpassword.TabIndex = 2;
-            // 
             // TBserver
             // 
             this.TBserver.Location = new System.Drawing.Point(89, 137);
@@ -82,24 +63,6 @@
             this.TBdatabase.Size = new System.Drawing.Size(183, 20);
             this.TBdatabase.TabIndex = 4;
             this.TBdatabase.Text = "STEVE_database";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "User name:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Password:";
             // 
             // label3
             // 
@@ -126,7 +89,8 @@
             this.RTBhelp.ReadOnly = true;
             this.RTBhelp.Size = new System.Drawing.Size(328, 77);
             this.RTBhelp.TabIndex = 9;
-            this.RTBhelp.Text = "User name and password may not be required.";
+            this.RTBhelp.Text = "Make sure that you have SQLExpress installed on your computer in order to create " +
+    "a database";
             // 
             // CBjustTesting
             // 
@@ -147,16 +111,16 @@
             this.Controls.Add(this.RTBhelp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.TBdatabase);
             this.Controls.Add(this.TBserver);
-            this.Controls.Add(this.TBpassword);
-            this.Controls.Add(this.TBuserName);
             this.Controls.Add(this.btnConnect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DBConnectionScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DBConnectionScreen";
+            this.Text = "STEVE Database Selection";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,12 +129,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.TextBox TBuserName;
-        private System.Windows.Forms.TextBox TBpassword;
         private System.Windows.Forms.TextBox TBserver;
         private System.Windows.Forms.TextBox TBdatabase;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox RTBhelp;

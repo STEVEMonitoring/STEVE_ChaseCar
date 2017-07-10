@@ -12,21 +12,17 @@ using System.Windows.Media.Animation;
 
 namespace STEVE_Chase_Car.Code
 {
-    class DatabaseControls
+    public class DatabaseControls
     {
         private string selectedServer;
         private string selectedDatabase;
-        private string password;
-        private string userName;
         private bool connected = false;
         private int dbId = 0;
 
-        public DatabaseControls(string _server, string _database, string _userName, string _password)
+        public DatabaseControls(string _server, string _database)
         {
             selectedServer = _server;
             selectedDatabase = _database;
-            userName = _userName;
-            password = _password;
         }
 
         /// <summary>
