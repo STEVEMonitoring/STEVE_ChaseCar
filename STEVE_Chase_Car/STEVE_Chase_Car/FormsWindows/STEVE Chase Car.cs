@@ -15,6 +15,8 @@ namespace STEVE_Chase_Car
     public partial class Form1 : Form
     {
 
+        private CANinterfaceControls canControls = new CANinterfaceControls();
+
         public DatabaseControls mainScreenDbControl { get; set; }
         private bool connected = false;
         private string server;
@@ -25,6 +27,7 @@ namespace STEVE_Chase_Car
         {
             InitializeComponent();
             initWebbrowser();
+            timer_rec.Enabled = true;
         }
 
         private void initWebbrowser()
@@ -92,7 +95,7 @@ namespace STEVE_Chase_Car
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sTEVE_databaseDataSet.BMS_PDO1' table. You can move, or remove it, as needed.
-            this.bMS_PDO1TableAdapter.Fill(this.sTEVE_databaseDataSet.BMS_PDO1);
+            //this.bMS_PDO1TableAdapter.Fill(this.sTEVE_databaseDataSet.BMS_PDO1);
 
         }
 
@@ -144,6 +147,12 @@ namespace STEVE_Chase_Car
         private void btnReloadBrowsers_Click(object sender, EventArgs e)
         {
             initWebbrowser();
+        }
+
+
+        private void timer_rec_Tick(object sender, EventArgs e)
+        {
+            canControls.TimerTickEvent();
         }
     }
 }

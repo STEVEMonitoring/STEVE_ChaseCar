@@ -42,6 +42,7 @@
             this.solarLocation = new System.Windows.Forms.TabPage();
             this.solarBrowser = new System.Windows.Forms.WebBrowser();
             this.Dev = new System.Windows.Forms.TabPage();
+            this.btnReloadBrowsers = new System.Windows.Forms.Button();
             this.loadDataBTN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +55,7 @@
             this.bMS_PDO1TableAdapter = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
             this.tableAdapterManager = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.TableAdapterManager();
             this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
-            this.btnReloadBrowsers = new System.Windows.Forms.Button();
+            this.timer_rec = new System.Windows.Forms.Timer(this.components);
             this.mainScreenTabControl.SuspendLayout();
             this.Overview.SuspendLayout();
             this.Weather.SuspendLayout();
@@ -98,9 +99,9 @@
             // richTextBox2
             // 
             this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.richTextBox2.Location = new System.Drawing.Point(736, 419);
+            this.richTextBox2.Location = new System.Drawing.Point(733, 419);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(700, 445);
+            this.richTextBox2.Size = new System.Drawing.Size(703, 445);
             this.richTextBox2.TabIndex = 2;
             this.richTextBox2.Text = "";
             // 
@@ -197,6 +198,16 @@
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
             // 
+            // btnReloadBrowsers
+            // 
+            this.btnReloadBrowsers.Location = new System.Drawing.Point(0, 3);
+            this.btnReloadBrowsers.Name = "btnReloadBrowsers";
+            this.btnReloadBrowsers.Size = new System.Drawing.Size(225, 83);
+            this.btnReloadBrowsers.TabIndex = 30;
+            this.btnReloadBrowsers.Text = "Reload Browsers";
+            this.btnReloadBrowsers.UseVisualStyleBackColor = true;
+            this.btnReloadBrowsers.Click += new System.EventHandler(this.btnReloadBrowsers_Click);
+            // 
             // loadDataBTN
             // 
             this.loadDataBTN.Location = new System.Drawing.Point(722, 539);
@@ -279,21 +290,15 @@
             // 
             this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
             // 
-            // btnReloadBrowsers
+            // timer_rec
             // 
-            this.btnReloadBrowsers.Location = new System.Drawing.Point(0, 3);
-            this.btnReloadBrowsers.Name = "btnReloadBrowsers";
-            this.btnReloadBrowsers.Size = new System.Drawing.Size(225, 83);
-            this.btnReloadBrowsers.TabIndex = 30;
-            this.btnReloadBrowsers.Text = "Reload Browsers";
-            this.btnReloadBrowsers.UseVisualStyleBackColor = true;
-            this.btnReloadBrowsers.Click += new System.EventHandler(this.btnReloadBrowsers_Click);
+            this.timer_rec.Tick += new System.EventHandler(this.timer_rec_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1471, 931);
+            this.ClientSize = new System.Drawing.Size(1462, 857);
             this.Controls.Add(this.mainScreenTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -342,6 +347,7 @@
         private System.Windows.Forms.TabPage solarLocation;
         private System.Windows.Forms.WebBrowser solarBrowser;
         private System.Windows.Forms.Button btnReloadBrowsers;
+        public System.Windows.Forms.Timer timer_rec;
     }
 }
 
