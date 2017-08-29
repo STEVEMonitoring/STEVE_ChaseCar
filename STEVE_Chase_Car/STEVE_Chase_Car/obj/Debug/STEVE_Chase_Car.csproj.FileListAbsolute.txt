@@ -11,3 +11,14 @@ D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.For
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.GenerateResource.Cache
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.exe
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.pdb
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csprojResolveAssemblyReference.cache
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.DBConnectionScreen.resources
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.Properties.Resources.resources
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.Form1.resources
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.GenerateResource.Cache
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.CoreCompileInputs.cache
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.exe
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.pdb
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe.config
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.pdb

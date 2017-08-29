@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Code\CANinterfaceControls.cs" />
     <Compile Include="Code\DatabaseControls.cs" />
+    <Compile Include="Code\dataStructs.cs" />
     <Compile Include="FormsWindows\DBConnectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
