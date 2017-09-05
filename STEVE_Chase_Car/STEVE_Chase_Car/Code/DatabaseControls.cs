@@ -113,5 +113,25 @@ namespace STEVE_Chase_Car.Code
             }
         }
 
+        public bool DBaddData(DataSet dataSet)
+        {
+            string connectionSting = "server=" + selectedServer + ";" +
+                         "Trusted_Connection=yes;" +
+                          "database=" + selectedDatabase + ";" +
+                          "connection timeout=5;";
+
+            SqlConnection sqlConn = new SqlConnection(connectionSting);
+            SqlDataAdapter da = new SqlDataAdapter();
+
+
+            sqlConn.Open();
+            da.Fill(dataSet);
+            
+            sqlConn.Close();
+            
+
+            return true;
+        }
+
     }
 }

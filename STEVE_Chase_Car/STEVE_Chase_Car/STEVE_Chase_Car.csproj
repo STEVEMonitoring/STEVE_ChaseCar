@@ -90,7 +90,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TestBench\TestBench.cs" />
     <EmbeddedResource Include="FormsWindows\DBConnectionScreen.resx">
       <DependentUpon>DBConnectionScreen.cs</DependentUpon>
     </EmbeddedResource>

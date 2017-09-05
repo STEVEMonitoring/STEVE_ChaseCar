@@ -74,12 +74,13 @@
             this.mainScreenTabControl.Controls.Add(this.solarLocation);
             this.mainScreenTabControl.Controls.Add(this.Dev);
             this.mainScreenTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.mainScreenTabControl.Location = new System.Drawing.Point(12, 12);
+            this.mainScreenTabControl.Location = new System.Drawing.Point(16, 15);
+            this.mainScreenTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mainScreenTabControl.Multiline = true;
             this.mainScreenTabControl.Name = "mainScreenTabControl";
             this.mainScreenTabControl.Padding = new System.Drawing.Point(70, 10);
             this.mainScreenTabControl.SelectedIndex = 0;
-            this.mainScreenTabControl.Size = new System.Drawing.Size(1447, 907);
+            this.mainScreenTabControl.Size = new System.Drawing.Size(1929, 1116);
             this.mainScreenTabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.mainScreenTabControl.TabIndex = 16;
             // 
@@ -88,10 +89,11 @@
             this.Overview.Controls.Add(this.richTextBox2);
             this.Overview.Controls.Add(this.richTextBox1);
             this.Overview.Controls.Add(this.RTBOverviewTop);
-            this.Overview.Location = new System.Drawing.Point(4, 36);
+            this.Overview.Location = new System.Drawing.Point(4, 39);
+            this.Overview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Overview.Name = "Overview";
-            this.Overview.Padding = new System.Windows.Forms.Padding(3);
-            this.Overview.Size = new System.Drawing.Size(1439, 867);
+            this.Overview.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Overview.Size = new System.Drawing.Size(1921, 1073);
             this.Overview.TabIndex = 0;
             this.Overview.Text = "Overview";
             this.Overview.UseVisualStyleBackColor = true;
@@ -99,46 +101,50 @@
             // richTextBox2
             // 
             this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.richTextBox2.Location = new System.Drawing.Point(733, 419);
+            this.richTextBox2.Location = new System.Drawing.Point(981, 515);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(703, 445);
+            this.richTextBox2.Size = new System.Drawing.Size(936, 554);
             this.richTextBox2.TabIndex = 2;
             this.richTextBox2.Text = "";
             // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 419);
+            this.richTextBox1.Location = new System.Drawing.Point(4, 515);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(700, 445);
+            this.richTextBox1.Size = new System.Drawing.Size(932, 554);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // RTBOverviewTop
             // 
             this.RTBOverviewTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RTBOverviewTop.Location = new System.Drawing.Point(3, 3);
-            this.RTBOverviewTop.Margin = new System.Windows.Forms.Padding(7);
+            this.RTBOverviewTop.Location = new System.Drawing.Point(4, 4);
+            this.RTBOverviewTop.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.RTBOverviewTop.Name = "RTBOverviewTop";
-            this.RTBOverviewTop.Size = new System.Drawing.Size(1433, 416);
+            this.RTBOverviewTop.Size = new System.Drawing.Size(1913, 511);
             this.RTBOverviewTop.TabIndex = 0;
             this.RTBOverviewTop.Text = "Some text in here";
             // 
             // Speed
             // 
-            this.Speed.Location = new System.Drawing.Point(4, 36);
+            this.Speed.Location = new System.Drawing.Point(4, 39);
+            this.Speed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Speed.Name = "Speed";
-            this.Speed.Padding = new System.Windows.Forms.Padding(3);
-            this.Speed.Size = new System.Drawing.Size(1439, 867);
+            this.Speed.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Speed.Size = new System.Drawing.Size(1921, 1073);
             this.Speed.TabIndex = 1;
             this.Speed.Text = "Speed";
             this.Speed.UseVisualStyleBackColor = true;
             // 
             // Battery
             // 
-            this.Battery.Location = new System.Drawing.Point(4, 36);
+            this.Battery.Location = new System.Drawing.Point(4, 39);
+            this.Battery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Battery.Name = "Battery";
-            this.Battery.Size = new System.Drawing.Size(1439, 867);
+            this.Battery.Size = new System.Drawing.Size(1921, 1073);
             this.Battery.TabIndex = 2;
             this.Battery.Text = "Battery";
             this.Battery.UseVisualStyleBackColor = true;
@@ -146,9 +152,10 @@
             // Weather
             // 
             this.Weather.Controls.Add(this.weatherBrowser);
-            this.Weather.Location = new System.Drawing.Point(4, 36);
+            this.Weather.Location = new System.Drawing.Point(4, 39);
+            this.Weather.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Weather.Name = "Weather";
-            this.Weather.Size = new System.Drawing.Size(1439, 867);
+            this.Weather.Size = new System.Drawing.Size(1921, 1073);
             this.Weather.TabIndex = 3;
             this.Weather.Text = "Weather";
             this.Weather.UseVisualStyleBackColor = true;
@@ -157,17 +164,19 @@
             // 
             this.weatherBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.weatherBrowser.Location = new System.Drawing.Point(0, 0);
-            this.weatherBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.weatherBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.weatherBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.weatherBrowser.Name = "weatherBrowser";
-            this.weatherBrowser.Size = new System.Drawing.Size(1439, 867);
+            this.weatherBrowser.Size = new System.Drawing.Size(1921, 1073);
             this.weatherBrowser.TabIndex = 0;
             // 
             // solarLocation
             // 
             this.solarLocation.Controls.Add(this.solarBrowser);
-            this.solarLocation.Location = new System.Drawing.Point(4, 36);
+            this.solarLocation.Location = new System.Drawing.Point(4, 39);
+            this.solarLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.solarLocation.Name = "solarLocation";
-            this.solarLocation.Size = new System.Drawing.Size(1439, 867);
+            this.solarLocation.Size = new System.Drawing.Size(1921, 1073);
             this.solarLocation.TabIndex = 5;
             this.solarLocation.Text = "Solar Location";
             this.solarLocation.UseVisualStyleBackColor = true;
@@ -176,9 +185,10 @@
             // 
             this.solarBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.solarBrowser.Location = new System.Drawing.Point(0, 0);
-            this.solarBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.solarBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.solarBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.solarBrowser.Name = "solarBrowser";
-            this.solarBrowser.Size = new System.Drawing.Size(1439, 867);
+            this.solarBrowser.Size = new System.Drawing.Size(1921, 1073);
             this.solarBrowser.TabIndex = 0;
             // 
             // Dev
@@ -191,18 +201,20 @@
             this.Dev.Controls.Add(this.TBserver);
             this.Dev.Controls.Add(this.TBdatabase);
             this.Dev.Controls.Add(this.testBTN);
-            this.Dev.Location = new System.Drawing.Point(4, 36);
+            this.Dev.Location = new System.Drawing.Point(4, 39);
+            this.Dev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Dev.Name = "Dev";
-            this.Dev.Size = new System.Drawing.Size(1439, 867);
+            this.Dev.Size = new System.Drawing.Size(1921, 1073);
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
             // 
             // btnReloadBrowsers
             // 
-            this.btnReloadBrowsers.Location = new System.Drawing.Point(0, 3);
+            this.btnReloadBrowsers.Location = new System.Drawing.Point(0, 4);
+            this.btnReloadBrowsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReloadBrowsers.Name = "btnReloadBrowsers";
-            this.btnReloadBrowsers.Size = new System.Drawing.Size(225, 83);
+            this.btnReloadBrowsers.Size = new System.Drawing.Size(300, 102);
             this.btnReloadBrowsers.TabIndex = 30;
             this.btnReloadBrowsers.Text = "Reload Browsers";
             this.btnReloadBrowsers.UseVisualStyleBackColor = true;
@@ -210,9 +222,10 @@
             // 
             // loadDataBTN
             // 
-            this.loadDataBTN.Location = new System.Drawing.Point(722, 539);
+            this.loadDataBTN.Location = new System.Drawing.Point(963, 663);
+            this.loadDataBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loadDataBTN.Name = "loadDataBTN";
-            this.loadDataBTN.Size = new System.Drawing.Size(119, 23);
+            this.loadDataBTN.Size = new System.Drawing.Size(159, 28);
             this.loadDataBTN.TabIndex = 29;
             this.loadDataBTN.Text = "Load data - do not remove";
             this.loadDataBTN.UseVisualStyleBackColor = true;
@@ -220,51 +233,58 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(578, 306);
+            this.label2.Location = new System.Drawing.Point(771, 377);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 28;
             this.label2.Text = "Database:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(578, 280);
+            this.label1.Location = new System.Drawing.Point(771, 345);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 27;
             this.label1.Text = "Server:";
             // 
             // statusRTXB
             // 
-            this.statusRTXB.Location = new System.Drawing.Point(581, 329);
+            this.statusRTXB.Location = new System.Drawing.Point(775, 405);
+            this.statusRTXB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statusRTXB.Name = "statusRTXB";
-            this.statusRTXB.Size = new System.Drawing.Size(260, 204);
+            this.statusRTXB.Size = new System.Drawing.Size(345, 250);
             this.statusRTXB.TabIndex = 24;
             this.statusRTXB.Text = "";
             // 
             // TBserver
             // 
-            this.TBserver.Location = new System.Drawing.Point(625, 277);
+            this.TBserver.Location = new System.Drawing.Point(833, 341);
+            this.TBserver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBserver.Name = "TBserver";
-            this.TBserver.Size = new System.Drawing.Size(156, 20);
+            this.TBserver.Size = new System.Drawing.Size(207, 22);
             this.TBserver.TabIndex = 25;
             // 
             // TBdatabase
             // 
-            this.TBdatabase.Location = new System.Drawing.Point(640, 303);
+            this.TBdatabase.Location = new System.Drawing.Point(853, 373);
+            this.TBdatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBdatabase.Name = "TBdatabase";
-            this.TBdatabase.Size = new System.Drawing.Size(141, 20);
+            this.TBdatabase.Size = new System.Drawing.Size(187, 22);
             this.TBdatabase.TabIndex = 26;
             // 
             // testBTN
             // 
-            this.testBTN.Location = new System.Drawing.Point(581, 539);
+            this.testBTN.Location = new System.Drawing.Point(775, 663);
+            this.testBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.testBTN.Name = "testBTN";
-            this.testBTN.Size = new System.Drawing.Size(121, 23);
+            this.testBTN.Size = new System.Drawing.Size(161, 28);
             this.testBTN.TabIndex = 23;
             this.testBTN.Text = "Connect DB -  do not remove";
             this.testBTN.UseVisualStyleBackColor = true;
+            this.testBTN.Click += new System.EventHandler(this.testBTN_Click_1);
             // 
             // bMS_PDO1BindingSource
             // 
@@ -296,12 +316,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1462, 857);
+            this.ClientSize = new System.Drawing.Size(1949, 1041);
             this.Controls.Add(this.mainScreenTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
