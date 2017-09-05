@@ -152,7 +152,7 @@ namespace STEVE_Chase_Car
 
         private void timer_rec_Tick(object sender, EventArgs e)
         {
-            canControls.TimerTickEvent();
+            //canControls.TimerTickEvent();
         }
     }
 }
