@@ -55,6 +55,7 @@ namespace STEVE_Chase_Car
                 MessageBox.Show("Connection Established!", "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 Form1 newForm1 = new Form1();
+                newForm1.mainScreenDbControl = dbControls;
                 newForm1.Show();
             }
         }

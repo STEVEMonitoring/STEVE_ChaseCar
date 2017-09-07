@@ -113,7 +113,7 @@ namespace STEVE_Chase_Car.Code
             }
         }
 
-        public bool DBaddData(DataSet dataSet)
+        public bool DBaddData(/*DataSet dataSet*/)
         {
             string connectionSting = "server=" + selectedServer + ";" +
                          "Trusted_Connection=yes;" +
@@ -121,10 +121,11 @@ namespace STEVE_Chase_Car.Code
                           "connection timeout=5;";
 
             SqlConnection sqlConn = new SqlConnection(connectionSting);
-            SqlDataAdapter da = new SqlDataAdapter();
+            STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter tableAdapter = new STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
 
             STEVE_databaseDataSet steveDataSet = new STEVE_databaseDataSet();
             STEVE_databaseDataSet.BMS_PDO1Row newPDO1Row = steveDataSet.BMS_PDO1.NewBMS_PDO1Row();
+            STEVE_databaseDataSet.BMS_PDO1DataTable dataTable = new STEVE_databaseDataSet.BMS_PDO1DataTable();
 
             dbId += 1;
             newPDO1Row.Id = dbId;
@@ -139,8 +140,11 @@ namespace STEVE_Chase_Car.Code
 
 
             sqlConn.Open();
+            
+
             steveDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
-            da.Update(steveDataSet.BMS_PDO1);
+            tableAdapter.Update(steveDataSet.BMS_PDO1);
+            
             sqlConn.Close();
             
 

@@ -28,6 +28,7 @@ namespace STEVE_Chase_Car
             InitializeComponent();
             initWebbrowser();
             timer_rec.Enabled = true;
+            connected = true;
         }
 
         private void initWebbrowser()
@@ -114,30 +115,12 @@ namespace STEVE_Chase_Car
                 return;
             }
 
-            STEVE_databaseDataSet.BMS_PDO1Row newPDO1Row = sTEVE_databaseDataSet.BMS_PDO1.NewBMS_PDO1Row();
-
-            dbId += 1;
-            newPDO1Row.Id = dbId;
-            newPDO1Row.Time = DateTime.Now;
-            newPDO1Row.MinVolt = "20";
-            newPDO1Row.MinVoltID = "AZ";
-            newPDO1Row.MaxVolt = "100";
-            newPDO1Row.MaxVoltID = "AJ";
-            newPDO1Row.Volt = 58;
-            newPDO1Row.Current = 5;
-
-            try
-            {
-                sTEVE_databaseDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
-                this.bMS_PDO1TableAdapter.Update(this.sTEVE_databaseDataSet.BMS_PDO1);
+                mainScreenDbControl.DBaddData();
+                //sTEVE_databaseDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
+                //this.bMS_PDO1TableAdapter.Update(this.sTEVE_databaseDataSet.BMS_PDO1);
                 //this.Validate();
                 //this.bMS_PDO1BindingSource.EndEdit();
                 //this.tableAdapterManager.UpdateAll(this.sTEVE_databaseDataSet);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Could not load selected data, data is wrong or already existing", "SQL Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -154,16 +137,6 @@ namespace STEVE_Chase_Car
         private void timer_rec_Tick(object sender, EventArgs e)
         {
             //canControls.TimerTickEvent();
-        }
-
-        private void testBTN_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loadDataBTN_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

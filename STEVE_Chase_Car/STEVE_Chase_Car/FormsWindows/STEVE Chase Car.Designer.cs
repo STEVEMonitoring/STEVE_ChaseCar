@@ -192,7 +192,7 @@
             this.loadDataBTN.TabIndex = 29;
             this.loadDataBTN.Text = "Load data - do not remove";
             this.loadDataBTN.UseVisualStyleBackColor = true;
-            this.loadDataBTN.Click += new System.EventHandler(this.loadDataBTN_Click_1);
+            this.loadDataBTN.Click += new System.EventHandler(this.loadDataBTN_Click);
             // 
             // label2
             // 
@@ -248,7 +248,7 @@
             this.testBTN.TabIndex = 23;
             this.testBTN.Text = "Connect DB -  do not remove";
             this.testBTN.UseVisualStyleBackColor = true;
-            this.testBTN.Click += new System.EventHandler(this.testBTN_Click_1);
+            this.testBTN.Click += new System.EventHandler(this.testBTN_Click);
             // 
             // bMS_PDO1BindingSource
             // 
