@@ -129,9 +129,10 @@ namespace STEVE_Chase_Car
             try
             {
                 sTEVE_databaseDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
-                this.Validate();
-                this.bMS_PDO1BindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.sTEVE_databaseDataSet);
+                this.bMS_PDO1TableAdapter.Update(this.sTEVE_databaseDataSet.BMS_PDO1);
+                //this.Validate();
+                //this.bMS_PDO1BindingSource.EndEdit();
+                //this.tableAdapterManager.UpdateAll(this.sTEVE_databaseDataSet);
             }
             catch (Exception)
             {
@@ -156,6 +157,11 @@ namespace STEVE_Chase_Car
         }
 
         private void testBTN_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadDataBTN_Click_1(object sender, EventArgs e)
         {
 
         }

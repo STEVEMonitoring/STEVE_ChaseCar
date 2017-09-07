@@ -123,10 +123,24 @@ namespace STEVE_Chase_Car.Code
             SqlConnection sqlConn = new SqlConnection(connectionSting);
             SqlDataAdapter da = new SqlDataAdapter();
 
+            STEVE_databaseDataSet steveDataSet = new STEVE_databaseDataSet();
+            STEVE_databaseDataSet.BMS_PDO1Row newPDO1Row = steveDataSet.BMS_PDO1.NewBMS_PDO1Row();
+
+            dbId += 1;
+            newPDO1Row.Id = dbId;
+            newPDO1Row.Time = DateTime.Now;
+            newPDO1Row.MinVolt = "20";
+            newPDO1Row.MinVoltID = "AZ";
+            newPDO1Row.MaxVolt = "100";
+            newPDO1Row.MaxVoltID = "AJ";
+            newPDO1Row.Volt = 58;
+            newPDO1Row.Current = 5;
+
+
 
             sqlConn.Open();
-            da.Fill(dataSet);
-            
+            steveDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
+            da.Update(steveDataSet.BMS_PDO1);
             sqlConn.Close();
             
 
