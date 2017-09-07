@@ -14,7 +14,7 @@ namespace STEVE_Chase_Car
 {
     public partial class Form1 : Form
     {
-
+        static public Form1 instance;
         private CANinterfaceControls canControls = new CANinterfaceControls();
 
         public DatabaseControls mainScreenDbControl { get; set; }
@@ -29,6 +29,8 @@ namespace STEVE_Chase_Car
             initWebbrowser();
             timer_rec.Enabled = true;
             connected = true;
+
+            Form1.instance = this;
         }
 
         private void initWebbrowser()
@@ -137,6 +139,27 @@ namespace STEVE_Chase_Car
         private void timer_rec_Tick(object sender, EventArgs e)
         {
             //canControls.TimerTickEvent();
+        }
+
+        private void dev_CANalyst_btnConnect_Click(object sender, EventArgs e)
+        {
+            canControls.CanConnect(0, "00000000", "FFFFFFFF", "03", "1C", 0, 0);
+            canControls.StartCan();
+        }
+
+        private void dev_CANalyst_btnDisconnect_Click(object sender, EventArgs e)
+        {
+            canControls.StopCan();
+        }
+
+        private void dev_CANalyst_btnSend_Click(object sender, EventArgs e)
+        {
+            canControls.CanTransmit(0, 0, 0x0, 0, "00 01 02 03 04 05 06 07 ");
+        }
+
+        public void dev_CANalyst_Console_Put(string text)
+        {
+            dev_CANalyst_Console.Text += text + '\n';
         }
     }
 }

@@ -243,6 +243,7 @@ namespace STEVE_Chase_Car.Code
 
             VCI_CAN_OBJ sendobj = new VCI_CAN_OBJ();
             //sendobj.Init();
+            sendobj.SendType = 1; // Single send
             sendobj.RemoteFlag = (byte)frameFormat;
             sendobj.ExternFlag = (byte)frameType;
             sendobj.ID = System.Convert.ToUInt32("0x" + hexId.ToString(), 16);
