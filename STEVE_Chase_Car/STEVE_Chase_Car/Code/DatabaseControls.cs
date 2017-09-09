@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Media.Animation;
+using STEVE_Chase_Car.STEVE_DatabaseDataSetTableAdapters;
+using Microsoft.SqlServer.Server;
 
 namespace STEVE_Chase_Car.Code
 {
     public class DatabaseControls
     {
-        private string selectedServer;
-        private string selectedDatabase;
+        public string selectedServer { get; }
+        public string selectedDatabase { get; }
         private bool connected = false;
         private int dbId = 0;
 
@@ -23,6 +26,14 @@ namespace STEVE_Chase_Car.Code
         {
             selectedServer = _server;
             selectedDatabase = _database;
+        }
+
+
+        private void executeCommand(string script, SqlConnection conn)
+        {
+            SqlCommand myCommand = new SqlCommand(script, conn);
+
+            myCommand.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -48,8 +59,12 @@ namespace STEVE_Chase_Car.Code
             try
             {
                 myConn.Open();
+
                 myCommand.ExecuteNonQuery();
                 MessageBox.Show("Database was Successfully Created!", "STEVE_ChaseCar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                createTables(); /* Create database tables */
+
+                myConn.Close();
                 return true;
             }
             catch (Exception ex)
@@ -92,7 +107,7 @@ namespace STEVE_Chase_Car.Code
             {
 
             }
-            string connectionSting = "server=" + selectedServer + ";" +
+            string connectionSting = @"server=" + selectedServer + ";" +
                                      "Trusted_Connection=yes;" +
                                       "database=" + selectedDatabase + ";" +
                                       "connection timeout=5;";
@@ -113,40 +128,67 @@ namespace STEVE_Chase_Car.Code
             }
         }
 
-        public bool DBaddData(/*DataSet dataSet*/)
+        private void createTables()
         {
-            string connectionSting = "server=" + selectedServer + ";" +
-                         "Trusted_Connection=yes;" +
-                          "database=" + selectedDatabase + ";" +
-                          "connection timeout=5;";
+            string sqlConnectionString = @"server=" + selectedServer + ";" +
+                                     "Trusted_Connection=yes;" +
+                                     "database=" + selectedDatabase + ";" +
+                                     "connection timeout=5;";
 
-            SqlConnection sqlConn = new SqlConnection(connectionSting);
-            STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter tableAdapter = new STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
+            
 
-            STEVE_databaseDataSet steveDataSet = new STEVE_databaseDataSet();
-            STEVE_databaseDataSet.BMS_PDO1Row newPDO1Row = steveDataSet.BMS_PDO1.NewBMS_PDO1Row();
-            STEVE_databaseDataSet.BMS_PDO1DataTable dataTable = new STEVE_databaseDataSet.BMS_PDO1DataTable();
+            SqlConnection conn = new SqlConnection(sqlConnectionString);
+
+            try
+            {
+                //conn.Open();
+
+                string script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO1.sql"));
+                executeCommand(script, conn);
+
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO2.sql"));
+                executeCommand(script, conn);
+
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame0.sql"));
+                executeCommand(script, conn);
+
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame1.sql"));
+                executeCommand(script, conn);
+
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame2.sql"));
+                executeCommand(script, conn);
+
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMPPT.sql"));
+                executeCommand(script, conn);
+
+                //conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not create database tables as they may already exist" + e, "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        public bool DBaddData(STEVE_DatabaseDataSet steveDatabase)
+        {
+            STEVE_DatabaseDataSet.BMS_PDO1Row newPDO1Row = steveDatabase.BMS_PDO1.NewBMS_PDO1Row();
+            STEVE_DatabaseDataSet.BMS_PDO1DataTable dataTable = new STEVE_DatabaseDataSet.BMS_PDO1DataTable();
+            BMS_PDO1TableAdapter tableAdapter = new BMS_PDO1TableAdapter();
 
             dbId += 1;
-            newPDO1Row.Id = dbId;
+            newPDO1Row.ID = dbId;
             newPDO1Row.Time = DateTime.Now;
-            newPDO1Row.MinVolt = "20";
-            newPDO1Row.MinVoltID = "AZ";
-            newPDO1Row.MaxVolt = "100";
-            newPDO1Row.MaxVoltID = "AJ";
-            newPDO1Row.Volt = 58;
-            newPDO1Row.Current = 5;
+            newPDO1Row.minVolt = 15;
+            newPDO1Row.minVoltID = 11;
+            newPDO1Row.maxVolt = 200;
+            newPDO1Row.maxVoltID = 10;
+            newPDO1Row.volt = 58;
+            newPDO1Row.current = 5;
 
 
-
-            sqlConn.Open();
-            
-
-            steveDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
-            tableAdapter.Update(steveDataSet.BMS_PDO1);
-            
-            sqlConn.Close();
-            
+            steveDatabase.BMS_PDO1.Rows.Add(newPDO1Row);
+            tableAdapter.Adapter.Update(steveDatabase.BMS_PDO1);    
 
             return true;
         }

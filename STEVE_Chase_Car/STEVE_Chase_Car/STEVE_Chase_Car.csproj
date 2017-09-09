@@ -85,13 +85,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STEVE_databaseDataSet.cs">
-      <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="STEVE_databaseDataSet.Designer.cs">
+    <Compile Include="STEVE_DatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
+      <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormsWindows\DBConnectionScreen.resx">
       <DependentUpon>DBConnectionScreen.cs</DependentUpon>
@@ -117,16 +114,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="STEVE_databaseDataSet.xsc">
-      <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
+    <None Include="STEVE_DatabaseDataSet1.xsc">
+      <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="STEVE_databaseDataSet.xsd">
+    <None Include="STEVE_DatabaseDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>STEVE_databaseDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>STEVE_DatabaseDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="STEVE_databaseDataSet.xss">
-      <DependentUpon>STEVE_databaseDataSet.xsd</DependentUpon>
+    <None Include="STEVE_DatabaseDataSet1.xss">
+      <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

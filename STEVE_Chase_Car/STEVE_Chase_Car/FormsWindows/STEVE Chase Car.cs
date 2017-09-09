@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using STEVE_Chase_Car.Code;
+using Microsoft.SqlServer.Server;
 
 namespace STEVE_Chase_Car
 {
@@ -19,6 +20,7 @@ namespace STEVE_Chase_Car
 
         public DatabaseControls mainScreenDbControl { get; set; }
         private bool connected = false;
+        private bool tablesCreated = false;
         private string server;
         private string database;
         private int dbId = 0;
@@ -44,23 +46,11 @@ namespace STEVE_Chase_Car
 
         private void testBTN_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (TBdatabase.Text == "" || TBserver.Text == "")
-                {
-                    throw new System.ArgumentException("Invalid values in server or database selection");
-                }
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.ToString(), "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             statusRTXB.AppendText("Creating Connection.. \n");
-            string connectionSting = "server=" + TBserver.Text + ";" +
+            string connectionSting = "server=" + mainScreenDbControl.selectedServer + ";" +
                                      "Trusted_Connection=yes;" +
-                                      "database=" + TBdatabase.Text + ";" +
+                                      "database=" + mainScreenDbControl.selectedDatabase + ";" +
                                       "connection timeout=5;";
             
 
@@ -87,14 +77,6 @@ namespace STEVE_Chase_Car
             }
         }
 
-        private void bMS_PDO1BindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bMS_PDO1BindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.sTEVE_databaseDataSet);
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sTEVE_databaseDataSet.BMS_PDO1' table. You can move, or remove it, as needed.
@@ -117,12 +99,9 @@ namespace STEVE_Chase_Car
                 return;
             }
 
-                mainScreenDbControl.DBaddData();
-                //sTEVE_databaseDataSet.BMS_PDO1.Rows.Add(newPDO1Row);
-                //this.bMS_PDO1TableAdapter.Update(this.sTEVE_databaseDataSet.BMS_PDO1);
-                //this.Validate();
-                //this.bMS_PDO1BindingSource.EndEdit();
-                //this.tableAdapterManager.UpdateAll(this.sTEVE_databaseDataSet);
+
+            //mainScreenDbControl.DBaddData();
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -139,6 +118,7 @@ namespace STEVE_Chase_Car
         private void timer_rec_Tick(object sender, EventArgs e)
         {
             //canControls.TimerTickEvent();
+
         }
 
         private void dev_CANalyst_btnConnect_Click(object sender, EventArgs e)
@@ -160,6 +140,11 @@ namespace STEVE_Chase_Car
         public void dev_CANalyst_Console_Put(string text)
         {
             dev_CANalyst_Console.Text += text + '\n';
+        }
+
+        private void btnCreateTables_Click(object sender, EventArgs e)
+        {
+            //mainScreenDbControl.createTables();
         }
     }
 }

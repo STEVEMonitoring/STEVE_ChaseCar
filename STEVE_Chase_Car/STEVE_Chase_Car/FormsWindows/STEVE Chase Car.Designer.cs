@@ -39,6 +39,12 @@
             this.solarLocation = new System.Windows.Forms.TabPage();
             this.solarBrowser = new System.Windows.Forms.WebBrowser();
             this.Dev = new System.Windows.Forms.TabPage();
+            this.btnCreateTables = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dev_CANalyst_Console = new System.Windows.Forms.RichTextBox();
+            this.dev_CANalyst_btnSend = new System.Windows.Forms.Button();
+            this.dev_CANalyst_btnDisconnect = new System.Windows.Forms.Button();
+            this.dev_CANalyst_btnConnect = new System.Windows.Forms.Button();
             this.btnReloadBrowsers = new System.Windows.Forms.Button();
             this.loadDataBTN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,24 +53,14 @@
             this.TBserver = new System.Windows.Forms.TextBox();
             this.TBdatabase = new System.Windows.Forms.TextBox();
             this.testBTN = new System.Windows.Forms.Button();
-            this.bMS_PDO1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTEVE_databaseDataSet = new STEVE_Chase_Car.STEVE_databaseDataSet();
-            this.bMS_PDO1TableAdapter = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
-            this.tableAdapterManager = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.TableAdapterManager();
-            this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter();
             this.timer_rec = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dev_CANalyst_btnConnect = new System.Windows.Forms.Button();
-            this.dev_CANalyst_btnDisconnect = new System.Windows.Forms.Button();
-            this.dev_CANalyst_btnSend = new System.Windows.Forms.Button();
-            this.dev_CANalyst_Console = new System.Windows.Forms.RichTextBox();
+            this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
             this.Dev.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bMS_PDO1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTEVE_databaseDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainScreenTabControl
@@ -89,7 +85,7 @@
             // 
             this.Overview.Location = new System.Drawing.Point(4, 36);
             this.Overview.Name = "Overview";
-            this.Overview.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Overview.Padding = new System.Windows.Forms.Padding(3);
             this.Overview.Size = new System.Drawing.Size(1218, 560);
             this.Overview.TabIndex = 0;
             this.Overview.Text = "Overview";
@@ -99,7 +95,7 @@
             // 
             this.Speed.Location = new System.Drawing.Point(4, 36);
             this.Speed.Name = "Speed";
-            this.Speed.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Speed.Padding = new System.Windows.Forms.Padding(3);
             this.Speed.Size = new System.Drawing.Size(1218, 560);
             this.Speed.TabIndex = 1;
             this.Speed.Text = "Speed";
@@ -154,6 +150,7 @@
             // 
             // Dev
             // 
+            this.Dev.Controls.Add(this.btnCreateTables);
             this.Dev.Controls.Add(this.groupBox1);
             this.Dev.Controls.Add(this.btnReloadBrowsers);
             this.Dev.Controls.Add(this.loadDataBTN);
@@ -169,6 +166,70 @@
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateTables
+            // 
+            this.btnCreateTables.Location = new System.Drawing.Point(762, 281);
+            this.btnCreateTables.Name = "btnCreateTables";
+            this.btnCreateTables.Size = new System.Drawing.Size(110, 23);
+            this.btnCreateTables.TabIndex = 32;
+            this.btnCreateTables.Text = "Create Tables";
+            this.btnCreateTables.UseVisualStyleBackColor = true;
+            this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.groupBox1.Controls.Add(this.dev_CANalyst_Console);
+            this.groupBox1.Controls.Add(this.dev_CANalyst_btnSend);
+            this.groupBox1.Controls.Add(this.dev_CANalyst_btnDisconnect);
+            this.groupBox1.Controls.Add(this.dev_CANalyst_btnConnect);
+            this.groupBox1.Location = new System.Drawing.Point(481, 376);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(447, 181);
+            this.groupBox1.TabIndex = 31;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "dev_CANalyst";
+            // 
+            // dev_CANalyst_Console
+            // 
+            this.dev_CANalyst_Console.BackColor = System.Drawing.Color.SlateGray;
+            this.dev_CANalyst_Console.ForeColor = System.Drawing.Color.Gold;
+            this.dev_CANalyst_Console.Location = new System.Drawing.Point(87, 19);
+            this.dev_CANalyst_Console.Name = "dev_CANalyst_Console";
+            this.dev_CANalyst_Console.Size = new System.Drawing.Size(160, 156);
+            this.dev_CANalyst_Console.TabIndex = 3;
+            this.dev_CANalyst_Console.Text = "";
+            // 
+            // dev_CANalyst_btnSend
+            // 
+            this.dev_CANalyst_btnSend.Location = new System.Drawing.Point(6, 77);
+            this.dev_CANalyst_btnSend.Name = "dev_CANalyst_btnSend";
+            this.dev_CANalyst_btnSend.Size = new System.Drawing.Size(75, 23);
+            this.dev_CANalyst_btnSend.TabIndex = 2;
+            this.dev_CANalyst_btnSend.Text = "Send";
+            this.dev_CANalyst_btnSend.UseVisualStyleBackColor = true;
+            this.dev_CANalyst_btnSend.Click += new System.EventHandler(this.dev_CANalyst_btnSend_Click);
+            // 
+            // dev_CANalyst_btnDisconnect
+            // 
+            this.dev_CANalyst_btnDisconnect.Location = new System.Drawing.Point(6, 48);
+            this.dev_CANalyst_btnDisconnect.Name = "dev_CANalyst_btnDisconnect";
+            this.dev_CANalyst_btnDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.dev_CANalyst_btnDisconnect.TabIndex = 1;
+            this.dev_CANalyst_btnDisconnect.Text = "Disconnect";
+            this.dev_CANalyst_btnDisconnect.UseVisualStyleBackColor = true;
+            this.dev_CANalyst_btnDisconnect.Click += new System.EventHandler(this.dev_CANalyst_btnDisconnect_Click);
+            // 
+            // dev_CANalyst_btnConnect
+            // 
+            this.dev_CANalyst_btnConnect.Location = new System.Drawing.Point(6, 19);
+            this.dev_CANalyst_btnConnect.Name = "dev_CANalyst_btnConnect";
+            this.dev_CANalyst_btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.dev_CANalyst_btnConnect.TabIndex = 0;
+            this.dev_CANalyst_btnConnect.Text = "Connect";
+            this.dev_CANalyst_btnConnect.UseVisualStyleBackColor = true;
+            this.dev_CANalyst_btnConnect.Click += new System.EventHandler(this.dev_CANalyst_btnConnect_Click);
             // 
             // btnReloadBrowsers
             // 
@@ -240,93 +301,21 @@
             this.testBTN.UseVisualStyleBackColor = true;
             this.testBTN.Click += new System.EventHandler(this.testBTN_Click);
             // 
-            // bMS_PDO1BindingSource
-            // 
-            this.bMS_PDO1BindingSource.DataMember = "BMS_PDO1";
-            this.bMS_PDO1BindingSource.DataSource = this.sTEVE_databaseDataSet;
-            // 
-            // sTEVE_databaseDataSet
-            // 
-            this.sTEVE_databaseDataSet.DataSetName = "STEVE_databaseDataSet";
-            this.sTEVE_databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bMS_PDO1TableAdapter
-            // 
-            this.bMS_PDO1TableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BMS_PDO1TableAdapter = this.bMS_PDO1TableAdapter;
-            this.tableAdapterManager.UpdateOrder = STEVE_Chase_Car.STEVE_databaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // bmS_PDO1TableAdapter1
-            // 
-            this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
-            // 
             // timer_rec
             // 
+            this.timer_rec.Interval = 500;
             this.timer_rec.Tick += new System.EventHandler(this.timer_rec_Tick);
             // 
-            // groupBox1
+            // stevE_DatabaseDataSet1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.groupBox1.Controls.Add(this.dev_CANalyst_Console);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnSend);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnDisconnect);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnConnect);
-            this.groupBox1.Location = new System.Drawing.Point(481, 376);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 181);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "dev_CANalyst";
-            // 
-            // dev_CANalyst_btnConnect
-            // 
-            this.dev_CANalyst_btnConnect.Location = new System.Drawing.Point(6, 19);
-            this.dev_CANalyst_btnConnect.Name = "dev_CANalyst_btnConnect";
-            this.dev_CANalyst_btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnConnect.TabIndex = 0;
-            this.dev_CANalyst_btnConnect.Text = "Connect";
-            this.dev_CANalyst_btnConnect.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnConnect.Click += new System.EventHandler(this.dev_CANalyst_btnConnect_Click);
-            // 
-            // dev_CANalyst_btnDisconnect
-            // 
-            this.dev_CANalyst_btnDisconnect.Location = new System.Drawing.Point(6, 48);
-            this.dev_CANalyst_btnDisconnect.Name = "dev_CANalyst_btnDisconnect";
-            this.dev_CANalyst_btnDisconnect.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnDisconnect.TabIndex = 1;
-            this.dev_CANalyst_btnDisconnect.Text = "Disconnect";
-            this.dev_CANalyst_btnDisconnect.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnDisconnect.Click += new System.EventHandler(this.dev_CANalyst_btnDisconnect_Click);
-            // 
-            // dev_CANalyst_btnSend
-            // 
-            this.dev_CANalyst_btnSend.Location = new System.Drawing.Point(6, 77);
-            this.dev_CANalyst_btnSend.Name = "dev_CANalyst_btnSend";
-            this.dev_CANalyst_btnSend.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnSend.TabIndex = 2;
-            this.dev_CANalyst_btnSend.Text = "Send";
-            this.dev_CANalyst_btnSend.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnSend.Click += new System.EventHandler(this.dev_CANalyst_btnSend_Click);
-            // 
-            // dev_CANalyst_Console
-            // 
-            this.dev_CANalyst_Console.BackColor = System.Drawing.Color.SlateGray;
-            this.dev_CANalyst_Console.ForeColor = System.Drawing.Color.Gold;
-            this.dev_CANalyst_Console.Location = new System.Drawing.Point(87, 19);
-            this.dev_CANalyst_Console.Name = "dev_CANalyst_Console";
-            this.dev_CANalyst_Console.Size = new System.Drawing.Size(160, 156);
-            this.dev_CANalyst_Console.TabIndex = 3;
-            this.dev_CANalyst_Console.Text = "";
+            this.stevE_DatabaseDataSet1.DataSetName = "STEVE_DatabaseDataSet";
+            this.stevE_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 625);
+            this.ClientSize = new System.Drawing.Size(1254, 623);
             this.Controls.Add(this.mainScreenTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -342,19 +331,13 @@
             this.solarLocation.ResumeLayout(false);
             this.Dev.ResumeLayout(false);
             this.Dev.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bMS_PDO1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTEVE_databaseDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private STEVE_databaseDataSet sTEVE_databaseDataSet;
-        private System.Windows.Forms.BindingSource bMS_PDO1BindingSource;
-        private STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter bMS_PDO1TableAdapter;
-        private STEVE_databaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private STEVE_databaseDataSetTableAdapters.BMS_PDO1TableAdapter bmS_PDO1TableAdapter1;
         private System.Windows.Forms.TabControl mainScreenTabControl;
         private System.Windows.Forms.TabPage Overview;
         private System.Windows.Forms.TabPage Speed;
@@ -378,6 +361,8 @@
         private System.Windows.Forms.Button dev_CANalyst_btnDisconnect;
         private System.Windows.Forms.Button dev_CANalyst_btnSend;
         private System.Windows.Forms.RichTextBox dev_CANalyst_Console;
+        private STEVE_DatabaseDataSet stevE_DatabaseDataSet1;
+        private System.Windows.Forms.Button btnCreateTables;
     }
 }
 

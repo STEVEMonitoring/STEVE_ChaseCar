@@ -84,7 +84,7 @@ struct MotorFrame0
     byte batteryCurrentDirection;
     ushort motorCurrentPeakAvrage; //1/LSB
     byte fetTemp; //5°C/LSB
-    ushort motorRotationgSpeed; //1rpm/LSB
+    ushort motorRotationSpeed; //1rpm/LSB
     ushort PWMduty; //0,5%/LSB
     byte leadAngle; //0,5°/LSB
 };

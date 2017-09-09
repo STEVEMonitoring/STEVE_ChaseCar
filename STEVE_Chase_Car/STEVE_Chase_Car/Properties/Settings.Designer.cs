@@ -33,5 +33,25 @@ namespace STEVE_Chase_Car.Properties {
                 return ((string)(this["STEVE_databaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Integrated Security=True")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=STEVE_database;Integrated Security=True")]
+        public string STEVE_databaseConnectionStringCorrect {
+            get {
+                return ((string)(this["STEVE_databaseConnectionStringCorrect"]));
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@
             // 
             // TBserver
             // 
+            this.TBserver.Enabled = false;
             this.TBserver.Location = new System.Drawing.Point(89, 137);
             this.TBserver.Name = "TBserver";
             this.TBserver.Size = new System.Drawing.Size(183, 20);
@@ -58,6 +59,7 @@
             // 
             // TBdatabase
             // 
+            this.TBdatabase.Enabled = false;
             this.TBdatabase.Location = new System.Drawing.Point(89, 163);
             this.TBdatabase.Name = "TBdatabase";
             this.TBdatabase.Size = new System.Drawing.Size(183, 20);
