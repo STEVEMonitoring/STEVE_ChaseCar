@@ -43,41 +43,16 @@ namespace STEVE_Chase_Car.Code
         public bool createDatabase()
         {
             string str;
-            if (selectedDatabase == "")
-            {
-                MessageBox.Show("Please enter a correct database name in order to create it", "SQL Database",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            SqlConnection myConn = new SqlConnection(@"Server=" + selectedServer + ";Integrated security=SSPI;database=master");
-
-            str = "CREATE DATABASE " + selectedDatabase;
-
-            SqlCommand myCommand = new SqlCommand(str, myConn);       
             try
             {
-                myConn.Open();
-
-                myCommand.ExecuteNonQuery();
+                createDatabaseAndTables(); /* Create database tables */
                 MessageBox.Show("Database was Successfully Created!", "STEVE_ChaseCar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                createTables(); /* Create database tables */
-
-                myConn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "STEVE_ChaseCar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
-            }
-            finally
-            {
-                if (myConn.State == ConnectionState.Open)
-                {
-                    myConn.Close();
-                }
             }
         }
 
@@ -128,44 +103,48 @@ namespace STEVE_Chase_Car.Code
             }
         }
 
-        private void createTables()
+        private void createDatabaseAndTables()
         {
-            string sqlConnectionString = @"server=" + selectedServer + ";" +
-                                     "Trusted_Connection=yes;" +
-                                     "database=" + selectedDatabase + ";" +
-                                     "connection timeout=5;";
-
-            
-
-            SqlConnection conn = new SqlConnection(sqlConnectionString);
+            SqlConnection myConn = new SqlConnection(@"Server=" + selectedServer + ";Integrated security=SSPI;database=master");
+            myConn.Open();
 
             try
             {
-                //conn.Open();
+                string command = "CREATE DATABASE " + selectedDatabase;
+                executeCommand(command, myConn);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not create database \n" + e, "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                myConn.Close();
+            }
 
+            try
+            {  
                 string script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO1.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
                 script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO2.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
                 script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame0.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
                 script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame1.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
                 script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame2.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
                 script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMPPT.sql"));
-                executeCommand(script, conn);
+                executeCommand(script, myConn);
 
-                //conn.Close();
+                myConn.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Could not create database tables as they may already exist" + e, "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                myConn.Close();
             }
             
         }
