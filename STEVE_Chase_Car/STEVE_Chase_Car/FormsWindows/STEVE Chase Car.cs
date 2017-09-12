@@ -29,10 +29,9 @@ namespace STEVE_Chase_Car
         {
             InitializeComponent();
             initWebbrowser();
-            timer_rec.Enabled = true;
             connected = true;
 
-            mainScreenDbControl.steveDataSet = this.stevE_DatabaseDataSet1;
+            //mainScreenDbControl.steveDataSet = this.stevE_DatabaseDataSet1;
 
             Form1.instance = this;
         }
@@ -119,7 +118,7 @@ namespace STEVE_Chase_Car
 
         private void timer_rec_Tick(object sender, EventArgs e)
         {
-            //canControls.TimerTickEvent();
+            canControls.TimerTickEvent();
 
         }
 

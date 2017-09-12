@@ -172,7 +172,7 @@ namespace STEVE_Chase_Car.Code
                 VCI_InitCAN(m_devtype, m_devind, m_canind, ref config);
             }
             //buttonConnect.Text = m_bOpen == 1 ? "断开" : "连接";
-            //timer_rec.Enabled = m_bOpen == 1 ? true : false;
+            Form1.instance.timer_rec.Enabled = m_bOpen == 1 ? true : false;
             
         }
 
@@ -223,6 +223,7 @@ namespace STEVE_Chase_Car.Code
                             str += " " + System.Convert.ToString(m_recobj1->Data[7], 16);
                     }
                 }
+                Form1.instance.dev_CANalyst_Console_Put(str);
             }
         }
 

@@ -197,7 +197,7 @@
             this.dev_CANalyst_Console.ForeColor = System.Drawing.Color.Gold;
             this.dev_CANalyst_Console.Location = new System.Drawing.Point(87, 19);
             this.dev_CANalyst_Console.Name = "dev_CANalyst_Console";
-            this.dev_CANalyst_Console.Size = new System.Drawing.Size(160, 156);
+            this.dev_CANalyst_Console.Size = new System.Drawing.Size(354, 156);
             this.dev_CANalyst_Console.TabIndex = 3;
             this.dev_CANalyst_Console.Text = "";
             // 
