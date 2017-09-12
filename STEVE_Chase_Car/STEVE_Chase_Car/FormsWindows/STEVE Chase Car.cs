@@ -32,6 +32,8 @@ namespace STEVE_Chase_Car
             timer_rec.Enabled = true;
             connected = true;
 
+            mainScreenDbControl.steveDataSet = this.stevE_DatabaseDataSet1;
+
             Form1.instance = this;
         }
 
