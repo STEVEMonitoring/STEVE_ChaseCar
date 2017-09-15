@@ -55,16 +55,30 @@
             this.testBTN = new System.Windows.Forms.Button();
             this.timer_rec = new System.Windows.Forms.Timer(this.components);
             this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainScreenMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rawViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
             this.Dev.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.mainScreenMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainScreenTabControl
             // 
+            this.mainScreenTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainScreenTabControl.Controls.Add(this.Overview);
             this.mainScreenTabControl.Controls.Add(this.Speed);
             this.mainScreenTabControl.Controls.Add(this.Battery);
@@ -72,12 +86,12 @@
             this.mainScreenTabControl.Controls.Add(this.solarLocation);
             this.mainScreenTabControl.Controls.Add(this.Dev);
             this.mainScreenTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.mainScreenTabControl.Location = new System.Drawing.Point(10, 11);
+            this.mainScreenTabControl.Location = new System.Drawing.Point(2, 27);
             this.mainScreenTabControl.Multiline = true;
             this.mainScreenTabControl.Name = "mainScreenTabControl";
             this.mainScreenTabControl.Padding = new System.Drawing.Point(70, 10);
             this.mainScreenTabControl.SelectedIndex = 0;
-            this.mainScreenTabControl.Size = new System.Drawing.Size(1226, 600);
+            this.mainScreenTabControl.Size = new System.Drawing.Size(1093, 646);
             this.mainScreenTabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.mainScreenTabControl.TabIndex = 16;
             // 
@@ -86,7 +100,7 @@
             this.Overview.Location = new System.Drawing.Point(4, 36);
             this.Overview.Name = "Overview";
             this.Overview.Padding = new System.Windows.Forms.Padding(3);
-            this.Overview.Size = new System.Drawing.Size(1218, 560);
+            this.Overview.Size = new System.Drawing.Size(1085, 606);
             this.Overview.TabIndex = 0;
             this.Overview.Text = "Overview";
             this.Overview.UseVisualStyleBackColor = true;
@@ -96,7 +110,7 @@
             this.Speed.Location = new System.Drawing.Point(4, 36);
             this.Speed.Name = "Speed";
             this.Speed.Padding = new System.Windows.Forms.Padding(3);
-            this.Speed.Size = new System.Drawing.Size(1218, 560);
+            this.Speed.Size = new System.Drawing.Size(1085, 606);
             this.Speed.TabIndex = 1;
             this.Speed.Text = "Speed";
             this.Speed.UseVisualStyleBackColor = true;
@@ -105,7 +119,7 @@
             // 
             this.Battery.Location = new System.Drawing.Point(4, 36);
             this.Battery.Name = "Battery";
-            this.Battery.Size = new System.Drawing.Size(1218, 560);
+            this.Battery.Size = new System.Drawing.Size(1085, 606);
             this.Battery.TabIndex = 2;
             this.Battery.Text = "Battery";
             this.Battery.UseVisualStyleBackColor = true;
@@ -115,7 +129,7 @@
             this.Weather.Controls.Add(this.weatherBrowser);
             this.Weather.Location = new System.Drawing.Point(4, 36);
             this.Weather.Name = "Weather";
-            this.Weather.Size = new System.Drawing.Size(1218, 560);
+            this.Weather.Size = new System.Drawing.Size(1085, 606);
             this.Weather.TabIndex = 3;
             this.Weather.Text = "Weather";
             this.Weather.UseVisualStyleBackColor = true;
@@ -126,7 +140,7 @@
             this.weatherBrowser.Location = new System.Drawing.Point(0, 0);
             this.weatherBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.weatherBrowser.Name = "weatherBrowser";
-            this.weatherBrowser.Size = new System.Drawing.Size(1218, 560);
+            this.weatherBrowser.Size = new System.Drawing.Size(1085, 606);
             this.weatherBrowser.TabIndex = 0;
             // 
             // solarLocation
@@ -134,7 +148,7 @@
             this.solarLocation.Controls.Add(this.solarBrowser);
             this.solarLocation.Location = new System.Drawing.Point(4, 36);
             this.solarLocation.Name = "solarLocation";
-            this.solarLocation.Size = new System.Drawing.Size(1218, 560);
+            this.solarLocation.Size = new System.Drawing.Size(1085, 606);
             this.solarLocation.TabIndex = 5;
             this.solarLocation.Text = "Solar Location";
             this.solarLocation.UseVisualStyleBackColor = true;
@@ -145,7 +159,7 @@
             this.solarBrowser.Location = new System.Drawing.Point(0, 0);
             this.solarBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.solarBrowser.Name = "solarBrowser";
-            this.solarBrowser.Size = new System.Drawing.Size(1218, 560);
+            this.solarBrowser.Size = new System.Drawing.Size(1085, 606);
             this.solarBrowser.TabIndex = 0;
             // 
             // Dev
@@ -162,7 +176,7 @@
             this.Dev.Controls.Add(this.testBTN);
             this.Dev.Location = new System.Drawing.Point(4, 36);
             this.Dev.Name = "Dev";
-            this.Dev.Size = new System.Drawing.Size(1218, 560);
+            this.Dev.Size = new System.Drawing.Size(1085, 606);
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
@@ -179,6 +193,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.groupBox1.Controls.Add(this.dev_CANalyst_Console);
             this.groupBox1.Controls.Add(this.dev_CANalyst_btnSend);
@@ -193,6 +210,9 @@
             // 
             // dev_CANalyst_Console
             // 
+            this.dev_CANalyst_Console.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dev_CANalyst_Console.BackColor = System.Drawing.Color.SlateGray;
             this.dev_CANalyst_Console.ForeColor = System.Drawing.Color.Gold;
             this.dev_CANalyst_Console.Location = new System.Drawing.Point(87, 19);
@@ -271,6 +291,8 @@
             // 
             // statusRTXB
             // 
+            this.statusRTXB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.statusRTXB.Location = new System.Drawing.Point(482, 72);
             this.statusRTXB.Name = "statusRTXB";
             this.statusRTXB.Size = new System.Drawing.Size(260, 204);
@@ -311,16 +333,83 @@
             this.stevE_DatabaseDataSet1.DataSetName = "STEVE_DatabaseDataSet";
             this.stevE_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helloToolStripMenuItem,
+            this.hiToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            // 
+            // helloToolStripMenuItem
+            // 
+            this.helloToolStripMenuItem.Name = "helloToolStripMenuItem";
+            this.helloToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.helloToolStripMenuItem.Text = "hello";
+            // 
+            // hiToolStripMenuItem
+            // 
+            this.hiToolStripMenuItem.Name = "hiToolStripMenuItem";
+            this.hiToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.hiToolStripMenuItem.Text = "hi";
+            // 
+            // mainScreenMenuStrip
+            // 
+            this.mainScreenMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsToolStripMenuItem});
+            this.mainScreenMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainScreenMenuStrip.Name = "mainScreenMenuStrip";
+            this.mainScreenMenuStrip.Size = new System.Drawing.Size(1095, 24);
+            this.mainScreenMenuStrip.TabIndex = 17;
+            this.mainScreenMenuStrip.Text = "menuStrip1";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cANToolStripMenuItem,
+            this.databaseToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // cANToolStripMenuItem
+            // 
+            this.cANToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.communicationToolStripMenuItem});
+            this.cANToolStripMenuItem.Name = "cANToolStripMenuItem";
+            this.cANToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cANToolStripMenuItem.Text = "CAN";
+            // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rawViewToolStripMenuItem});
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.databaseToolStripMenuItem.Text = "Database";
+            // 
+            // rawViewToolStripMenuItem
+            // 
+            this.rawViewToolStripMenuItem.Name = "rawViewToolStripMenuItem";
+            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rawViewToolStripMenuItem.Text = "Raw view";
+            // 
+            // communicationToolStripMenuItem
+            // 
+            this.communicationToolStripMenuItem.Name = "communicationToolStripMenuItem";
+            this.communicationToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.communicationToolStripMenuItem.Text = "Communication";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 623);
+            this.ClientSize = new System.Drawing.Size(1095, 671);
+            this.Controls.Add(this.mainScreenMenuStrip);
             this.Controls.Add(this.mainScreenTabControl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MainMenuStrip = this.mainScreenMenuStrip;
+            this.MinimumSize = new System.Drawing.Size(1111, 710);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STEVE Main Window";
@@ -333,7 +422,11 @@
             this.Dev.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.mainScreenMenuStrip.ResumeLayout(false);
+            this.mainScreenMenuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -363,6 +456,15 @@
         private System.Windows.Forms.RichTextBox dev_CANalyst_Console;
         private STEVE_DatabaseDataSet stevE_DatabaseDataSet1;
         private System.Windows.Forms.Button btnCreateTables;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mainScreenMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cANToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem communicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rawViewToolStripMenuItem;
     }
 }
 
