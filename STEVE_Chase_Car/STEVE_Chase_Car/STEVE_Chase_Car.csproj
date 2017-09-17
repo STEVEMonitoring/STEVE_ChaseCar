@@ -71,6 +71,12 @@
     <Compile Include="Code\DatabaseControls.cs" />
     <Compile Include="Code\DataField.cs" />
     <Compile Include="Code\dataStructs.cs" />
+    <Compile Include="FormsWindows\DatabaseRawView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsWindows\DatabaseRawView.Designer.cs">
+      <DependentUpon>DatabaseRawView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsWindows\DBConnectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormsWindows\DatabaseRawView.resx">
+      <DependentUpon>DatabaseRawView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsWindows\DBConnectionScreen.resx">
       <DependentUpon>DBConnectionScreen.cs</DependentUpon>
     </EmbeddedResource>

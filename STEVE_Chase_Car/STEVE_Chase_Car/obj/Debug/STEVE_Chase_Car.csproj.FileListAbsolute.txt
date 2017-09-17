@@ -20,3 +20,4 @@ D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.pdb
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe.config
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.pdb
+D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.DatabaseRawView.resources

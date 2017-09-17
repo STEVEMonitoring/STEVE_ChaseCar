@@ -22,10 +22,16 @@ namespace STEVE_Chase_Car.Code
         private bool connected = false;
         private int dbId = 0;
 
+        public string DBconnectionSting { get; }
+
         public DatabaseControls(string _server, string _database)
         {
             selectedServer = _server;
             selectedDatabase = _database;
+            DBconnectionSting = @"server=" + _server + ";" +
+                                "Trusted_Connection=yes;" +
+                                "database=" + _database + ";" +
+                                "connection timeout=5;";
         }
 
 

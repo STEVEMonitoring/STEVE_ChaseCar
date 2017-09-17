@@ -61,9 +61,9 @@
             this.mainScreenMenuStrip = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
@@ -380,6 +380,12 @@
             this.cANToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cANToolStripMenuItem.Text = "CAN";
             // 
+            // communicationToolStripMenuItem
+            // 
+            this.communicationToolStripMenuItem.Name = "communicationToolStripMenuItem";
+            this.communicationToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.communicationToolStripMenuItem.Text = "Communication";
+            // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -393,12 +399,7 @@
             this.rawViewToolStripMenuItem.Name = "rawViewToolStripMenuItem";
             this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rawViewToolStripMenuItem.Text = "Raw view";
-            // 
-            // communicationToolStripMenuItem
-            // 
-            this.communicationToolStripMenuItem.Name = "communicationToolStripMenuItem";
-            this.communicationToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.communicationToolStripMenuItem.Text = "Communication";
+            this.rawViewToolStripMenuItem.Click += new System.EventHandler(this.rawViewToolStripMenuItem_Click);
             // 
             // Form1
             // 

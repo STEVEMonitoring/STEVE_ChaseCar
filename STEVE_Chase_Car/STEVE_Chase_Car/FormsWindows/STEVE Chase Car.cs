@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using STEVE_Chase_Car.Code;
 using Microsoft.SqlServer.Server;
+using STEVE_Chase_Car.FormsWindows;
 
 namespace STEVE_Chase_Car
 {
@@ -145,6 +146,13 @@ namespace STEVE_Chase_Car
         private void btnCreateTables_Click(object sender, EventArgs e)
         {
             //mainScreenDbControl.createTables();
+        }
+
+        private void rawViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatabaseRawView newView = new DatabaseRawView();
+            newView.DbControls = mainScreenDbControl;
+            newView.Show();
         }
     }
 }
