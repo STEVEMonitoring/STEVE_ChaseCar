@@ -154,5 +154,12 @@ namespace STEVE_Chase_Car
             newView.DbControls = mainScreenDbControl;
             newView.Show();
         }
+
+        private void chartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChartView newChartView = new ChartView();
+            newChartView.DbControls = mainScreenDbControl;
+            newChartView.Show();
+        }
     }
 }

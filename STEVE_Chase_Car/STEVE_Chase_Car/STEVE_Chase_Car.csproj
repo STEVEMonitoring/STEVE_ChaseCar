@@ -71,6 +71,12 @@
     <Compile Include="Code\DatabaseControls.cs" />
     <Compile Include="Code\DataField.cs" />
     <Compile Include="Code\dataStructs.cs" />
+    <Compile Include="FormsWindows\ChartView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsWindows\ChartView.Designer.cs">
+      <DependentUpon>ChartView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsWindows\DatabaseRawView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormsWindows\ChartView.resx">
+      <DependentUpon>ChartView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsWindows\DatabaseRawView.resx">
       <DependentUpon>DatabaseRawView.cs</DependentUpon>
     </EmbeddedResource>

@@ -64,6 +64,9 @@
             this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
@@ -356,7 +359,8 @@
             // mainScreenMenuStrip
             // 
             this.mainScreenMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.dataToolStripMenuItem});
             this.mainScreenMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainScreenMenuStrip.Name = "mainScreenMenuStrip";
             this.mainScreenMenuStrip.Size = new System.Drawing.Size(1095, 24);
@@ -377,7 +381,7 @@
             this.cANToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.communicationToolStripMenuItem});
             this.cANToolStripMenuItem.Name = "cANToolStripMenuItem";
-            this.cANToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cANToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.cANToolStripMenuItem.Text = "CAN";
             // 
             // communicationToolStripMenuItem
@@ -391,15 +395,38 @@
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rawViewToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // rawViewToolStripMenuItem
             // 
             this.rawViewToolStripMenuItem.Name = "rawViewToolStripMenuItem";
-            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.rawViewToolStripMenuItem.Text = "Raw view";
             this.rawViewToolStripMenuItem.Click += new System.EventHandler(this.rawViewToolStripMenuItem_Click);
+            // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.databaseToolStripMenuItem1});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // databaseToolStripMenuItem1
+            // 
+            this.databaseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chartToolStripMenuItem});
+            this.databaseToolStripMenuItem1.Name = "databaseToolStripMenuItem1";
+            this.databaseToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.databaseToolStripMenuItem1.Text = "Database";
+            // 
+            // chartToolStripMenuItem
+            // 
+            this.chartToolStripMenuItem.Name = "chartToolStripMenuItem";
+            this.chartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chartToolStripMenuItem.Text = "Chart";
+            this.chartToolStripMenuItem.Click += new System.EventHandler(this.chartToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -466,6 +493,9 @@
         private System.Windows.Forms.ToolStripMenuItem communicationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rawViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem;
     }
 }
 
