@@ -39,6 +39,7 @@
             this.solarLocation = new System.Windows.Forms.TabPage();
             this.solarBrowser = new System.Windows.Forms.WebBrowser();
             this.Dev = new System.Windows.Forms.TabPage();
+            this.btnSunInfo = new System.Windows.Forms.Button();
             this.btnCreateTables = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dev_CANalyst_Console = new System.Windows.Forms.RichTextBox();
@@ -67,7 +68,7 @@
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSunInfo = new System.Windows.Forms.Button();
+            this.btnWeatherTest = new System.Windows.Forms.Button();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
@@ -168,6 +169,7 @@
             // 
             // Dev
             // 
+            this.Dev.Controls.Add(this.btnWeatherTest);
             this.Dev.Controls.Add(this.btnSunInfo);
             this.Dev.Controls.Add(this.btnCreateTables);
             this.Dev.Controls.Add(this.groupBox1);
@@ -185,6 +187,16 @@
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
+            // 
+            // btnSunInfo
+            // 
+            this.btnSunInfo.Location = new System.Drawing.Point(6, 552);
+            this.btnSunInfo.Name = "btnSunInfo";
+            this.btnSunInfo.Size = new System.Drawing.Size(105, 44);
+            this.btnSunInfo.TabIndex = 33;
+            this.btnSunInfo.Text = "Sun Test";
+            this.btnSunInfo.UseVisualStyleBackColor = true;
+            this.btnSunInfo.Click += new System.EventHandler(this.btnSunInfo_Click);
             // 
             // btnCreateTables
             // 
@@ -432,15 +444,15 @@
             this.chartToolStripMenuItem.Text = "Chart";
             this.chartToolStripMenuItem.Click += new System.EventHandler(this.chartToolStripMenuItem_Click);
             // 
-            // btnSunInfo
+            // btnWeatherTest
             // 
-            this.btnSunInfo.Location = new System.Drawing.Point(6, 552);
-            this.btnSunInfo.Name = "btnSunInfo";
-            this.btnSunInfo.Size = new System.Drawing.Size(105, 44);
-            this.btnSunInfo.TabIndex = 33;
-            this.btnSunInfo.Text = "Sun Test";
-            this.btnSunInfo.UseVisualStyleBackColor = true;
-            this.btnSunInfo.Click += new System.EventHandler(this.btnSunInfo_Click);
+            this.btnWeatherTest.Location = new System.Drawing.Point(150, 552);
+            this.btnWeatherTest.Name = "btnWeatherTest";
+            this.btnWeatherTest.Size = new System.Drawing.Size(109, 44);
+            this.btnWeatherTest.TabIndex = 34;
+            this.btnWeatherTest.Text = "Weather test";
+            this.btnWeatherTest.UseVisualStyleBackColor = true;
+            this.btnWeatherTest.Click += new System.EventHandler(this.btnWeatherTest_Click);
             // 
             // Form1
             // 
@@ -512,6 +524,7 @@
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem;
         private System.Windows.Forms.Button btnSunInfo;
+        private System.Windows.Forms.Button btnWeatherTest;
     }
 }
 

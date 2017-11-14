@@ -165,8 +165,14 @@ namespace STEVE_Chase_Car
         private void btnSunInfo_Click(object sender, EventArgs e)
         {
             /* Gets solar information for a specific location */
-            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("36.7201600", "-4.4203400", "today", "1");
+            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "1");
 
+        }
+
+        private void btnWeatherTest_Click(object sender, EventArgs e)
+        {
+            /* Gets weather information for a specific location */
+            Code.weatherInformationRootObject weatherInformation = Code.apiInterface.getWeatherInformation("57.782303", "14.162198");
         }
     }
 }

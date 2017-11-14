@@ -74,6 +74,7 @@
     <Compile Include="Code\dataStructs.cs" />
     <Compile Include="Code\apiInterface.cs" />
     <Compile Include="Code\solarInformation.cs" />
+    <Compile Include="Code\weatherInformation.cs" />
     <Compile Include="FormsWindows\ChartView.cs">
       <SubType>Form</SubType>
     </Compile>
