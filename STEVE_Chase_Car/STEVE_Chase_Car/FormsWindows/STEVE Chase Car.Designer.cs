@@ -67,6 +67,7 @@
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSunInfo = new System.Windows.Forms.Button();
             this.mainScreenTabControl.SuspendLayout();
             this.Weather.SuspendLayout();
             this.solarLocation.SuspendLayout();
@@ -113,7 +114,7 @@
             this.Speed.Location = new System.Drawing.Point(4, 36);
             this.Speed.Name = "Speed";
             this.Speed.Padding = new System.Windows.Forms.Padding(3);
-            this.Speed.Size = new System.Drawing.Size(1130, 606);
+            this.Speed.Size = new System.Drawing.Size(1085, 606);
             this.Speed.TabIndex = 1;
             this.Speed.Text = "Speed";
             this.Speed.UseVisualStyleBackColor = true;
@@ -122,7 +123,7 @@
             // 
             this.Battery.Location = new System.Drawing.Point(4, 36);
             this.Battery.Name = "Battery";
-            this.Battery.Size = new System.Drawing.Size(1130, 606);
+            this.Battery.Size = new System.Drawing.Size(1085, 606);
             this.Battery.TabIndex = 2;
             this.Battery.Text = "Battery";
             this.Battery.UseVisualStyleBackColor = true;
@@ -132,7 +133,7 @@
             this.Weather.Controls.Add(this.weatherBrowser);
             this.Weather.Location = new System.Drawing.Point(4, 36);
             this.Weather.Name = "Weather";
-            this.Weather.Size = new System.Drawing.Size(1130, 606);
+            this.Weather.Size = new System.Drawing.Size(1085, 606);
             this.Weather.TabIndex = 3;
             this.Weather.Text = "Weather";
             this.Weather.UseVisualStyleBackColor = true;
@@ -143,7 +144,7 @@
             this.weatherBrowser.Location = new System.Drawing.Point(0, 0);
             this.weatherBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.weatherBrowser.Name = "weatherBrowser";
-            this.weatherBrowser.Size = new System.Drawing.Size(1130, 606);
+            this.weatherBrowser.Size = new System.Drawing.Size(1085, 606);
             this.weatherBrowser.TabIndex = 0;
             // 
             // solarLocation
@@ -151,7 +152,7 @@
             this.solarLocation.Controls.Add(this.solarBrowser);
             this.solarLocation.Location = new System.Drawing.Point(4, 36);
             this.solarLocation.Name = "solarLocation";
-            this.solarLocation.Size = new System.Drawing.Size(1130, 606);
+            this.solarLocation.Size = new System.Drawing.Size(1085, 606);
             this.solarLocation.TabIndex = 5;
             this.solarLocation.Text = "Solar Location";
             this.solarLocation.UseVisualStyleBackColor = true;
@@ -162,11 +163,12 @@
             this.solarBrowser.Location = new System.Drawing.Point(0, 0);
             this.solarBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.solarBrowser.Name = "solarBrowser";
-            this.solarBrowser.Size = new System.Drawing.Size(1130, 606);
+            this.solarBrowser.Size = new System.Drawing.Size(1085, 606);
             this.solarBrowser.TabIndex = 0;
             // 
             // Dev
             // 
+            this.Dev.Controls.Add(this.btnSunInfo);
             this.Dev.Controls.Add(this.btnCreateTables);
             this.Dev.Controls.Add(this.groupBox1);
             this.Dev.Controls.Add(this.btnReloadBrowsers);
@@ -179,7 +181,7 @@
             this.Dev.Controls.Add(this.testBTN);
             this.Dev.Location = new System.Drawing.Point(4, 36);
             this.Dev.Name = "Dev";
-            this.Dev.Size = new System.Drawing.Size(1130, 606);
+            this.Dev.Size = new System.Drawing.Size(1085, 606);
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
@@ -420,7 +422,7 @@
             this.databaseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chartToolStripMenuItem});
             this.databaseToolStripMenuItem1.Name = "databaseToolStripMenuItem1";
-            this.databaseToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.databaseToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.databaseToolStripMenuItem1.Text = "Database";
             // 
             // chartToolStripMenuItem
@@ -429,6 +431,16 @@
             this.chartToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.chartToolStripMenuItem.Text = "Chart";
             this.chartToolStripMenuItem.Click += new System.EventHandler(this.chartToolStripMenuItem_Click);
+            // 
+            // btnSunInfo
+            // 
+            this.btnSunInfo.Location = new System.Drawing.Point(6, 552);
+            this.btnSunInfo.Name = "btnSunInfo";
+            this.btnSunInfo.Size = new System.Drawing.Size(105, 44);
+            this.btnSunInfo.TabIndex = 33;
+            this.btnSunInfo.Text = "Sun Test";
+            this.btnSunInfo.UseVisualStyleBackColor = true;
+            this.btnSunInfo.Click += new System.EventHandler(this.btnSunInfo_Click);
             // 
             // Form1
             // 
@@ -499,6 +511,7 @@
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem;
+        private System.Windows.Forms.Button btnSunInfo;
     }
 }
 

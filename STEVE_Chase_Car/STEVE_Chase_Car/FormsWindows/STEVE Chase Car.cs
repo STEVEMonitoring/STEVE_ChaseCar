@@ -161,5 +161,12 @@ namespace STEVE_Chase_Car
             newChartView.DbControls = mainScreenDbControl;
             newChartView.Show();
         }
+
+        private void btnSunInfo_Click(object sender, EventArgs e)
+        {
+            /* Gets solar information for a specific location */
+            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("36.7201600", "-4.4203400", "today", "1");
+
+        }
     }
 }
