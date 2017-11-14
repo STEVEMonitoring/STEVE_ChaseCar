@@ -113,7 +113,7 @@
             this.Speed.Location = new System.Drawing.Point(4, 36);
             this.Speed.Name = "Speed";
             this.Speed.Padding = new System.Windows.Forms.Padding(3);
-            this.Speed.Size = new System.Drawing.Size(1085, 606);
+            this.Speed.Size = new System.Drawing.Size(1130, 606);
             this.Speed.TabIndex = 1;
             this.Speed.Text = "Speed";
             this.Speed.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             // 
             this.Battery.Location = new System.Drawing.Point(4, 36);
             this.Battery.Name = "Battery";
-            this.Battery.Size = new System.Drawing.Size(1085, 606);
+            this.Battery.Size = new System.Drawing.Size(1130, 606);
             this.Battery.TabIndex = 2;
             this.Battery.Text = "Battery";
             this.Battery.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.Weather.Controls.Add(this.weatherBrowser);
             this.Weather.Location = new System.Drawing.Point(4, 36);
             this.Weather.Name = "Weather";
-            this.Weather.Size = new System.Drawing.Size(1085, 606);
+            this.Weather.Size = new System.Drawing.Size(1130, 606);
             this.Weather.TabIndex = 3;
             this.Weather.Text = "Weather";
             this.Weather.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.weatherBrowser.Location = new System.Drawing.Point(0, 0);
             this.weatherBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.weatherBrowser.Name = "weatherBrowser";
-            this.weatherBrowser.Size = new System.Drawing.Size(1085, 606);
+            this.weatherBrowser.Size = new System.Drawing.Size(1130, 606);
             this.weatherBrowser.TabIndex = 0;
             // 
             // solarLocation
@@ -151,7 +151,7 @@
             this.solarLocation.Controls.Add(this.solarBrowser);
             this.solarLocation.Location = new System.Drawing.Point(4, 36);
             this.solarLocation.Name = "solarLocation";
-            this.solarLocation.Size = new System.Drawing.Size(1085, 606);
+            this.solarLocation.Size = new System.Drawing.Size(1130, 606);
             this.solarLocation.TabIndex = 5;
             this.solarLocation.Text = "Solar Location";
             this.solarLocation.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.solarBrowser.Location = new System.Drawing.Point(0, 0);
             this.solarBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.solarBrowser.Name = "solarBrowser";
-            this.solarBrowser.Size = new System.Drawing.Size(1085, 606);
+            this.solarBrowser.Size = new System.Drawing.Size(1130, 606);
             this.solarBrowser.TabIndex = 0;
             // 
             // Dev
@@ -179,7 +179,7 @@
             this.Dev.Controls.Add(this.testBTN);
             this.Dev.Location = new System.Drawing.Point(4, 36);
             this.Dev.Name = "Dev";
-            this.Dev.Size = new System.Drawing.Size(1085, 606);
+            this.Dev.Size = new System.Drawing.Size(1130, 606);
             this.Dev.TabIndex = 4;
             this.Dev.Text = "Dev";
             this.Dev.UseVisualStyleBackColor = true;
@@ -358,6 +358,8 @@
             // 
             // mainScreenMenuStrip
             // 
+            this.mainScreenMenuStrip.BackColor = System.Drawing.Color.LightSlateGray;
+            this.mainScreenMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.mainScreenMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolsToolStripMenuItem,
             this.dataToolStripMenuItem});
@@ -381,7 +383,7 @@
             this.cANToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.communicationToolStripMenuItem});
             this.cANToolStripMenuItem.Name = "cANToolStripMenuItem";
-            this.cANToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.cANToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.cANToolStripMenuItem.Text = "CAN";
             // 
             // communicationToolStripMenuItem
@@ -395,13 +397,13 @@
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rawViewToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // rawViewToolStripMenuItem
             // 
             this.rawViewToolStripMenuItem.Name = "rawViewToolStripMenuItem";
-            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.rawViewToolStripMenuItem.Text = "Raw view";
             this.rawViewToolStripMenuItem.Click += new System.EventHandler(this.rawViewToolStripMenuItem_Click);
             // 
@@ -410,7 +412,7 @@
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.databaseToolStripMenuItem1});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.dataToolStripMenuItem.Text = "Data";
             // 
             // databaseToolStripMenuItem1
@@ -424,7 +426,7 @@
             // chartToolStripMenuItem
             // 
             this.chartToolStripMenuItem.Name = "chartToolStripMenuItem";
-            this.chartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chartToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.chartToolStripMenuItem.Text = "Chart";
             this.chartToolStripMenuItem.Click += new System.EventHandler(this.chartToolStripMenuItem_Click);
             // 
@@ -432,6 +434,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1095, 671);
             this.Controls.Add(this.mainScreenMenuStrip);
             this.Controls.Add(this.mainScreenTabControl);
