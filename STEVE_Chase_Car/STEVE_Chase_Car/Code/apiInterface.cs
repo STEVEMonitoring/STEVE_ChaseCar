@@ -12,7 +12,7 @@ namespace STEVE_Chase_Car.Code
         public static Code.weatherInformationRootObject getWeatherInformation(string lat, string lon)
         {
             /*  https://home.openweathermap.org/
-             *  Username: jthSolarAcc
+             *  Username: zifuc@nezdiro.org
              *  Password: jthSolarAcc
              */
             return Code.apiInterface._download_serialized_json_data<Code.weatherInformationRootObject>("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=e72c23f10850d6da8d484b6da912172d");
