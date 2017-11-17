@@ -26,24 +26,27 @@ namespace STEVE_Chase_Car
         private string database;
         private int dbId = 0;
 
+
         public Form1()
         {
             InitializeComponent();
-            initWebbrowser();
             timer_rec.Enabled = true;
             connected = true;
-
+            
+            mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
         }
 
-        private void initWebbrowser()
-        {
-            weatherBrowser.ScriptErrorsSuppressed = true;
-            solarBrowser.ScriptErrorsSuppressed = true;
-            weatherBrowser.Navigate("https://www.yr.no/place/Sweden/");
-            solarBrowser.Navigate("https://www.wolframalpha.com/input/?i=sun");
+        public void updateSolarLables(DateTime date, string sunAltitude, string sunDirection, string sunDistance, string sunRise, string sunSet)
+        {        
+            lbCurrentTime.Text = "Current Time: " + date.ToString();
+            lbSunAltitude.Text = sunAltitude;
+            lbSunDirection.Text = sunDirection;
+            lbSunDistance.Text = sunDistance;
+            lbSunrise.Text = "Sunrise: " + sunRise.Split('T')[1].Split('+')[0];
+            lbSunset.Text = "Sunset: " + sunSet.Split('T')[1].Split('+')[0];
+            
         }
-
 
         private void testBTN_Click(object sender, EventArgs e)
         {
@@ -53,7 +56,6 @@ namespace STEVE_Chase_Car
                                      "Trusted_Connection=yes;" +
                                       "database=" + mainScreenDbControl.selectedDatabase + ";" +
                                       "connection timeout=5;";
-            
 
 
             SqlConnection sqlConn = new SqlConnection(connectionSting);
@@ -110,12 +112,6 @@ namespace STEVE_Chase_Car
             Application.Exit();
         }
 
-        private void btnReloadBrowsers_Click(object sender, EventArgs e)
-        {
-            initWebbrowser();
-        }
-
-
         private void timer_rec_Tick(object sender, EventArgs e)
         {
             //canControls.TimerTickEvent();
@@ -164,8 +160,8 @@ namespace STEVE_Chase_Car
 
         private void btnSunInfo_Click(object sender, EventArgs e)
         {
-            /* Gets solar information for a specific location */
-            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "1");
+            SolarInfoHandler handler = new SolarInfoHandler(this);
+            handler.updateLabels();
 
         }
 

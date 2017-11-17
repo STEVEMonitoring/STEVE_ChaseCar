@@ -24,3 +24,6 @@ D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.For
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.ChartView.resources
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.CoreCompileInputs.cache
 D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\Newtonsoft.Json.dll
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\Newtonsoft.Json.dll
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.ChartView.resources
+D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.DatabaseRawView.resources

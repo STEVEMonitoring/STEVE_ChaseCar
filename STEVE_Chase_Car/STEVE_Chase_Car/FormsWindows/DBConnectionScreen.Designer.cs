@@ -39,9 +39,10 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(208, 276);
+            this.btnConnect.Location = new System.Drawing.Point(193, 324);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(145, 42);
+            this.btnConnect.Size = new System.Drawing.Size(193, 52);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -50,36 +51,40 @@
             // TBserver
             // 
             this.TBserver.Enabled = false;
-            this.TBserver.Location = new System.Drawing.Point(192, 189);
+            this.TBserver.Location = new System.Drawing.Point(172, 217);
+            this.TBserver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBserver.Name = "TBserver";
-            this.TBserver.Size = new System.Drawing.Size(183, 20);
+            this.TBserver.Size = new System.Drawing.Size(243, 22);
             this.TBserver.TabIndex = 3;
             this.TBserver.Text = ".\\SQLEXPRESS";
             // 
             // TBdatabase
             // 
             this.TBdatabase.Enabled = false;
-            this.TBdatabase.Location = new System.Drawing.Point(192, 215);
+            this.TBdatabase.Location = new System.Drawing.Point(172, 249);
+            this.TBdatabase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TBdatabase.Name = "TBdatabase";
-            this.TBdatabase.Size = new System.Drawing.Size(183, 20);
+            this.TBdatabase.Size = new System.Drawing.Size(243, 22);
             this.TBdatabase.TabIndex = 4;
             this.TBdatabase.Text = "STEVE_database";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 192);
+            this.label3.Location = new System.Drawing.Point(109, 220);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Server:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(130, 218);
+            this.label4.Location = new System.Drawing.Point(89, 252);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Database:";
             // 
@@ -87,19 +92,20 @@
             // 
             this.CBjustTesting.AutoSize = true;
             this.CBjustTesting.BackColor = System.Drawing.SystemColors.Window;
-            this.CBjustTesting.Location = new System.Drawing.Point(208, 253);
+            this.CBjustTesting.Location = new System.Drawing.Point(193, 295);
+            this.CBjustTesting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CBjustTesting.Name = "CBjustTesting";
-            this.CBjustTesting.Size = new System.Drawing.Size(136, 17);
+            this.CBjustTesting.Size = new System.Drawing.Size(178, 21);
             this.CBjustTesting.TabIndex = 10;
             this.CBjustTesting.Text = "I am just testing this out";
             this.CBjustTesting.UseVisualStyleBackColor = false;
             // 
             // DBConnectionScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(539, 372);
+            this.ClientSize = new System.Drawing.Size(555, 458);
             this.Controls.Add(this.CBjustTesting);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -108,6 +114,7 @@
             this.Controls.Add(this.btnConnect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DBConnectionScreen";
