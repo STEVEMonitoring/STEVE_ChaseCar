@@ -37,15 +37,53 @@ namespace STEVE_Chase_Car
             Form1.instance = this;
         }
 
-        public void updateSolarLables(DateTime date, string sunAltitude, string sunDirection, string sunDistance, string sunRise, string sunSet)
+        public void updateSolarLables(string date, 
+                                      string sunAltitude, 
+                                      string sunDirection, 
+                                      string sunDistance, 
+                                      string sunRise, 
+                                      string sunSet, 
+                                      string solar_noon)
         {        
-            lbCurrentTime.Text = "Current Time: " + date.ToString();
+            lbCurrentTime.Text = date;
             lbSunAltitude.Text = sunAltitude;
             lbSunDirection.Text = sunDirection;
             lbSunDistance.Text = sunDistance;
-            lbSunrise.Text = "Sunrise: " + sunRise.Split('T')[1].Split('+')[0];
-            lbSunset.Text = "Sunset: " + sunSet.Split('T')[1].Split('+')[0];
-            
+            lbSunrise.Text = "Sunrise: " + sunRise;
+            lbSunset.Text = "Sunset: " + sunSet;
+
+            lbSunrisePicture.Text = sunRise;
+            lbSunsetPicture.Text = sunSet;
+            lbMeridianPicture.Text = solar_noon;
+        }
+
+
+        public void updateWeatherLables(string windSpeed, 
+                                        string windDirection,
+                                        string headWind,
+                                        string crossWind,
+                                        string windLevels,
+                                        string airPressure,
+                                        string uvIntensity,
+                                        string cloudiness,
+                                        string weather,
+                                        string rain,
+                                        string temperature,
+                                        string humidity)
+        {
+            lbWindspeed.Text = windSpeed;
+            lbWindDirection.Text = windDirection;
+            lbHeadWind.Text = headWind;
+            lbCrossWind.Text = crossWind;
+            lbWindLevels.Text = windLevels;
+            lbAirPressure.Text = airPressure;
+
+            lbUvIntensity.Text = uvIntensity;
+            lbCloudiness.Text = cloudiness;
+            lbWeather.Text = weather;
+            lbRainFall.Text = rain;
+            lbCurrentTemp.Text = temperature;
+            lbHumidity.Text = humidity;
         }
 
         private void testBTN_Click(object sender, EventArgs e)
@@ -161,14 +199,14 @@ namespace STEVE_Chase_Car
         private void btnSunInfo_Click(object sender, EventArgs e)
         {
             SolarInfoHandler handler = new SolarInfoHandler(this);
-            handler.updateLabels();
+            handler.updateSolarInformation();
 
         }
 
         private void btnWeatherTest_Click(object sender, EventArgs e)
         {
-            /* Gets weather information for a specific location */
-            Code.weatherInformationRootObject weatherInformation = Code.apiInterface.getWeatherInformation("57.782303", "14.162198");
+            WeatherInfoHandler handler = new WeatherInfoHandler(this);
+            handler.updateWeather();
         }
     }
 }

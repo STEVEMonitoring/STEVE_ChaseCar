@@ -8,7 +8,6 @@ namespace STEVE_Chase_Car.Code
 {
     class SolarInfoHandler
     {
-        private Code.solarInformationRootObject solarInformation;
         Form1 screen;
 
         public SolarInfoHandler(Form1 _screen)
@@ -16,15 +15,17 @@ namespace STEVE_Chase_Car.Code
             screen = _screen;
         }
 
-        void updateSolarInformation()
+        public void updateSolarInformation()
         {
-            solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "0");
-        }
+            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "0");
 
-        public void updateLabels()
-        {
-            this.updateSolarInformation();
-            screen.updateSolarLables(DateTime.Now, "90", "East", "144.5 million Km", solarInformation.results.sunrise, solarInformation.results.sunset);
+            screen.updateSolarLables("Current Time: " + DateTime.Now.ToString("dd/mm/yyyy HH:mm"),
+                                     "Sun Altitude: 90°",
+                                     "Sun Direction: 66°",
+                                     "Sun Distance: 144.5 million km",
+                                     solarInformation.results.sunrise.Split('T')[1].Split('+')[0],
+                                     solarInformation.results.sunset.Split('T')[1].Split('+')[0],
+                                     solarInformation.results.solar_noon.Split('T')[1].Split('+')[0]);
         }
     }
 }
