@@ -35,6 +35,8 @@ namespace STEVE_Chase_Car
             
             mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
+
+            
         }
 
         public void updateSolarLables(string date, 
