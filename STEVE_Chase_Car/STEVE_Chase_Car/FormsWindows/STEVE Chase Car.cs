@@ -35,8 +35,21 @@ namespace STEVE_Chase_Car
             
             mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
-
+            openGraphForm();
             
+        }
+
+
+        void openGraphForm()
+        {
+            ChartView embeddedForm = new ChartView();
+            embeddedForm.TopLevel = false;
+            solarCellsPanel.Controls.Add(embeddedForm);
+            embeddedForm.FormBorderStyle = FormBorderStyle.None;
+            embeddedForm.Height = solarCellsPanel.Height;
+            embeddedForm.Width = solarCellsPanel.Width;
+
+            embeddedForm.Show();
         }
 
         public void updateSolarLables(string date, 

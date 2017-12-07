@@ -40,19 +40,25 @@ namespace STEVE_Chase_Car.FormsWindows
         }
 
 
-        private void loadGraphData()
+        private void nodeClick()
+        {
+
+        }
+
+
+
+        private void loadGraphData(string data)
         {
             try
             {
                 this.databaseChart.ChartAreas[0].AxisX.ScaleView.ZoomReset();
                 this.databaseChart.ChartAreas[0].AxisY.ScaleView.ZoomReset();
 
-                string data = chartTreeView.SelectedNode.Name.ToString();
-
                 // Specify a connection string. Replace the given value with a 
                 // valid connection string for a Northwind SQL Server sample
                 // database accessible to your system.
-                String connectionString = DbControls.DBconnectionSting;
+                String connectionString = "server=.\\SQLEXPRESS;Trusted_Connection=yes;database=STEVE_database;connection timeout=5;";
+
                 String selectCommand = "select Time, [" + data + "]" + " from " + chartTreeView.SelectedNode.Parent.Text;
 
                 // Create a new data adapter based on the specified query.
@@ -77,7 +83,6 @@ namespace STEVE_Chase_Car.FormsWindows
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-
             }
            
 
@@ -85,7 +90,11 @@ namespace STEVE_Chase_Car.FormsWindows
 
         private void chartTreeView_DoubleClick(object sender, EventArgs e)
         {
-            loadGraphData();
+            if(chartTreeView.SelectedNode.Nodes.Count == 0)
+            {
+                loadGraphData(this.chartTreeView.SelectedNode.Name.ToString());
+            }
+            
         }
 
         private void ZoomToggle(bool Enabled)
