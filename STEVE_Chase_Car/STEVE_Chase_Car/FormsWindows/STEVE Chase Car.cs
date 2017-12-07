@@ -39,7 +39,7 @@ namespace STEVE_Chase_Car
             
         }
 
-        public void updateSolarLables(string date, 
+        /*public void updateSolarLables(string date, 
                                       string sunAltitude, 
                                       string sunDirection, 
                                       string sunDistance, 
@@ -57,10 +57,33 @@ namespace STEVE_Chase_Car
             lbSunrisePicture.Text = sunRise;
             lbSunsetPicture.Text = sunSet;
             lbMeridianPicture.Text = solar_noon;
+        }*/
+        private void updateSolarLables(float latitude, float longitude, DateTime? date = null)
+        {
+            SolarInformation solar = new SolarInfoService().GetSolarInfo(-12.4258916f, 130.8632683f);
+            String notAvailable = "N/A";
+
+            String sunrise = solar.results.sunrise.Split('T')[1].Split('+')[0];
+            String sunset = solar.results.sunset.Split('T')[1].Split('+')[0];
+            String noon = solar.results.solar_noon.Split('T')[1].Split('+')[0];
+
+            lbCurrentTime.Text = "Current time: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+            // Maybe use suncalc.org for these
+            lbSunAltitude.Text = "Sun altitude: " + notAvailable;
+            lbSunDirection.Text = "Sun direction: " + notAvailable;
+            lbSunDistance.Text = "Sun distance: " + notAvailable;
+
+            lbSunrise.Text = "Sunrise: " + sunrise;
+            lbSunset.Text = "Sunset: " + sunset;
+
+            lbSunrisePicture.Text = sunrise;
+            lbSunsetPicture.Text = sunset;
+            lbMeridianPicture.Text = noon;
         }
 
 
-        public void updateWeatherLables(string windSpeed, 
+        /*public void updateWeatherLables(string windSpeed, 
                                         string windDirection,
                                         string headWind,
                                         string crossWind,
@@ -86,6 +109,24 @@ namespace STEVE_Chase_Car
             lbRainFall.Text = rain;
             lbCurrentTemp.Text = temperature;
             lbHumidity.Text = humidity;
+        }*/
+        private void updateWeatherLables(float latitude, float longitude)
+        {
+            WeatherInformation weather = new WeatherInfoService().GetWeatherInfo(-12.4258916f, 130.8632683f);
+            String notAvailable = "N/A";
+            lbWindspeed.Text = "Current wind speed: " + weather.wind.speed.ToString() + " m/s";
+            lbWindDirection.Text = "Current wind direction: " + weather.wind.deg.ToString() + "°";
+            lbHeadWind.Text = "Solar car headwind: " + notAvailable;
+            lbCrossWind.Text = "Solar car crosswind: " + notAvailable;
+            lbWindLevels.Text = "Estimated wind levels today: " + notAvailable;
+            lbAirPressure.Text = "Air pressure: " + weather.main.pressure.ToString() + " hPa";
+
+            lbUvIntensity.Text = "UV-intensity: " + notAvailable;
+            lbCloudiness.Text = "Cloudiness: " + weather.clouds.all.ToString();
+            lbWeather.Text = "Weather: " + weather.weather[0].description;
+            lbRainFall.Text = "Rainfall: " + (weather.rain != null ? weather.rain.__invalid_name__3h.ToString() + " mm" : "0 mm");
+            lbCurrentTemp.Text = "Temperature: " + weather.main.temp.ToString() + "°C";
+            lbHumidity.Text = "Humidity: " + weather.main.humidity.ToString() + "%";
         }
 
         private void testBTN_Click(object sender, EventArgs e)
@@ -200,15 +241,17 @@ namespace STEVE_Chase_Car
 
         private void btnSunInfo_Click(object sender, EventArgs e)
         {
-            SolarInfoHandler handler = new SolarInfoHandler(this);
-            handler.updateSolarInformation();
+            float darwin_latitude = -12.4258916f;
+            float darwin_longitude = 130.8632683f;
+            updateSolarLables(darwin_latitude, darwin_longitude);
 
         }
 
         private void btnWeatherTest_Click(object sender, EventArgs e)
         {
-            WeatherInfoHandler handler = new WeatherInfoHandler(this);
-            handler.updateWeather();
+            float darwin_latitude = -12.4258916f;
+            float darwin_longitude = 130.8632683f;
+            updateWeatherLables(darwin_latitude, darwin_longitude);
         }
     }
 }

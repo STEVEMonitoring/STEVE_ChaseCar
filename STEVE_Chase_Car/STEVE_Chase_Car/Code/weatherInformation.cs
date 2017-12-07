@@ -55,7 +55,7 @@ namespace STEVE_Chase_Car.Code
         public int sunset { get; set; }
     }
 
-    public class weatherInformationRootObject
+    public class WeatherInformation
     {
         public Coord coord { get; set; }
         public List<Weather> weather { get; set; }

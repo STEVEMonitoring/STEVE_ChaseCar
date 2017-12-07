@@ -8,7 +8,7 @@ namespace STEVE_Chase_Car.Code
 {
     class SolarInfoHandler
     {
-        Form1 screen;
+        /*Form1 screen;
 
         public SolarInfoHandler(Form1 _screen)
         {
@@ -17,7 +17,7 @@ namespace STEVE_Chase_Car.Code
 
         public void updateSolarInformation()
         {
-            Code.solarInformationRootObject solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "0");
+            Code.SolarInformation solarInformation = Code.apiInterface.getSolarInformation("57.782303", "14.162198", "today", "0");
 
             screen.updateSolarLables("Current Time: " + DateTime.Now.ToString("dd/mm/yyyy HH:mm"),
                                      "Sun Altitude: 90°",
@@ -26,6 +26,6 @@ namespace STEVE_Chase_Car.Code
                                      solarInformation.results.sunrise.Split('T')[1].Split('+')[0],
                                      solarInformation.results.sunset.Split('T')[1].Split('+')[0],
                                      solarInformation.results.solar_noon.Split('T')[1].Split('+')[0]);
-        }
+        }*/
     }
 }

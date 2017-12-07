@@ -27,3 +27,17 @@ D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\Newtonsoft.Json.dll
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\Newtonsoft.Json.dll
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.ChartView.resources
 D:\SourceTree\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.DatabaseRawView.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe.config
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.exe
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\STEVE_Chase_Car.pdb
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.ChartView.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.DatabaseRawView.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.DBConnectionScreen.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.Properties.Resources.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.Form1.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.exe
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.pdb

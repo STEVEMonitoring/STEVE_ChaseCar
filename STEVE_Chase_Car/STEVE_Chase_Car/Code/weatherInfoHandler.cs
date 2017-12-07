@@ -8,7 +8,7 @@ namespace STEVE_Chase_Car.Code
 {
     class WeatherInfoHandler
     {
-        Form1 screen;
+        /*Form1 screen;
 
         public WeatherInfoHandler(Form1 _screen)
         {
@@ -17,7 +17,7 @@ namespace STEVE_Chase_Car.Code
 
         public void updateWeather()
         {
-            Code.weatherInformationRootObject weatherInformation = Code.apiInterface.getWeatherInformation("57.782303", "14.162198");
+            Code.WeatherInformation weatherInformation = Code.apiInterface.getWeatherInformation("57.782303", "14.162198");
             string rain;
 
             if(weatherInformation.rain != null)
@@ -41,7 +41,7 @@ namespace STEVE_Chase_Car.Code
                                        "Rainfall: " + rain + " volume/3h",
                                        "Temperature: " + (weatherInformation.main.temp - 273.15) + "C",
                                        "Humidity: " + weatherInformation.main.humidity.ToString() + "%");
-        }
+        }*/
 
     }
 }
