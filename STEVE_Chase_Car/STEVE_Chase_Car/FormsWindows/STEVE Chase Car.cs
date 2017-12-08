@@ -36,29 +36,42 @@ namespace STEVE_Chase_Car
             mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
 
-            
+            openGraphForm();
         }
 
-        /*public void updateSolarLables(string date, 
-                                      string sunAltitude, 
-                                      string sunDirection, 
-                                      string sunDistance, 
-                                      string sunRise, 
-                                      string sunSet, 
-                                      string solar_noon)
-        {        
-            lbCurrentTime.Text = date;
-            lbSunAltitude.Text = sunAltitude;
-            lbSunDirection.Text = sunDirection;
-            lbSunDistance.Text = sunDistance;
-            lbSunrise.Text = "Sunrise: " + sunRise;
-            lbSunset.Text = "Sunset: " + sunSet;
 
-            lbSunrisePicture.Text = sunRise;
-            lbSunsetPicture.Text = sunSet;
-            lbMeridianPicture.Text = solar_noon;
-        }*/
-        private void updateSolarLables(float latitude, float longitude, DateTime? date = null)
+        void openGraphForm()
+         {
+             ChartView embeddedForm = new ChartView();
+             embeddedForm.TopLevel = false;
+             solarCellsPanel.Controls.Add(embeddedForm);
+             embeddedForm.FormBorderStyle = FormBorderStyle.None;
+             embeddedForm.Height = solarCellsPanel.Height;
+             embeddedForm.Width = solarCellsPanel.Width;
+    
+             embeddedForm.Show();
+         }
+
+    /*public void updateSolarLables(string date, 
+                                  string sunAltitude, 
+                                  string sunDirection, 
+                                  string sunDistance, 
+                                  string sunRise, 
+                                  string sunSet, 
+                                  string solar_noon)
+    {        
+        lbCurrentTime.Text = date;
+        lbSunAltitude.Text = sunAltitude;
+        lbSunDirection.Text = sunDirection;
+        lbSunDistance.Text = sunDistance;
+        lbSunrise.Text = "Sunrise: " + sunRise;
+        lbSunset.Text = "Sunset: " + sunSet;
+
+        lbSunrisePicture.Text = sunRise;
+        lbSunsetPicture.Text = sunSet;
+        lbMeridianPicture.Text = solar_noon;
+    }*/
+    private void updateSolarLables(float latitude, float longitude, DateTime? date = null)
         {
             SolarInformation solar = new SolarInfoService().GetSolarInfo(-12.4258916f, 130.8632683f);
             String notAvailable = "N/A";
