@@ -72,6 +72,10 @@
             this.chartTreeView = new System.Windows.Forms.TreeView();
             this.bMSPDO2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bMS_PDO2TableAdapter = new STEVE_Chase_Car.STEVE_DatabaseDataSetTableAdapters.BMS_PDO2TableAdapter();
+            this.btnBmsPdo1 = new System.Windows.Forms.Button();
+            this.btnBmsPdo2 = new System.Windows.Forms.Button();
+            this.btnMotorFrame0 = new System.Windows.Forms.Button();
+            this.btnMotorFrame1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.databaseChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTEVE_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTEVEDatabaseDataSetBindingSource)).BeginInit();
@@ -87,15 +91,16 @@
             this.databaseChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.databaseChart.Legends.Add(legend1);
-            this.databaseChart.Location = new System.Drawing.Point(206, 2);
+            this.databaseChart.Location = new System.Drawing.Point(12, 69);
             this.databaseChart.Name = "databaseChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.databaseChart.Series.Add(series1);
-            this.databaseChart.Size = new System.Drawing.Size(616, 527);
+            this.databaseChart.Size = new System.Drawing.Size(616, 460);
             this.databaseChart.TabIndex = 0;
             this.databaseChart.Text = "chart1";
+            this.databaseChart.Click += new System.EventHandler(this.databaseChart_Click);
             this.databaseChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.databaseChart_MouseMove);
             // 
             // sTEVE_DatabaseDataSet
@@ -110,7 +115,7 @@
             // 
             // chartTreeView
             // 
-            this.chartTreeView.Location = new System.Drawing.Point(13, 13);
+            this.chartTreeView.Location = new System.Drawing.Point(635, 69);
             this.chartTreeView.Name = "chartTreeView";
             treeNode1.Checked = true;
             treeNode1.Name = "minVolt";
@@ -169,11 +174,53 @@
             // 
             this.bMS_PDO2TableAdapter.ClearBeforeFill = true;
             // 
+            // btnBmsPdo1
+            // 
+            this.btnBmsPdo1.Location = new System.Drawing.Point(23, 27);
+            this.btnBmsPdo1.Name = "btnBmsPdo1";
+            this.btnBmsPdo1.Size = new System.Drawing.Size(75, 23);
+            this.btnBmsPdo1.TabIndex = 5;
+            this.btnBmsPdo1.Text = "BMS PDO1";
+            this.btnBmsPdo1.UseVisualStyleBackColor = true;
+            this.btnBmsPdo1.Click += new System.EventHandler(this.btnBmsPdo1_Click);
+            // 
+            // btnBmsPdo2
+            // 
+            this.btnBmsPdo2.Location = new System.Drawing.Point(155, 27);
+            this.btnBmsPdo2.Name = "btnBmsPdo2";
+            this.btnBmsPdo2.Size = new System.Drawing.Size(75, 23);
+            this.btnBmsPdo2.TabIndex = 6;
+            this.btnBmsPdo2.Text = "BMS PDO2";
+            this.btnBmsPdo2.UseVisualStyleBackColor = true;
+            this.btnBmsPdo2.Click += new System.EventHandler(this.btnBmsPdo2_Click);
+            // 
+            // btnMotorFrame0
+            // 
+            this.btnMotorFrame0.Location = new System.Drawing.Point(288, 27);
+            this.btnMotorFrame0.Name = "btnMotorFrame0";
+            this.btnMotorFrame0.Size = new System.Drawing.Size(100, 23);
+            this.btnMotorFrame0.TabIndex = 7;
+            this.btnMotorFrame0.Text = "Motor Frame 0";
+            this.btnMotorFrame0.UseVisualStyleBackColor = true;
+            // 
+            // btnMotorFrame1
+            // 
+            this.btnMotorFrame1.Location = new System.Drawing.Point(422, 27);
+            this.btnMotorFrame1.Name = "btnMotorFrame1";
+            this.btnMotorFrame1.Size = new System.Drawing.Size(94, 23);
+            this.btnMotorFrame1.TabIndex = 8;
+            this.btnMotorFrame1.Text = "Motor Frame 1";
+            this.btnMotorFrame1.UseVisualStyleBackColor = true;
+            // 
             // ChartView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 541);
+            this.Controls.Add(this.btnMotorFrame1);
+            this.Controls.Add(this.btnMotorFrame0);
+            this.Controls.Add(this.btnBmsPdo2);
+            this.Controls.Add(this.btnBmsPdo1);
             this.Controls.Add(this.chartTreeView);
             this.Controls.Add(this.databaseChart);
             this.Name = "ChartView";
@@ -194,5 +241,9 @@
         private System.Windows.Forms.TreeView chartTreeView;
         private System.Windows.Forms.BindingSource bMSPDO2BindingSource;
         private STEVE_DatabaseDataSetTableAdapters.BMS_PDO2TableAdapter bMS_PDO2TableAdapter;
+        private System.Windows.Forms.Button btnBmsPdo1;
+        private System.Windows.Forms.Button btnBmsPdo2;
+        private System.Windows.Forms.Button btnMotorFrame0;
+        private System.Windows.Forms.Button btnMotorFrame1;
     }
 }

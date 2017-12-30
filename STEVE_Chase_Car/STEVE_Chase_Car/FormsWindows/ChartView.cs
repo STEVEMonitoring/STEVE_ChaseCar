@@ -78,7 +78,6 @@ namespace STEVE_Chase_Car.FormsWindows
                 databaseChart.Series[data].BorderWidth = 5;
                 databaseChart.DataSource = table;
                 databaseChart.DataBind();
-
             }
             catch (Exception e)
             {
@@ -153,6 +152,71 @@ namespace STEVE_Chase_Car.FormsWindows
                     }
                 }
             }
+        }
+
+        private void btnBmsPdo1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string data1 = "volt";
+                string data2 = "current";
+                string data3 = "minVolt";
+                string data4 = "maxVolt";
+                string dataSource = "BMS_PDO1";
+
+                // Specify a connection string. Replace the given value with a 
+                // valid connection string for a Northwind SQL Server sample
+                // database accessible to your system.
+                String connectionString = "server=.\\SQLEXPRESS;Trusted_Connection=yes;database=STEVE_database;connection timeout=5;";
+
+                String selectCommand = "select Time, [" + data1 + "]," + "[" + data2 + "]," + "[" + data3 + "]," + "[" + data4 + "]" + " from " + dataSource;
+
+                // Create a new data adapter based on the specified query.
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
+
+                DataTable table = new DataTable();
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                dataAdapter.Fill(table);
+
+                sTEVEDatabaseDataSetBindingSource.DataSource = table;
+
+                databaseChart.Series.RemoveAt(0);
+
+                addSeries(data1);
+                addSeries(data2);
+                addSeries(data3);
+                addSeries(data4);
+
+                databaseChart.ChartAreas[0].AxisY.LabelStyle.Format = "#.##";
+                databaseChart.DataSource = table;
+                databaseChart.DataBind();
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+        }
+
+        private void addSeries(string name)
+        {
+            databaseChart.Legends.Add(name);
+            databaseChart.Series.Add(name);
+            databaseChart.Series[name].XValueMember = "Time";
+            databaseChart.Series[name].YValueMembers = name;
+            databaseChart.Series[name].ChartType = SeriesChartType.Line;
+            databaseChart.Series[name].BorderWidth = 5;
+        }
+
+        private void btnBmsPdo2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void databaseChart_Click(object sender, EventArgs e)
+        {
+            this.databaseChart.ChartAreas[0].AxisX.ScaleView.ZoomReset();
+            this.databaseChart.ChartAreas[0].AxisY.ScaleView.ZoomReset();
         }
     }
 }
