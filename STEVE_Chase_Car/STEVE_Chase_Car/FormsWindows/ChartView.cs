@@ -17,10 +17,12 @@ using System.Windows.Forms.VisualStyles;
 
 namespace STEVE_Chase_Car.FormsWindows
 {
+
     public partial class ChartView : Form
     {
 
         public DatabaseControls DbControls;
+        private string chartData,dataSource;
 
         private ArrayList chartList = new ArrayList();
         Point? prevPosition = null;
@@ -32,68 +34,6 @@ namespace STEVE_Chase_Car.FormsWindows
             InitializeComponent();
             databaseChart.Legends.Clear();
             ZoomToggle(true);
-        }
-
-        private void chartInit()
-        {
-            
-        }
-
-
-        private void nodeClick()
-        {
-
-        }
-
-
-
-        private void loadGraphData(string data)
-        {
-            try
-            {
-                this.databaseChart.ChartAreas[0].AxisX.ScaleView.ZoomReset();
-                this.databaseChart.ChartAreas[0].AxisY.ScaleView.ZoomReset();
-
-                // Specify a connection string. Replace the given value with a 
-                // valid connection string for a Northwind SQL Server sample
-                // database accessible to your system.
-                String connectionString = "server=.\\SQLEXPRESS;Trusted_Connection=yes;database=STEVE_database;connection timeout=5;";
-
-                String selectCommand = "select Time, [" + data + "]" + " from " + chartTreeView.SelectedNode.Parent.Text;
-
-                // Create a new data adapter based on the specified query.
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
-
-                DataTable table = new DataTable();
-                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                dataAdapter.Fill(table);
-                sTEVEDatabaseDataSetBindingSource.DataSource = table;
-
-                databaseChart.Series.RemoveAt(0);
-
-                databaseChart.Series.Add(data);
-                databaseChart.Series[data].XValueMember = "Time";
-                databaseChart.Series[data].YValueMembers = data;
-                databaseChart.Series[data].ChartType = SeriesChartType.Line;
-                databaseChart.Series[data].BorderWidth = 5;
-                databaseChart.DataSource = table;
-                databaseChart.DataBind();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-           
-
-        }
-
-        private void chartTreeView_DoubleClick(object sender, EventArgs e)
-        {
-            if(chartTreeView.SelectedNode.Nodes.Count == 0)
-            {
-                loadGraphData(this.chartTreeView.SelectedNode.Name.ToString());
-            }
-            
         }
 
         private void ZoomToggle(bool Enabled)
@@ -154,42 +94,48 @@ namespace STEVE_Chase_Car.FormsWindows
             }
         }
 
-        private void btnBmsPdo1_Click(object sender, EventArgs e)
+
+
+        private void updateChart()
         {
             try
             {
-                string data1 = "volt";
-                string data2 = "current";
-                string data3 = "minVolt";
-                string data4 = "maxVolt";
-                string dataSource = "BMS_PDO1";
+                string[] seriesData = chartData.Split('[', ']');
 
-                // Specify a connection string. Replace the given value with a 
-                // valid connection string for a Northwind SQL Server sample
-                // database accessible to your system.
-                String connectionString = "server=.\\SQLEXPRESS;Trusted_Connection=yes;database=STEVE_database;connection timeout=5;";
+                databaseChart.Legends.Clear();
+                databaseChart.Series.Clear();
+                if (seriesData.Length > 1)
+                {
 
-                String selectCommand = "select Time, [" + data1 + "]," + "[" + data2 + "]," + "[" + data3 + "]," + "[" + data4 + "]" + " from " + dataSource;
+                    // Specify a connection string. Replace the given value with a 
+                    // valid connection string for a Northwind SQL Server sample
+                    // database accessible to your system.
+                    String connectionString = "server=.\\SQLEXPRESS;Trusted_Connection=yes;database=STEVE_database;connection timeout=5;";
 
-                // Create a new data adapter based on the specified query.
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand, connectionString);
+                    //String selectCommand = chartData;   //[" + data1 + "]," + "[" + data2 + "]," + "[" + data3 + "]," + "[" + data4 + "]" + " from " + dataSource;
 
-                DataTable table = new DataTable();
-                table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                dataAdapter.Fill(table);
+                    // Create a new data adapter based on the specified query.
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(chartData, connectionString);
 
-                sTEVEDatabaseDataSetBindingSource.DataSource = table;
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
 
-                databaseChart.Series.RemoveAt(0);
+                    sTEVEDatabaseDataSetBindingSource.DataSource = table;
 
-                addSeries(data1);
-                addSeries(data2);
-                addSeries(data3);
-                addSeries(data4);
 
-                databaseChart.ChartAreas[0].AxisY.LabelStyle.Format = "#.##";
-                databaseChart.DataSource = table;
-                databaseChart.DataBind();
+                    for (int ii = 1; ii < seriesData.Length - 1; ii++)
+                    {
+                        if (seriesData[ii] != ",")
+                        {
+                            addSeries(seriesData[ii]);
+                        }                     
+                    }
+
+                    databaseChart.ChartAreas[0].AxisY.LabelStyle.Format = "#.##";
+                    databaseChart.DataSource = table;
+                    databaseChart.DataBind();
+                }
 
             }
             catch (Exception ee)
@@ -197,6 +143,7 @@ namespace STEVE_Chase_Car.FormsWindows
                 MessageBox.Show(ee.Message);
             }
         }
+
 
         private void addSeries(string name)
         {
@@ -208,15 +155,76 @@ namespace STEVE_Chase_Car.FormsWindows
             databaseChart.Series[name].BorderWidth = 5;
         }
 
+        private void btnBmsPdo1_Click(object sender, EventArgs e)
+        {
+            databaseChart.Legends.Clear();
+            databaseChart.Series.Clear();
+            dataSource = "BMS_PDO1";
+            clbChartChoice.Items.Clear();
+            clbChartChoice.Items.Add("volt");
+            clbChartChoice.Items.Add("current");
+            clbChartChoice.Items.Add("minVolt");
+            clbChartChoice.Items.Add("maxVolt");
+        }
+
         private void btnBmsPdo2_Click(object sender, EventArgs e)
         {
-
+            databaseChart.Legends.Clear();
+            databaseChart.Series.Clear();
+            dataSource = "BMS_PDO2";
+            clbChartChoice.Items.Clear();
+            clbChartChoice.Items.Add("minTemp");
+            clbChartChoice.Items.Add("maxTemp");
         }
+
+        private void btnMotorFrame0_Click(object sender, EventArgs e)
+        {
+            databaseChart.Legends.Clear();
+            databaseChart.Series.Clear();
+            dataSource = "MotorFrame0";
+            clbChartChoice.Items.Clear();
+            clbChartChoice.Items.Add("batteryVoltage");
+            clbChartChoice.Items.Add("motorCurrentPeakAvrage");
+            clbChartChoice.Items.Add("fetTemp");
+            clbChartChoice.Items.Add("motorRotationSpeed");
+            clbChartChoice.Items.Add("PWMduty");
+            clbChartChoice.Items.Add("leadAngle");
+        }
+
+        private void btnMotorFrame1_Click(object sender, EventArgs e)
+        {
+            databaseChart.Legends.Clear();
+            databaseChart.Series.Clear();
+            dataSource = "MotorFrame1";
+            clbChartChoice.Items.Clear();
+            clbChartChoice.Items.Add("accelerationPos");
+            clbChartChoice.Items.Add("regenerationVrPos");
+            clbChartChoice.Items.Add("outputTargetVal");
+        }
+
+        private void clbChartChoice_MouseUp(object sender, MouseEventArgs e)
+        {
+            chartData = "select Time";
+            for (int i = 0; i < clbChartChoice.Items.Count; i++)
+            {
+                if (clbChartChoice.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    chartData = chartData + "," + "[" + (string)clbChartChoice.Items[i] + "]";
+                }
+            }
+            chartData = chartData + " from " + dataSource;
+            updateChart();
+        }
+
 
         private void databaseChart_Click(object sender, EventArgs e)
         {
             this.databaseChart.ChartAreas[0].AxisX.ScaleView.ZoomReset();
             this.databaseChart.ChartAreas[0].AxisY.ScaleView.ZoomReset();
         }
+
+ 
+
+
     }
 }
