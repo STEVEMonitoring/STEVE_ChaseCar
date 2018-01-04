@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.databaseChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sTEVE_DatabaseDataSet = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
             this.sTEVEDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,16 +53,16 @@
             this.databaseChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "ChartArea1";
-            this.databaseChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.databaseChart.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.databaseChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.databaseChart.Legends.Add(legend1);
             this.databaseChart.Location = new System.Drawing.Point(12, 69);
             this.databaseChart.Name = "databaseChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.databaseChart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.databaseChart.Series.Add(series1);
             this.databaseChart.Size = new System.Drawing.Size(616, 460);
             this.databaseChart.TabIndex = 0;
             this.databaseChart.Text = "chart1";
@@ -90,7 +90,7 @@
             // 
             // btnBmsPdo1
             // 
-            this.btnBmsPdo1.Location = new System.Drawing.Point(23, 27);
+            this.btnBmsPdo1.Location = new System.Drawing.Point(12, 27);
             this.btnBmsPdo1.Name = "btnBmsPdo1";
             this.btnBmsPdo1.Size = new System.Drawing.Size(75, 23);
             this.btnBmsPdo1.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // btnBmsPdo2
             // 
-            this.btnBmsPdo2.Location = new System.Drawing.Point(155, 27);
+            this.btnBmsPdo2.Location = new System.Drawing.Point(169, 27);
             this.btnBmsPdo2.Name = "btnBmsPdo2";
             this.btnBmsPdo2.Size = new System.Drawing.Size(75, 23);
             this.btnBmsPdo2.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             // btnMotorFrame0
             // 
-            this.btnMotorFrame0.Location = new System.Drawing.Point(288, 27);
+            this.btnMotorFrame0.Location = new System.Drawing.Point(340, 27);
             this.btnMotorFrame0.Name = "btnMotorFrame0";
             this.btnMotorFrame0.Size = new System.Drawing.Size(100, 23);
             this.btnMotorFrame0.TabIndex = 7;
@@ -120,7 +120,7 @@
             // 
             // btnMotorFrame1
             // 
-            this.btnMotorFrame1.Location = new System.Drawing.Point(422, 27);
+            this.btnMotorFrame1.Location = new System.Drawing.Point(534, 27);
             this.btnMotorFrame1.Name = "btnMotorFrame1";
             this.btnMotorFrame1.Size = new System.Drawing.Size(94, 23);
             this.btnMotorFrame1.TabIndex = 8;
