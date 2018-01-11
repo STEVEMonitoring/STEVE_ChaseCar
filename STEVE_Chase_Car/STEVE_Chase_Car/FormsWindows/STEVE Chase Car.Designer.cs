@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainScreenTabControl = new System.Windows.Forms.TabControl();
-            this.Overview = new System.Windows.Forms.TabPage();
             this.Speed = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbCurrentSpeed = new System.Windows.Forms.Label();
@@ -102,7 +101,7 @@
             this.TBserver = new System.Windows.Forms.TextBox();
             this.TBdatabase = new System.Windows.Forms.TextBox();
             this.testBTN = new System.Windows.Forms.Button();
-            this.timer_rec = new System.Windows.Forms.Timer(this.components);
+            this.timer_rec_can = new System.Windows.Forms.Timer(this.components);
             this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,9 +116,17 @@
             this.databaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_DatabaseDataSetTableAdapters.BMS_PDO1TableAdapter();
-            this.solarCellsPanel = new System.Windows.Forms.Panel();
+            this.graphPanel = new System.Windows.Forms.Panel();
+            this.Overview = new System.Windows.Forms.TabPage();
+            this.lbBatteryVoltage = new System.Windows.Forms.Label();
+            this.lbBatteryCurrent = new System.Windows.Forms.Label();
+            this.lbCharge = new System.Windows.Forms.Label();
+            this.lbTemp = new System.Windows.Forms.Label();
+            this.lbCurrentPeak = new System.Windows.Forms.Label();
+            this.lbCellBalance = new System.Windows.Forms.Label();
+            this.timerUpdateLables = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdateWeatherSun = new System.Windows.Forms.Timer(this.components);
             this.mainScreenTabControl.SuspendLayout();
-            this.Overview.SuspendLayout();
             this.Speed.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -146,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.mainScreenMenuStrip.SuspendLayout();
+            this.Overview.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainScreenTabControl
@@ -162,23 +170,12 @@
             this.mainScreenTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.mainScreenTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.mainScreenTabControl.ItemSize = new System.Drawing.Size(185, 32);
-            this.mainScreenTabControl.Location = new System.Drawing.Point(2, 26);
+            this.mainScreenTabControl.Location = new System.Drawing.Point(2, 27);
             this.mainScreenTabControl.Name = "mainScreenTabControl";
             this.mainScreenTabControl.Padding = new System.Drawing.Point(50, 10);
             this.mainScreenTabControl.SelectedIndex = 0;
             this.mainScreenTabControl.Size = new System.Drawing.Size(1093, 646);
             this.mainScreenTabControl.TabIndex = 16;
-            // 
-            // Overview
-            // 
-            this.Overview.Controls.Add(this.solarCellsPanel);
-            this.Overview.Location = new System.Drawing.Point(4, 36);
-            this.Overview.Name = "Overview";
-            this.Overview.Padding = new System.Windows.Forms.Padding(3);
-            this.Overview.Size = new System.Drawing.Size(1085, 606);
-            this.Overview.TabIndex = 0;
-            this.Overview.Text = "SOLAR CELLS";
-            this.Overview.UseVisualStyleBackColor = true;
             // 
             // Speed
             // 
@@ -275,6 +272,9 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.lbCharge);
+            this.panel5.Controls.Add(this.lbBatteryCurrent);
+            this.panel5.Controls.Add(this.lbBatteryVoltage);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.lbStateOfCharge);
             this.panel5.Location = new System.Drawing.Point(-2, 0);
@@ -308,6 +308,9 @@
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.panel6.Controls.Add(this.lbCellBalance);
+            this.panel6.Controls.Add(this.lbCurrentPeak);
+            this.panel6.Controls.Add(this.lbTemp);
             this.panel6.Controls.Add(this.pictureBox7);
             this.panel6.Controls.Add(this.lbBatteryHealth);
             this.panel6.Location = new System.Drawing.Point(531, 0);
@@ -963,10 +966,10 @@
             this.testBTN.UseVisualStyleBackColor = true;
             this.testBTN.Click += new System.EventHandler(this.testBTN_Click);
             // 
-            // timer_rec
+            // timer_rec_can
             // 
-            this.timer_rec.Interval = 500;
-            this.timer_rec.Tick += new System.EventHandler(this.timer_rec_Tick);
+            this.timer_rec_can.Interval = 500;
+            this.timer_rec_can.Tick += new System.EventHandler(this.timer_rec_Tick);
             // 
             // stevE_DatabaseDataSet1
             // 
@@ -1022,7 +1025,7 @@
             this.cANToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.communicationToolStripMenuItem});
             this.cANToolStripMenuItem.Name = "cANToolStripMenuItem";
-            this.cANToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.cANToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cANToolStripMenuItem.Text = "CAN";
             // 
             // communicationToolStripMenuItem
@@ -1036,7 +1039,7 @@
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rawViewToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // rawViewToolStripMenuItem
@@ -1073,13 +1076,91 @@
             // 
             this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
             // 
-            // solarCellsPanel
+            // graphPanel
             // 
-            this.solarCellsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.solarCellsPanel.Location = new System.Drawing.Point(3, 3);
-            this.solarCellsPanel.Name = "solarCellsPanel";
-            this.solarCellsPanel.Size = new System.Drawing.Size(1079, 600);
-            this.solarCellsPanel.TabIndex = 0;
+            this.graphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphPanel.Location = new System.Drawing.Point(3, 3);
+            this.graphPanel.Name = "graphPanel";
+            this.graphPanel.Size = new System.Drawing.Size(1079, 600);
+            this.graphPanel.TabIndex = 0;
+            // 
+            // Overview
+            // 
+            this.Overview.Controls.Add(this.graphPanel);
+            this.Overview.Location = new System.Drawing.Point(4, 36);
+            this.Overview.Name = "Overview";
+            this.Overview.Padding = new System.Windows.Forms.Padding(3);
+            this.Overview.Size = new System.Drawing.Size(1085, 606);
+            this.Overview.TabIndex = 0;
+            this.Overview.Text = "Graph";
+            this.Overview.UseVisualStyleBackColor = true;
+            // 
+            // lbBatteryVoltage
+            // 
+            this.lbBatteryVoltage.AutoSize = true;
+            this.lbBatteryVoltage.Location = new System.Drawing.Point(144, 331);
+            this.lbBatteryVoltage.Name = "lbBatteryVoltage";
+            this.lbBatteryVoltage.Size = new System.Drawing.Size(125, 17);
+            this.lbBatteryVoltage.TabIndex = 4;
+            this.lbBatteryVoltage.Text = "Battery Voltage:";
+            // 
+            // lbBatteryCurrent
+            // 
+            this.lbBatteryCurrent.AutoSize = true;
+            this.lbBatteryCurrent.Location = new System.Drawing.Point(144, 375);
+            this.lbBatteryCurrent.Name = "lbBatteryCurrent";
+            this.lbBatteryCurrent.Size = new System.Drawing.Size(124, 17);
+            this.lbBatteryCurrent.TabIndex = 5;
+            this.lbBatteryCurrent.Text = "Battery Current:";
+            // 
+            // lbCharge
+            // 
+            this.lbCharge.AutoSize = true;
+            this.lbCharge.Location = new System.Drawing.Point(144, 420);
+            this.lbCharge.Name = "lbCharge";
+            this.lbCharge.Size = new System.Drawing.Size(125, 17);
+            this.lbCharge.TabIndex = 6;
+            this.lbCharge.Text = "State of charge:";
+            // 
+            // lbTemp
+            // 
+            this.lbTemp.AutoSize = true;
+            this.lbTemp.ForeColor = System.Drawing.Color.White;
+            this.lbTemp.Location = new System.Drawing.Point(194, 331);
+            this.lbTemp.Name = "lbTemp";
+            this.lbTemp.Size = new System.Drawing.Size(106, 17);
+            this.lbTemp.TabIndex = 7;
+            this.lbTemp.Text = "Temperature:";
+            // 
+            // lbCurrentPeak
+            // 
+            this.lbCurrentPeak.AutoSize = true;
+            this.lbCurrentPeak.ForeColor = System.Drawing.Color.White;
+            this.lbCurrentPeak.Location = new System.Drawing.Point(136, 375);
+            this.lbCurrentPeak.Name = "lbCurrentPeak";
+            this.lbCurrentPeak.Size = new System.Drawing.Size(164, 17);
+            this.lbCurrentPeak.TabIndex = 8;
+            this.lbCurrentPeak.Text = "Current Peak Avrage:";
+            // 
+            // lbCellBalance
+            // 
+            this.lbCellBalance.AutoSize = true;
+            this.lbCellBalance.ForeColor = System.Drawing.Color.White;
+            this.lbCellBalance.Location = new System.Drawing.Point(197, 420);
+            this.lbCellBalance.Name = "lbCellBalance";
+            this.lbCellBalance.Size = new System.Drawing.Size(103, 17);
+            this.lbCellBalance.TabIndex = 9;
+            this.lbCellBalance.Text = "Cell Balance:";
+            // 
+            // timerUpdateLables
+            // 
+            this.timerUpdateLables.Interval = 1000;
+            this.timerUpdateLables.Tick += new System.EventHandler(this.timerUpdateLables_Tick);
+            // 
+            // timerUpdateWeatherSun
+            // 
+            this.timerUpdateWeatherSun.Interval = 300000;
+            this.timerUpdateWeatherSun.Tick += new System.EventHandler(this.updateWeatherSun_Tick);
             // 
             // Form1
             // 
@@ -1097,8 +1178,8 @@
             this.Text = "JU SOLAR TEAM";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.mainScreenTabControl.ResumeLayout(false);
-            this.Overview.ResumeLayout(false);
             this.Speed.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1135,6 +1216,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.mainScreenMenuStrip.ResumeLayout(false);
             this.mainScreenMenuStrip.PerformLayout();
+            this.Overview.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1142,7 +1224,6 @@
 
         #endregion
         private System.Windows.Forms.TabControl mainScreenTabControl;
-        private System.Windows.Forms.TabPage Overview;
         private System.Windows.Forms.TabPage Speed;
         private System.Windows.Forms.TabPage Battery;
         private System.Windows.Forms.TabPage Weather;
@@ -1155,7 +1236,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loadDataBTN;
         private System.Windows.Forms.TabPage solarLocation;
-        public System.Windows.Forms.Timer timer_rec;
+        public System.Windows.Forms.Timer timer_rec_can;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button dev_CANalyst_btnConnect;
         private System.Windows.Forms.Button dev_CANalyst_btnDisconnect;
@@ -1228,7 +1309,16 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label lbBatteryHealth;
         private STEVE_DatabaseDataSetTableAdapters.BMS_PDO1TableAdapter bmS_PDO1TableAdapter1;
-        private System.Windows.Forms.Panel solarCellsPanel;
+        private System.Windows.Forms.TabPage Overview;
+        private System.Windows.Forms.Panel graphPanel;
+        private System.Windows.Forms.Label lbCharge;
+        private System.Windows.Forms.Label lbBatteryCurrent;
+        private System.Windows.Forms.Label lbBatteryVoltage;
+        private System.Windows.Forms.Label lbCellBalance;
+        private System.Windows.Forms.Label lbCurrentPeak;
+        private System.Windows.Forms.Label lbTemp;
+        private System.Windows.Forms.Timer timerUpdateLables;
+        private System.Windows.Forms.Timer timerUpdateWeatherSun;
     }
 }
 

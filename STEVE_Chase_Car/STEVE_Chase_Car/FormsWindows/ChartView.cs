@@ -184,6 +184,7 @@ namespace STEVE_Chase_Car.FormsWindows
             dataSource = "MotorFrame0";
             clbChartChoice.Items.Clear();
             clbChartChoice.Items.Add("batteryVoltage");
+            clbChartChoice.Items.Add("batteryCurrent");
             clbChartChoice.Items.Add("motorCurrentPeakAvrage");
             clbChartChoice.Items.Add("fetTemp");
             clbChartChoice.Items.Add("motorRotationSpeed");

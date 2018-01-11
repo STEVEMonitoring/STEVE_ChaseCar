@@ -18,6 +18,7 @@ namespace STEVE_Chase_Car
     {
         static public Form1 instance;
         private CANinterfaceControls canControls = new CANinterfaceControls();
+        ChartView embeddedFormChart = new ChartView();
 
         public DatabaseControls mainScreenDbControl { get; set; }
         private bool connected = false;
@@ -30,47 +31,37 @@ namespace STEVE_Chase_Car
         public Form1()
         {
             InitializeComponent();
-            timer_rec.Enabled = true;
             connected = true;
             
             mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
 
+            /* Opens a graph window */
             openGraphForm();
+
+            /* Init all lables and timers */
+            //canControls.TimerTickEvent();
+            updateWeatherLables(12.4258916f, 130.8632683f);
+            updateSolarLables(12.4258916f, 130.8632683f);
+
+            timerUpdateLables.Enabled = true;
+            timerUpdateWeatherSun.Enabled = true;
+            timer_rec_can.Enabled = true;
         }
 
 
         void openGraphForm()
          {
-             ChartView embeddedForm = new ChartView();
-             embeddedForm.TopLevel = false;
-             solarCellsPanel.Controls.Add(embeddedForm);
-             embeddedForm.FormBorderStyle = FormBorderStyle.None;
-             embeddedForm.Height = solarCellsPanel.Height;
-             embeddedForm.Width = solarCellsPanel.Width;
-    
-             embeddedForm.Show();
+            embeddedFormChart.TopLevel = false;
+            graphPanel.Controls.Add(embeddedFormChart);
+            embeddedFormChart.FormBorderStyle = FormBorderStyle.None;
+            embeddedFormChart.Height = graphPanel.Height;
+            embeddedFormChart.Width = graphPanel.Width;
+
+            embeddedFormChart.Show();
          }
 
-    /*public void updateSolarLables(string date, 
-                                  string sunAltitude, 
-                                  string sunDirection, 
-                                  string sunDistance, 
-                                  string sunRise, 
-                                  string sunSet, 
-                                  string solar_noon)
-    {        
-        lbCurrentTime.Text = date;
-        lbSunAltitude.Text = sunAltitude;
-        lbSunDirection.Text = sunDirection;
-        lbSunDistance.Text = sunDistance;
-        lbSunrise.Text = "Sunrise: " + sunRise;
-        lbSunset.Text = "Sunset: " + sunSet;
 
-        lbSunrisePicture.Text = sunRise;
-        lbSunsetPicture.Text = sunSet;
-        lbMeridianPicture.Text = solar_noon;
-    }*/
     private void updateSolarLables(float latitude, float longitude, DateTime? date = null)
         {
             SolarInformation solar = new SolarInfoService().GetSolarInfo(-12.4258916f, 130.8632683f);
@@ -96,33 +87,6 @@ namespace STEVE_Chase_Car
         }
 
 
-        /*public void updateWeatherLables(string windSpeed, 
-                                        string windDirection,
-                                        string headWind,
-                                        string crossWind,
-                                        string windLevels,
-                                        string airPressure,
-                                        string uvIntensity,
-                                        string cloudiness,
-                                        string weather,
-                                        string rain,
-                                        string temperature,
-                                        string humidity)
-        {
-            lbWindspeed.Text = windSpeed;
-            lbWindDirection.Text = windDirection;
-            lbHeadWind.Text = headWind;
-            lbCrossWind.Text = crossWind;
-            lbWindLevels.Text = windLevels;
-            lbAirPressure.Text = airPressure;
-
-            lbUvIntensity.Text = uvIntensity;
-            lbCloudiness.Text = cloudiness;
-            lbWeather.Text = weather;
-            lbRainFall.Text = rain;
-            lbCurrentTemp.Text = temperature;
-            lbHumidity.Text = humidity;
-        }*/
         private void updateWeatherLables(float latitude, float longitude)
         {
             WeatherInformation weather = new WeatherInfoService().GetWeatherInfo(-12.4258916f, 130.8632683f);
@@ -140,6 +104,20 @@ namespace STEVE_Chase_Car
             lbRainFall.Text = "Rainfall: " + (weather.rain != null ? weather.rain.__invalid_name__3h.ToString() + " mm" : "0 mm");
             lbCurrentTemp.Text = "Temperature: " + weather.main.temp.ToString() + "°C";
             lbHumidity.Text = "Humidity: " + weather.main.humidity.ToString() + "%";
+        }
+
+        private void updateBatteryLables()
+        {
+            double maxBatteryVoltage = 300;
+            double batteryVoltage = Int32.Parse(mainScreenDbControl.getDbData("SELECT batteryVoltage FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)"));
+            lbCharge.Text = "State of charge: " + Math.Round(((batteryVoltage / maxBatteryVoltage)*100), 1).ToString() + "%";
+            lbBatteryVoltage.Text = "Battery Voltage: " + batteryVoltage.ToString() + "V";
+            lbBatteryCurrent.Text = "Battery Current: " + mainScreenDbControl.getDbData("SELECT batteryCurrent FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)") + "A";
+
+            lbTemp.Text = "Temperature: " + mainScreenDbControl.getDbData("SELECT fetTemp FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)") + "°C";
+            lbCurrentPeak.Text = "Current Peak Avrage: " + mainScreenDbControl.getDbData("SELECT motorCurrentPeakAvrage FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)") + "A";
+            lbCellBalance.Text = "Cell Balance: " + "100" + "mV";
+
         }
 
         private void testBTN_Click(object sender, EventArgs e)
@@ -265,6 +243,24 @@ namespace STEVE_Chase_Car
             float darwin_latitude = -12.4258916f;
             float darwin_longitude = 130.8632683f;
             updateWeatherLables(darwin_latitude, darwin_longitude);
+            updateBatteryLables(); //TEST
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            embeddedFormChart.Height = graphPanel.Height;
+            embeddedFormChart.Width = graphPanel.Width;
+        }
+
+        private void timerUpdateLables_Tick(object sender, EventArgs e)
+        {
+            updateBatteryLables();
+        }
+
+        private void updateWeatherSun_Tick(object sender, EventArgs e)
+        {
+            updateWeatherLables(12.4258916f, 130.8632683f);
+            updateSolarLables(12.4258916f, 130.8632683f);
         }
     }
 }

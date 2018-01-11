@@ -178,5 +178,26 @@ namespace STEVE_Chase_Car.Code
             return true;
         }
 
+        public string getDbData(string queryString)
+        {
+            string data = "";
+            using (SqlConnection connection = new SqlConnection(DBconnectionSting))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = queryString;
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {            
+                    while (reader.Read())
+                    {
+                        data = data + reader[0].ToString();
+                    }
+                }
+            }
+            return data;
+        }
+
     }
 }
