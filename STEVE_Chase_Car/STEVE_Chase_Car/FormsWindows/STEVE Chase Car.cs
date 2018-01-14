@@ -150,19 +150,6 @@ namespace STEVE_Chase_Car
             //canControls.TimerTickEvent();
         }
 
-        private void rawViewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DatabaseRawView newView = new DatabaseRawView();
-            newView.DbControls = mainScreenDbControl;
-            newView.Show();
-        }
-
-        private void chartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChartView newChartView = new ChartView();
-            newChartView.DbControls = mainScreenDbControl;
-            newChartView.Show();
-        }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
@@ -216,6 +203,26 @@ namespace STEVE_Chase_Car
         {
             updateWeatherLables((float)numLat.Value, (float)numlong.Value);
             updateSolarLables((float)numLat.Value, (float)numlong.Value);
+        }
+
+        private void rawViewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DatabaseRawView newView = new DatabaseRawView();
+            newView.DbControls = mainScreenDbControl;
+            newView.Show();
+        }
+
+        private void chartToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ChartView newChartView = new ChartView();
+            newChartView.DbControls = mainScreenDbControl;
+            newChartView.Show();
+        }
+
+        private void communicationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            canCommunication canCommunication = new canCommunication();
+            canCommunication.Show();
         }
     }
 }
