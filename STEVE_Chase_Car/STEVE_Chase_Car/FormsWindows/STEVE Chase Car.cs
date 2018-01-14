@@ -47,8 +47,13 @@ namespace STEVE_Chase_Car
         public Form1()
         {
             InitializeComponent();
+            init();
+        }
+
+        public void init()
+        {
             connected = true;
-            
+
             mainScreenMenuStrip.ForeColor = Color.White;
             Form1.instance = this;
 
@@ -63,6 +68,10 @@ namespace STEVE_Chase_Car
             timerUpdateLables.Enabled = true;
             timerUpdateWeatherSun.Enabled = true;
             timer_rec_can.Enabled = true;
+
+            /* do not allow tire diameter to be > 100 or < 1 */
+            numTireDiameter.Minimum = 1;
+            numTireDiameter.Maximum = 100;
         }
 
 
@@ -136,7 +145,17 @@ namespace STEVE_Chase_Car
             lbTemp.Text = "Temperature: " + mainScreenDbControl.getDbData("SELECT fetTemp FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)") + "°C";
             lbCurrentPeak.Text = "Current Peak Avrage: " + mainScreenDbControl.getDbData("SELECT motorCurrentPeakAvrage FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)") + "A";
             lbCellBalance.Text = "Cell Balance: " + "100" + "mV";
+        }
 
+        private void updateSpeedLables()
+        {
+            int RPM = Int32.Parse(mainScreenDbControl.getDbData("SELECT motorRotationSpeed FROM MotorFrame0 WHERE ID =(SELECT MAX(id) from MotorFrame0)"));
+            lbSpeed.Text = "Current Speed: " + Math.Round(((RPM * (3.14 * (int)numTireDiameter.Value)*60)/100000), 0) + " km/h";
+            lbRecSpeed.Text = "Recommended Speed: 100 km/h";
+            lbRoadInclination.Text = "Road Inclination: 5°";
+            lbGainedEnergy.Text = "Gained Energy: -";
+            lbSolarEnergy.Text = "Solar Energy: -";
+            lbMotorConsumption.Text = "Motor Consumption: 25W";
         }
 
 
@@ -160,6 +179,7 @@ namespace STEVE_Chase_Car
         private void timerUpdateLables_Tick(object sender, EventArgs e)
         {
             updateBatteryLables();
+            updateSpeedLables();
         }
 
         private void updateWeatherSun_Tick(object sender, EventArgs e)
