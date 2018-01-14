@@ -74,9 +74,7 @@
     <Compile Include="Code\DataField.cs" />
     <Compile Include="Code\dataStructs.cs" />
     <Compile Include="Code\apiInterface.cs" />
-    <Compile Include="Code\solarInfoHandler.cs" />
     <Compile Include="Code\solarInformation.cs" />
-    <Compile Include="Code\weatherInfoHandler.cs" />
     <Compile Include="Code\weatherInformation.cs" />
     <Compile Include="Code\WebService.cs" />
     <Compile Include="FormsWindows\ChartView.cs">
