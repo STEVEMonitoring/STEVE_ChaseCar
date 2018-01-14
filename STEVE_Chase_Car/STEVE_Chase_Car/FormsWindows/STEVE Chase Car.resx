@@ -117,6 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="timer_rec_can.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="mainScreenMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>459, 17</value>
+  </metadata>
+  <metadata name="timerUpdateLables.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>824, 17</value>
+  </metadata>
+  <metadata name="timerUpdateWeatherSun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>978, 17</value>
+  </metadata>
+  <metadata name="stevE_DatabaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>274, 17</value>
+  </metadata>
+  <metadata name="bmS_PDO1TableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>631, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -524,48 +545,6 @@
         lWBRcyrB0rA502v+H+dfEPErj0AbAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        P2mOYfGyPH1yAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="pictureBoxSolarLocation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA44AAAEgCAYAAAD7fi0jAAAABGdBTUEAALGPC/xhBQAANWpJREFUeF7t
@@ -873,27 +852,6 @@
         HXWRviBIdlshuwneDP+R1N4yy/wPbuWrFqqWUPUAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="timer_rec_can.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 17</value>
-  </metadata>
-  <metadata name="stevE_DatabaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>274, 17</value>
-  </metadata>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="mainScreenMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>459, 17</value>
-  </metadata>
-  <metadata name="bmS_PDO1TableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>631, 17</value>
-  </metadata>
-  <metadata name="timerUpdateLables.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>824, 17</value>
-  </metadata>
-  <metadata name="timerUpdateWeatherSun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>978, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>
   </metadata>

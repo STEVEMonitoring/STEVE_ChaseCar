@@ -127,22 +127,22 @@ namespace STEVE_Chase_Car.Code
 
             try
             {  
-                string script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO1.sql"));
+                string script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreatePDO1.sql"));
                 executeCommand(script, myConn);
 
-                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreatePDO2.sql"));
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreatePDO2.sql"));
                 executeCommand(script, myConn);
 
-                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame0.sql"));
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreateMotorFrame0.sql"));
                 executeCommand(script, myConn);
 
-                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame1.sql"));
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreateMotorFrame1.sql"));
                 executeCommand(script, myConn);
 
-                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMotorFrame2.sql"));
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreateMotorFrame2.sql"));
                 executeCommand(script, myConn);
 
-                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\SQL Commands\CreateMPPT.sql"));
+                script = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory() + @"\\Resources\SQL Commands\CreateMPPT.sql"));
                 executeCommand(script, myConn);
 
                 myConn.Close();

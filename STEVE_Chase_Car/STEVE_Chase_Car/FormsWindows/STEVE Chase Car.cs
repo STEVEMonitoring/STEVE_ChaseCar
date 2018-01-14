@@ -11,13 +11,15 @@ using System.Data.SqlClient;
 using STEVE_Chase_Car.Code;
 using Microsoft.SqlServer.Server;
 using STEVE_Chase_Car.FormsWindows;
+using System.Globalization;
+using System.IO;
+using System.Reflection;
 
 namespace STEVE_Chase_Car
 {
     public partial class Form1 : Form
     {
         static public Form1 instance;
-        private CANinterfaceControls canControls = new CANinterfaceControls();
         ChartView embeddedFormChart = new ChartView();
 
         public DatabaseControls mainScreenDbControl { get; set; }
@@ -26,6 +28,20 @@ namespace STEVE_Chase_Car
         private string server;
         private string database;
         private int dbId = 0;
+
+
+        enum WeatherId
+        {
+            thunderS = 200,
+            thunderE = 232,
+            rainS = 300,
+            rainE = 531,
+            snowS = 600,
+            snowE = 622,
+            clear = 800,
+            cloudsS = 801,
+            cloudsE = 804
+        }
 
 
         public Form1()
@@ -41,8 +57,8 @@ namespace STEVE_Chase_Car
 
             /* Init all lables and timers */
             //canControls.TimerTickEvent();
-            updateWeatherLables(12.4258916f, 130.8632683f);
-            updateSolarLables(12.4258916f, 130.8632683f);
+            updateWeatherLables((float)numLat.Value, (float)numlong.Value);
+            updateSolarLables((float)numLat.Value, (float)numlong.Value);
 
             timerUpdateLables.Enabled = true;
             timerUpdateWeatherSun.Enabled = true;
@@ -64,7 +80,7 @@ namespace STEVE_Chase_Car
 
     private void updateSolarLables(float latitude, float longitude, DateTime? date = null)
         {
-            SolarInformation solar = new SolarInfoService().GetSolarInfo(-12.4258916f, 130.8632683f);
+            SolarInformation solar = new SolarInfoService().GetSolarInfo(latitude, longitude);
             String notAvailable = "N/A";
 
             String sunrise = solar.results.sunrise.Split('T')[1].Split('+')[0];
@@ -89,21 +105,24 @@ namespace STEVE_Chase_Car
 
         private void updateWeatherLables(float latitude, float longitude)
         {
-            WeatherInformation weather = new WeatherInfoService().GetWeatherInfo(-12.4258916f, 130.8632683f);
+            WeatherInformation weatherData = new WeatherInfoService().GetWeatherInfo(latitude, longitude);
             String notAvailable = "N/A";
-            lbWindspeed.Text = "Current wind speed: " + weather.wind.speed.ToString() + " m/s";
-            lbWindDirection.Text = "Current wind direction: " + weather.wind.deg.ToString() + "°";
+            lbWindspeed.Text = "Current wind speed: " + weatherData.wind.speed.ToString() + " m/s";
+            lbWindDirection.Text = "Current wind direction: " + weatherData.wind.deg.ToString() + "°";
             lbHeadWind.Text = "Solar car headwind: " + notAvailable;
             lbCrossWind.Text = "Solar car crosswind: " + notAvailable;
-            lbWindLevels.Text = "Estimated wind levels today: " + notAvailable;
-            lbAirPressure.Text = "Air pressure: " + weather.main.pressure.ToString() + " hPa";
+            lbAirPressure.Text = "Air pressure: " + weatherData.main.pressure.ToString() + " hPa";
 
             lbUvIntensity.Text = "UV-intensity: " + notAvailable;
-            lbCloudiness.Text = "Cloudiness: " + weather.clouds.all.ToString();
-            lbWeather.Text = "Weather: " + weather.weather[0].description;
-            lbRainFall.Text = "Rainfall: " + (weather.rain != null ? weather.rain.__invalid_name__3h.ToString() + " mm" : "0 mm");
-            lbCurrentTemp.Text = "Temperature: " + weather.main.temp.ToString() + "°C";
-            lbHumidity.Text = "Humidity: " + weather.main.humidity.ToString() + "%";
+            lbCloudiness.Text = "Cloudiness: " + weatherData.clouds.all.ToString();
+            lbWeather.Text = "Weather: " + weatherData.weather[0].description;
+            lbRainFall.Text = "Rainfall: " + (weatherData.rain != null ? weatherData.rain.__invalid_name__3h.ToString() + " mm" : "0 mm");
+            lbCurrentTemp.Text = "Temperature: " + weatherData.main.temp.ToString() + "°C";
+            lbHumidity.Text = "Humidity: " + weatherData.main.humidity.ToString() + "%";
+
+            lbLocation.Text = "Location: " + weatherData.name.ToString();
+
+            updateWeatherImage(weatherData.weather[0].id);
         }
 
         private void updateBatteryLables()
@@ -120,64 +139,6 @@ namespace STEVE_Chase_Car
 
         }
 
-        private void testBTN_Click(object sender, EventArgs e)
-        {
-
-            statusRTXB.AppendText("Creating Connection.. \n");
-            string connectionSting = "server=" + mainScreenDbControl.selectedServer + ";" +
-                                     "Trusted_Connection=yes;" +
-                                      "database=" + mainScreenDbControl.selectedDatabase + ";" +
-                                      "connection timeout=5;";
-
-
-            SqlConnection sqlConn = new SqlConnection(connectionSting);
-
-            try
-            {
-                statusRTXB.AppendText("Trying Connection.. \n");
-                sqlConn.Open();
-                sqlConn.Close();
-                statusRTXB.AppendText("Connection ok! \n");
-
-                connected = true;
-                server = TBserver.Text;
-                database = TBdatabase.Text;
-                
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Connection could not be etablished with the SQL database", "SQL Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                statusRTXB.AppendText("Connection Failed");
-                return;
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'sTEVE_databaseDataSet.BMS_PDO1' table. You can move, or remove it, as needed.
-            //this.bMS_PDO1TableAdapter.Fill(this.sTEVE_databaseDataSet.BMS_PDO1);
-
-        }
-
-        private void loadDataBTN_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!connected)
-                {
-                    throw new System.OperationCanceledException("No verified database connection.");
-                }
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.ToString(), "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            //mainScreenDbControl.DBaddData();
-
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -187,33 +148,6 @@ namespace STEVE_Chase_Car
         private void timer_rec_Tick(object sender, EventArgs e)
         {
             //canControls.TimerTickEvent();
-
-        }
-
-        private void dev_CANalyst_btnConnect_Click(object sender, EventArgs e)
-        {
-            canControls.CanConnect(0, "00000000", "FFFFFFFF", "03", "1C", 0, 0);
-            canControls.StartCan();
-        }
-
-        private void dev_CANalyst_btnDisconnect_Click(object sender, EventArgs e)
-        {
-            canControls.StopCan();
-        }
-
-        private void dev_CANalyst_btnSend_Click(object sender, EventArgs e)
-        {
-            canControls.CanTransmit(0, 0, 0x0, 0, "00 01 02 03 04 05 06 07 ");
-        }
-
-        public void dev_CANalyst_Console_Put(string text)
-        {
-            dev_CANalyst_Console.Text += text + '\n';
-        }
-
-        private void btnCreateTables_Click(object sender, EventArgs e)
-        {
-            //mainScreenDbControl.createTables();
         }
 
         private void rawViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -230,22 +164,6 @@ namespace STEVE_Chase_Car
             newChartView.Show();
         }
 
-        private void btnSunInfo_Click(object sender, EventArgs e)
-        {
-            float darwin_latitude = -12.4258916f;
-            float darwin_longitude = 130.8632683f;
-            updateSolarLables(darwin_latitude, darwin_longitude);
-
-        }
-
-        private void btnWeatherTest_Click(object sender, EventArgs e)
-        {
-            float darwin_latitude = -12.4258916f;
-            float darwin_longitude = 130.8632683f;
-            updateWeatherLables(darwin_latitude, darwin_longitude);
-            updateBatteryLables(); //TEST
-        }
-
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             embeddedFormChart.Height = graphPanel.Height;
@@ -259,8 +177,45 @@ namespace STEVE_Chase_Car
 
         private void updateWeatherSun_Tick(object sender, EventArgs e)
         {
-            updateWeatherLables(12.4258916f, 130.8632683f);
-            updateSolarLables(12.4258916f, 130.8632683f);
+            updateWeatherLables((float)numLat.Value, (float)numlong.Value);
+            updateSolarLables((float)numLat.Value, (float)numlong.Value);
+        }
+
+        private void updateWeatherImage(int id)
+        {
+            if(id == (int)WeatherId.clear) //Clear skies
+            {
+                picBoxWeather.Image = Properties.Resources.clearSkies;
+            }
+            else if (id >= (int)WeatherId.cloudsS && id <= (int)WeatherId.cloudsE) //Clouds
+            {
+                picBoxWeather.Image = Properties.Resources.cloud;
+            }
+            else if (id >= (int)WeatherId.rainS && id <= (int)WeatherId.rainE) //Rain
+            {
+                picBoxWeather.Image = Properties.Resources.Cloud_rain;
+            }
+            else if (id >= (int)WeatherId.snowS && id <= (int)WeatherId.snowE) //Snow
+            {
+                picBoxWeather.Image = Properties.Resources.snow;
+            }
+            else if (id >= (int)WeatherId.thunderS && id <= (int)WeatherId.thunderE) // Thunder
+            {
+                picBoxWeather.Image = Properties.Resources.cloud_thunder;
+            }
+            else
+            {
+                picBoxWeather.Image = Properties.Resources.cloud;
+            }
+
+           
+            //picBoxWeather.Load();
+        }
+
+        private void btnUpdateLocation_Click(object sender, EventArgs e)
+        {
+            updateWeatherLables((float)numLat.Value, (float)numlong.Value);
+            updateSolarLables((float)numLat.Value, (float)numlong.Value);
         }
     }
 }
