@@ -153,6 +153,7 @@ namespace STEVE_Chase_Car.FormsWindows
             databaseChart.Series[name].YValueMembers = name;
             databaseChart.Series[name].ChartType = SeriesChartType.Line;
             databaseChart.Series[name].BorderWidth = 5;
+            databaseChart.ChartAreas[0].AxisX.LabelStyle.Format = "yyyy-MM-dd\nHH:mm:ss";
         }
 
         private void btnBmsPdo1_Click(object sender, EventArgs e)
@@ -184,6 +185,7 @@ namespace STEVE_Chase_Car.FormsWindows
             dataSource = "MotorFrame0";
             clbChartChoice.Items.Clear();
             clbChartChoice.Items.Add("batteryVoltage");
+            clbChartChoice.Items.Add("batteryCurrent");
             clbChartChoice.Items.Add("motorCurrentPeakAvrage");
             clbChartChoice.Items.Add("fetTemp");
             clbChartChoice.Items.Add("motorRotationSpeed");

@@ -41,3 +41,5 @@ C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\S
 C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.exe
 C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.pdb
+D:\STEVE Chase Car\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.canCommunication.resources
+C:\Users\Admin\Documents\Master\Cross-dicipline\STEVE_ChaseCar\STEVE_Chase_Car\STEVE_Chase_Car\obj\Debug\STEVE_Chase_Car.FormsWindows.canCommunication.resources

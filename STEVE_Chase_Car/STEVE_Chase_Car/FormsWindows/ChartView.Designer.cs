@@ -62,6 +62,7 @@
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             this.databaseChart.Series.Add(series1);
             this.databaseChart.Size = new System.Drawing.Size(616, 460);
             this.databaseChart.TabIndex = 0;
@@ -90,42 +91,54 @@
             // 
             // btnBmsPdo1
             // 
+            this.btnBmsPdo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnBmsPdo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBmsPdo1.ForeColor = System.Drawing.Color.White;
             this.btnBmsPdo1.Location = new System.Drawing.Point(12, 27);
             this.btnBmsPdo1.Name = "btnBmsPdo1";
             this.btnBmsPdo1.Size = new System.Drawing.Size(75, 23);
             this.btnBmsPdo1.TabIndex = 5;
             this.btnBmsPdo1.Text = "BMS PDO1";
-            this.btnBmsPdo1.UseVisualStyleBackColor = true;
+            this.btnBmsPdo1.UseVisualStyleBackColor = false;
             this.btnBmsPdo1.Click += new System.EventHandler(this.btnBmsPdo1_Click);
             // 
             // btnBmsPdo2
             // 
+            this.btnBmsPdo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnBmsPdo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBmsPdo2.ForeColor = System.Drawing.Color.White;
             this.btnBmsPdo2.Location = new System.Drawing.Point(169, 27);
             this.btnBmsPdo2.Name = "btnBmsPdo2";
             this.btnBmsPdo2.Size = new System.Drawing.Size(75, 23);
             this.btnBmsPdo2.TabIndex = 6;
             this.btnBmsPdo2.Text = "BMS PDO2";
-            this.btnBmsPdo2.UseVisualStyleBackColor = true;
+            this.btnBmsPdo2.UseVisualStyleBackColor = false;
             this.btnBmsPdo2.Click += new System.EventHandler(this.btnBmsPdo2_Click);
             // 
             // btnMotorFrame0
             // 
+            this.btnMotorFrame0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnMotorFrame0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMotorFrame0.ForeColor = System.Drawing.Color.White;
             this.btnMotorFrame0.Location = new System.Drawing.Point(340, 27);
             this.btnMotorFrame0.Name = "btnMotorFrame0";
             this.btnMotorFrame0.Size = new System.Drawing.Size(100, 23);
             this.btnMotorFrame0.TabIndex = 7;
             this.btnMotorFrame0.Text = "Motor Frame 0";
-            this.btnMotorFrame0.UseVisualStyleBackColor = true;
+            this.btnMotorFrame0.UseVisualStyleBackColor = false;
             this.btnMotorFrame0.Click += new System.EventHandler(this.btnMotorFrame0_Click);
             // 
             // btnMotorFrame1
             // 
+            this.btnMotorFrame1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.btnMotorFrame1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMotorFrame1.ForeColor = System.Drawing.Color.White;
             this.btnMotorFrame1.Location = new System.Drawing.Point(534, 27);
             this.btnMotorFrame1.Name = "btnMotorFrame1";
             this.btnMotorFrame1.Size = new System.Drawing.Size(94, 23);
             this.btnMotorFrame1.TabIndex = 8;
             this.btnMotorFrame1.Text = "Motor Frame 1";
-            this.btnMotorFrame1.UseVisualStyleBackColor = true;
+            this.btnMotorFrame1.UseVisualStyleBackColor = false;
             this.btnMotorFrame1.Click += new System.EventHandler(this.btnMotorFrame1_Click);
             // 
             // clbChartChoice
@@ -136,7 +149,7 @@
             this.clbChartChoice.FormattingEnabled = true;
             this.clbChartChoice.Location = new System.Drawing.Point(634, 69);
             this.clbChartChoice.Name = "clbChartChoice";
-            this.clbChartChoice.Size = new System.Drawing.Size(188, 214);
+            this.clbChartChoice.Size = new System.Drawing.Size(188, 199);
             this.clbChartChoice.TabIndex = 9;
             this.clbChartChoice.MouseUp += new System.Windows.Forms.MouseEventHandler(this.clbChartChoice_MouseUp);
             // 
@@ -144,6 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(834, 541);
             this.Controls.Add(this.clbChartChoice);
             this.Controls.Add(this.btnMotorFrame1);

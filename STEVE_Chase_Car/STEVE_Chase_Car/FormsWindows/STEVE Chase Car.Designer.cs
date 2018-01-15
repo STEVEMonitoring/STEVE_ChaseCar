@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainScreenTabControl = new System.Windows.Forms.TabControl();
             this.Overview = new System.Windows.Forms.TabPage();
+            this.graphPanel = new System.Windows.Forms.Panel();
             this.Speed = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbCurrentSpeed = new System.Windows.Forms.Label();
@@ -41,16 +42,22 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.Battery = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbCharge = new System.Windows.Forms.Label();
+            this.lbBatteryCurrent = new System.Windows.Forms.Label();
+            this.lbBatteryVoltage = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.lbStateOfCharge = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lbCellBalance = new System.Windows.Forms.Label();
+            this.lbCurrentPeak = new System.Windows.Forms.Label();
+            this.lbTemp = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lbBatteryHealth = new System.Windows.Forms.Label();
             this.Weather = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbLocation = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbAirPressure = new System.Windows.Forms.Label();
-            this.lbWindLevels = new System.Windows.Forms.Label();
             this.lbCrossWind = new System.Windows.Forms.Label();
             this.lbHeadWind = new System.Windows.Forms.Label();
             this.lbWindDirection = new System.Windows.Forms.Label();
@@ -58,7 +65,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picBoxWeather = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lbHumidity = new System.Windows.Forms.Label();
             this.lbCurrentTemp = new System.Windows.Forms.Label();
@@ -86,28 +93,24 @@
             this.pictureBoxSolarLocation = new System.Windows.Forms.PictureBox();
             this.panelSolarLocationR = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Dev = new System.Windows.Forms.TabPage();
-            this.btnWeatherTest = new System.Windows.Forms.Button();
-            this.btnSunInfo = new System.Windows.Forms.Button();
-            this.btnCreateTables = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dev_CANalyst_Console = new System.Windows.Forms.RichTextBox();
-            this.dev_CANalyst_btnSend = new System.Windows.Forms.Button();
-            this.dev_CANalyst_btnDisconnect = new System.Windows.Forms.Button();
-            this.dev_CANalyst_btnConnect = new System.Windows.Forms.Button();
-            this.loadDataBTN = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.statusRTXB = new System.Windows.Forms.RichTextBox();
-            this.TBserver = new System.Windows.Forms.TextBox();
-            this.TBdatabase = new System.Windows.Forms.TextBox();
-            this.testBTN = new System.Windows.Forms.Button();
-            this.timer_rec = new System.Windows.Forms.Timer(this.components);
-            this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
+            this.tabSettings = new System.Windows.Forms.TabPage();
+            this.grbPosition = new System.Windows.Forms.GroupBox();
+            this.btnUpdateLocation = new System.Windows.Forms.Button();
+            this.numlong = new System.Windows.Forms.NumericUpDown();
+            this.numLat = new System.Windows.Forms.NumericUpDown();
+            this.lbLong = new System.Windows.Forms.Label();
+            this.lbLat = new System.Windows.Forms.Label();
+            this.timer_rec_can = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.helloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainScreenMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cANToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.communicationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.chartToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rawViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.communicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +119,10 @@
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.chartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerUpdateLables = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdateWeatherSun = new System.Windows.Forms.Timer(this.components);
+            this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
             this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_DatabaseDataSetTableAdapters.BMS_PDO1TableAdapter();
-            this.solarCellsPanel = new System.Windows.Forms.Panel();
             this.mainScreenTabControl.SuspendLayout();
             this.Overview.SuspendLayout();
             this.Speed.SuspendLayout();
@@ -134,18 +139,20 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxWeather)).BeginInit();
             this.solarLocation.SuspendLayout();
             this.panelSolarLocationTL.SuspendLayout();
             this.panelSolarLocationBL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolarLocation)).BeginInit();
             this.panelSolarLocationR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Dev.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
+            this.tabSettings.SuspendLayout();
+            this.grbPosition.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numlong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLat)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.mainScreenMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainScreenTabControl
@@ -158,11 +165,11 @@
             this.mainScreenTabControl.Controls.Add(this.Battery);
             this.mainScreenTabControl.Controls.Add(this.Weather);
             this.mainScreenTabControl.Controls.Add(this.solarLocation);
-            this.mainScreenTabControl.Controls.Add(this.Dev);
+            this.mainScreenTabControl.Controls.Add(this.tabSettings);
             this.mainScreenTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.mainScreenTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.mainScreenTabControl.ItemSize = new System.Drawing.Size(185, 32);
-            this.mainScreenTabControl.Location = new System.Drawing.Point(2, 26);
+            this.mainScreenTabControl.Location = new System.Drawing.Point(2, 27);
             this.mainScreenTabControl.Name = "mainScreenTabControl";
             this.mainScreenTabControl.Padding = new System.Drawing.Point(50, 10);
             this.mainScreenTabControl.SelectedIndex = 0;
@@ -171,14 +178,22 @@
             // 
             // Overview
             // 
-            this.Overview.Controls.Add(this.solarCellsPanel);
+            this.Overview.Controls.Add(this.graphPanel);
             this.Overview.Location = new System.Drawing.Point(4, 36);
             this.Overview.Name = "Overview";
             this.Overview.Padding = new System.Windows.Forms.Padding(3);
             this.Overview.Size = new System.Drawing.Size(1085, 606);
             this.Overview.TabIndex = 0;
-            this.Overview.Text = "SOLAR CELLS";
+            this.Overview.Text = "Graph";
             this.Overview.UseVisualStyleBackColor = true;
+            // 
+            // graphPanel
+            // 
+            this.graphPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphPanel.Location = new System.Drawing.Point(3, 3);
+            this.graphPanel.Name = "graphPanel";
+            this.graphPanel.Size = new System.Drawing.Size(1079, 600);
+            this.graphPanel.TabIndex = 0;
             // 
             // Speed
             // 
@@ -275,6 +290,9 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.lbCharge);
+            this.panel5.Controls.Add(this.lbBatteryCurrent);
+            this.panel5.Controls.Add(this.lbBatteryVoltage);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.lbStateOfCharge);
             this.panel5.Location = new System.Drawing.Point(-2, 0);
@@ -282,6 +300,33 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(529, 606);
             this.panel5.TabIndex = 3;
+            // 
+            // lbCharge
+            // 
+            this.lbCharge.AutoSize = true;
+            this.lbCharge.Location = new System.Drawing.Point(144, 420);
+            this.lbCharge.Name = "lbCharge";
+            this.lbCharge.Size = new System.Drawing.Size(125, 17);
+            this.lbCharge.TabIndex = 6;
+            this.lbCharge.Text = "State of charge:";
+            // 
+            // lbBatteryCurrent
+            // 
+            this.lbBatteryCurrent.AutoSize = true;
+            this.lbBatteryCurrent.Location = new System.Drawing.Point(144, 375);
+            this.lbBatteryCurrent.Name = "lbBatteryCurrent";
+            this.lbBatteryCurrent.Size = new System.Drawing.Size(124, 17);
+            this.lbBatteryCurrent.TabIndex = 5;
+            this.lbBatteryCurrent.Text = "Battery Current:";
+            // 
+            // lbBatteryVoltage
+            // 
+            this.lbBatteryVoltage.AutoSize = true;
+            this.lbBatteryVoltage.Location = new System.Drawing.Point(144, 331);
+            this.lbBatteryVoltage.Name = "lbBatteryVoltage";
+            this.lbBatteryVoltage.Size = new System.Drawing.Size(125, 17);
+            this.lbBatteryVoltage.TabIndex = 4;
+            this.lbBatteryVoltage.Text = "Battery Voltage:";
             // 
             // pictureBox8
             // 
@@ -308,6 +353,9 @@
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.panel6.Controls.Add(this.lbCellBalance);
+            this.panel6.Controls.Add(this.lbCurrentPeak);
+            this.panel6.Controls.Add(this.lbTemp);
             this.panel6.Controls.Add(this.pictureBox7);
             this.panel6.Controls.Add(this.lbBatteryHealth);
             this.panel6.Location = new System.Drawing.Point(531, 0);
@@ -315,6 +363,36 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(556, 604);
             this.panel6.TabIndex = 2;
+            // 
+            // lbCellBalance
+            // 
+            this.lbCellBalance.AutoSize = true;
+            this.lbCellBalance.ForeColor = System.Drawing.Color.White;
+            this.lbCellBalance.Location = new System.Drawing.Point(197, 420);
+            this.lbCellBalance.Name = "lbCellBalance";
+            this.lbCellBalance.Size = new System.Drawing.Size(103, 17);
+            this.lbCellBalance.TabIndex = 9;
+            this.lbCellBalance.Text = "Cell Balance:";
+            // 
+            // lbCurrentPeak
+            // 
+            this.lbCurrentPeak.AutoSize = true;
+            this.lbCurrentPeak.ForeColor = System.Drawing.Color.White;
+            this.lbCurrentPeak.Location = new System.Drawing.Point(136, 375);
+            this.lbCurrentPeak.Name = "lbCurrentPeak";
+            this.lbCurrentPeak.Size = new System.Drawing.Size(173, 17);
+            this.lbCurrentPeak.TabIndex = 8;
+            this.lbCurrentPeak.Text = "Current Peak Average:";
+            // 
+            // lbTemp
+            // 
+            this.lbTemp.AutoSize = true;
+            this.lbTemp.ForeColor = System.Drawing.Color.White;
+            this.lbTemp.Location = new System.Drawing.Point(194, 331);
+            this.lbTemp.Name = "lbTemp";
+            this.lbTemp.Size = new System.Drawing.Size(106, 17);
+            this.lbTemp.TabIndex = 7;
+            this.lbTemp.Text = "Temperature:";
             // 
             // pictureBox7
             // 
@@ -353,9 +431,9 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lbLocation);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lbAirPressure);
-            this.panel1.Controls.Add(this.lbWindLevels);
             this.panel1.Controls.Add(this.lbCrossWind);
             this.panel1.Controls.Add(this.lbHeadWind);
             this.panel1.Controls.Add(this.lbWindDirection);
@@ -367,6 +445,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(574, 605);
             this.panel1.TabIndex = 3;
+            // 
+            // lbLocation
+            // 
+            this.lbLocation.AutoSize = true;
+            this.lbLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbLocation.Location = new System.Drawing.Point(248, 332);
+            this.lbLocation.Name = "lbLocation";
+            this.lbLocation.Size = new System.Drawing.Size(74, 20);
+            this.lbLocation.TabIndex = 16;
+            this.lbLocation.Text = "Location:";
             // 
             // label9
             // 
@@ -382,27 +470,17 @@
             // 
             this.lbAirPressure.AutoSize = true;
             this.lbAirPressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbAirPressure.Location = new System.Drawing.Point(231, 482);
+            this.lbAirPressure.Location = new System.Drawing.Point(227, 481);
             this.lbAirPressure.Name = "lbAirPressure";
             this.lbAirPressure.Size = new System.Drawing.Size(95, 20);
             this.lbAirPressure.TabIndex = 7;
             this.lbAirPressure.Text = "Air Pressure";
             // 
-            // lbWindLevels
-            // 
-            this.lbWindLevels.AutoSize = true;
-            this.lbWindLevels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbWindLevels.Location = new System.Drawing.Point(159, 452);
-            this.lbWindLevels.Name = "lbWindLevels";
-            this.lbWindLevels.Size = new System.Drawing.Size(167, 20);
-            this.lbWindLevels.TabIndex = 6;
-            this.lbWindLevels.Text = "Estimated levels today";
-            // 
             // lbCrossWind
             // 
             this.lbCrossWind.AutoSize = true;
             this.lbCrossWind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbCrossWind.Location = new System.Drawing.Point(176, 421);
+            this.lbCrossWind.Location = new System.Drawing.Point(174, 450);
             this.lbCrossWind.Name = "lbCrossWind";
             this.lbCrossWind.Size = new System.Drawing.Size(150, 20);
             this.lbCrossWind.TabIndex = 5;
@@ -412,7 +490,7 @@
             // 
             this.lbHeadWind.AutoSize = true;
             this.lbHeadWind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbHeadWind.Location = new System.Drawing.Point(178, 392);
+            this.lbHeadWind.Location = new System.Drawing.Point(176, 421);
             this.lbHeadWind.Name = "lbHeadWind";
             this.lbHeadWind.Size = new System.Drawing.Size(148, 20);
             this.lbHeadWind.TabIndex = 4;
@@ -422,7 +500,7 @@
             // 
             this.lbWindDirection.AutoSize = true;
             this.lbWindDirection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbWindDirection.Location = new System.Drawing.Point(157, 361);
+            this.lbWindDirection.Location = new System.Drawing.Point(155, 390);
             this.lbWindDirection.Name = "lbWindDirection";
             this.lbWindDirection.Size = new System.Drawing.Size(169, 20);
             this.lbWindDirection.TabIndex = 3;
@@ -432,11 +510,11 @@
             // 
             this.lbWindspeed.AutoSize = true;
             this.lbWindspeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbWindspeed.Location = new System.Drawing.Point(184, 332);
+            this.lbWindspeed.Location = new System.Drawing.Point(178, 361);
             this.lbWindspeed.Name = "lbWindspeed";
-            this.lbWindspeed.Size = new System.Drawing.Size(142, 20);
+            this.lbWindspeed.Size = new System.Drawing.Size(146, 20);
             this.lbWindspeed.TabIndex = 2;
-            this.lbWindspeed.Text = "Current windspeed";
+            this.lbWindspeed.Text = "Current wind speed";
             // 
             // label7
             // 
@@ -463,7 +541,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
-            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.picBoxWeather);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.lbHumidity);
             this.panel2.Controls.Add(this.lbCurrentTemp);
@@ -477,15 +555,14 @@
             this.panel2.Size = new System.Drawing.Size(555, 614);
             this.panel2.TabIndex = 2;
             // 
-            // pictureBox3
+            // picBoxWeather
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(219, 107);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(126, 119);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
+            this.picBoxWeather.Location = new System.Drawing.Point(219, 107);
+            this.picBoxWeather.Name = "picBoxWeather";
+            this.picBoxWeather.Size = new System.Drawing.Size(126, 119);
+            this.picBoxWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxWeather.TabIndex = 8;
+            this.picBoxWeather.TabStop = false;
             // 
             // label8
             // 
@@ -791,187 +868,88 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Dev
+            // tabSettings
             // 
-            this.Dev.Controls.Add(this.btnWeatherTest);
-            this.Dev.Controls.Add(this.btnSunInfo);
-            this.Dev.Controls.Add(this.btnCreateTables);
-            this.Dev.Controls.Add(this.groupBox1);
-            this.Dev.Controls.Add(this.loadDataBTN);
-            this.Dev.Controls.Add(this.label2);
-            this.Dev.Controls.Add(this.label1);
-            this.Dev.Controls.Add(this.statusRTXB);
-            this.Dev.Controls.Add(this.TBserver);
-            this.Dev.Controls.Add(this.TBdatabase);
-            this.Dev.Controls.Add(this.testBTN);
-            this.Dev.Location = new System.Drawing.Point(4, 36);
-            this.Dev.Name = "Dev";
-            this.Dev.Size = new System.Drawing.Size(1085, 606);
-            this.Dev.TabIndex = 4;
-            this.Dev.Text = "DEV";
-            this.Dev.UseVisualStyleBackColor = true;
+            this.tabSettings.Controls.Add(this.grbPosition);
+            this.tabSettings.Location = new System.Drawing.Point(4, 36);
+            this.tabSettings.Name = "tabSettings";
+            this.tabSettings.Size = new System.Drawing.Size(1085, 606);
+            this.tabSettings.TabIndex = 4;
+            this.tabSettings.Text = "Settings";
+            this.tabSettings.UseVisualStyleBackColor = true;
             // 
-            // btnWeatherTest
+            // grbPosition
             // 
-            this.btnWeatherTest.Location = new System.Drawing.Point(150, 552);
-            this.btnWeatherTest.Name = "btnWeatherTest";
-            this.btnWeatherTest.Size = new System.Drawing.Size(109, 44);
-            this.btnWeatherTest.TabIndex = 34;
-            this.btnWeatherTest.Text = "Weather test";
-            this.btnWeatherTest.UseVisualStyleBackColor = true;
-            this.btnWeatherTest.Click += new System.EventHandler(this.btnWeatherTest_Click);
+            this.grbPosition.Controls.Add(this.btnUpdateLocation);
+            this.grbPosition.Controls.Add(this.numlong);
+            this.grbPosition.Controls.Add(this.numLat);
+            this.grbPosition.Controls.Add(this.lbLong);
+            this.grbPosition.Controls.Add(this.lbLat);
+            this.grbPosition.Location = new System.Drawing.Point(6, 3);
+            this.grbPosition.Name = "grbPosition";
+            this.grbPosition.Size = new System.Drawing.Size(238, 133);
+            this.grbPosition.TabIndex = 0;
+            this.grbPosition.TabStop = false;
+            this.grbPosition.Text = "Position";
             // 
-            // btnSunInfo
+            // btnUpdateLocation
             // 
-            this.btnSunInfo.Location = new System.Drawing.Point(6, 552);
-            this.btnSunInfo.Name = "btnSunInfo";
-            this.btnSunInfo.Size = new System.Drawing.Size(105, 44);
-            this.btnSunInfo.TabIndex = 33;
-            this.btnSunInfo.Text = "Sun Test";
-            this.btnSunInfo.UseVisualStyleBackColor = true;
-            this.btnSunInfo.Click += new System.EventHandler(this.btnSunInfo_Click);
+            this.btnUpdateLocation.Location = new System.Drawing.Point(152, 93);
+            this.btnUpdateLocation.Name = "btnUpdateLocation";
+            this.btnUpdateLocation.Size = new System.Drawing.Size(80, 34);
+            this.btnUpdateLocation.TabIndex = 4;
+            this.btnUpdateLocation.Text = "Update";
+            this.btnUpdateLocation.UseVisualStyleBackColor = true;
+            this.btnUpdateLocation.Click += new System.EventHandler(this.btnUpdateLocation_Click);
             // 
-            // btnCreateTables
+            // numlong
             // 
-            this.btnCreateTables.Location = new System.Drawing.Point(762, 281);
-            this.btnCreateTables.Name = "btnCreateTables";
-            this.btnCreateTables.Size = new System.Drawing.Size(110, 23);
-            this.btnCreateTables.TabIndex = 32;
-            this.btnCreateTables.Text = "Create Tables";
-            this.btnCreateTables.UseVisualStyleBackColor = true;
-            this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
+            this.numlong.DecimalPlaces = 5;
+            this.numlong.Location = new System.Drawing.Point(112, 64);
+            this.numlong.Name = "numlong";
+            this.numlong.Size = new System.Drawing.Size(120, 23);
+            this.numlong.TabIndex = 3;
+            this.numlong.Value = new decimal(new int[] {
+            14163330,
+            0,
+            0,
+            393216});
             // 
-            // groupBox1
+            // numLat
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.groupBox1.Controls.Add(this.dev_CANalyst_Console);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnSend);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnDisconnect);
-            this.groupBox1.Controls.Add(this.dev_CANalyst_btnConnect);
-            this.groupBox1.Location = new System.Drawing.Point(481, 376);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 210);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "dev_CANalyst";
+            this.numLat.DecimalPlaces = 5;
+            this.numLat.Location = new System.Drawing.Point(112, 27);
+            this.numLat.Name = "numLat";
+            this.numLat.Size = new System.Drawing.Size(120, 23);
+            this.numLat.TabIndex = 1;
+            this.numLat.Value = new decimal(new int[] {
+            57778353,
+            0,
+            0,
+            393216});
             // 
-            // dev_CANalyst_Console
+            // lbLong
             // 
-            this.dev_CANalyst_Console.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dev_CANalyst_Console.BackColor = System.Drawing.Color.SlateGray;
-            this.dev_CANalyst_Console.ForeColor = System.Drawing.Color.Gold;
-            this.dev_CANalyst_Console.Location = new System.Drawing.Point(87, 19);
-            this.dev_CANalyst_Console.Name = "dev_CANalyst_Console";
-            this.dev_CANalyst_Console.Size = new System.Drawing.Size(160, 184);
-            this.dev_CANalyst_Console.TabIndex = 3;
-            this.dev_CANalyst_Console.Text = "";
+            this.lbLong.AutoSize = true;
+            this.lbLong.Location = new System.Drawing.Point(6, 66);
+            this.lbLong.Name = "lbLong";
+            this.lbLong.Size = new System.Drawing.Size(80, 17);
+            this.lbLong.TabIndex = 2;
+            this.lbLong.Text = "Longitude";
             // 
-            // dev_CANalyst_btnSend
+            // lbLat
             // 
-            this.dev_CANalyst_btnSend.Location = new System.Drawing.Point(6, 77);
-            this.dev_CANalyst_btnSend.Name = "dev_CANalyst_btnSend";
-            this.dev_CANalyst_btnSend.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnSend.TabIndex = 2;
-            this.dev_CANalyst_btnSend.Text = "Send";
-            this.dev_CANalyst_btnSend.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnSend.Click += new System.EventHandler(this.dev_CANalyst_btnSend_Click);
+            this.lbLat.AutoSize = true;
+            this.lbLat.Location = new System.Drawing.Point(6, 29);
+            this.lbLat.Name = "lbLat";
+            this.lbLat.Size = new System.Drawing.Size(67, 17);
+            this.lbLat.TabIndex = 0;
+            this.lbLat.Text = "Latitude";
             // 
-            // dev_CANalyst_btnDisconnect
+            // timer_rec_can
             // 
-            this.dev_CANalyst_btnDisconnect.Location = new System.Drawing.Point(6, 48);
-            this.dev_CANalyst_btnDisconnect.Name = "dev_CANalyst_btnDisconnect";
-            this.dev_CANalyst_btnDisconnect.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnDisconnect.TabIndex = 1;
-            this.dev_CANalyst_btnDisconnect.Text = "Disconnect";
-            this.dev_CANalyst_btnDisconnect.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnDisconnect.Click += new System.EventHandler(this.dev_CANalyst_btnDisconnect_Click);
-            // 
-            // dev_CANalyst_btnConnect
-            // 
-            this.dev_CANalyst_btnConnect.Location = new System.Drawing.Point(6, 19);
-            this.dev_CANalyst_btnConnect.Name = "dev_CANalyst_btnConnect";
-            this.dev_CANalyst_btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.dev_CANalyst_btnConnect.TabIndex = 0;
-            this.dev_CANalyst_btnConnect.Text = "Connect";
-            this.dev_CANalyst_btnConnect.UseVisualStyleBackColor = true;
-            this.dev_CANalyst_btnConnect.Click += new System.EventHandler(this.dev_CANalyst_btnConnect_Click);
-            // 
-            // loadDataBTN
-            // 
-            this.loadDataBTN.Location = new System.Drawing.Point(622, 281);
-            this.loadDataBTN.Name = "loadDataBTN";
-            this.loadDataBTN.Size = new System.Drawing.Size(119, 23);
-            this.loadDataBTN.TabIndex = 29;
-            this.loadDataBTN.Text = "Load data - do not remove";
-            this.loadDataBTN.UseVisualStyleBackColor = true;
-            this.loadDataBTN.Click += new System.EventHandler(this.loadDataBTN_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(478, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Database:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(478, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Server:";
-            // 
-            // statusRTXB
-            // 
-            this.statusRTXB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusRTXB.Location = new System.Drawing.Point(482, 72);
-            this.statusRTXB.Name = "statusRTXB";
-            this.statusRTXB.Size = new System.Drawing.Size(260, 204);
-            this.statusRTXB.TabIndex = 24;
-            this.statusRTXB.Text = "";
-            // 
-            // TBserver
-            // 
-            this.TBserver.Location = new System.Drawing.Point(525, 20);
-            this.TBserver.Name = "TBserver";
-            this.TBserver.Size = new System.Drawing.Size(156, 23);
-            this.TBserver.TabIndex = 25;
-            // 
-            // TBdatabase
-            // 
-            this.TBdatabase.Location = new System.Drawing.Point(540, 46);
-            this.TBdatabase.Name = "TBdatabase";
-            this.TBdatabase.Size = new System.Drawing.Size(141, 23);
-            this.TBdatabase.TabIndex = 26;
-            // 
-            // testBTN
-            // 
-            this.testBTN.Location = new System.Drawing.Point(482, 281);
-            this.testBTN.Name = "testBTN";
-            this.testBTN.Size = new System.Drawing.Size(121, 23);
-            this.testBTN.TabIndex = 23;
-            this.testBTN.Text = "Connect DB -  do not remove";
-            this.testBTN.UseVisualStyleBackColor = true;
-            this.testBTN.Click += new System.EventHandler(this.testBTN_Click);
-            // 
-            // timer_rec
-            // 
-            this.timer_rec.Interval = 500;
-            this.timer_rec.Tick += new System.EventHandler(this.timer_rec_Tick);
-            // 
-            // stevE_DatabaseDataSet1
-            // 
-            this.stevE_DatabaseDataSet1.DataSetName = "STEVE_DatabaseDataSet";
-            this.stevE_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.timer_rec_can.Interval = 500;
+            this.timer_rec_can.Tick += new System.EventHandler(this.timer_rec_Tick);
             // 
             // contextMenuStrip1
             // 
@@ -1000,13 +978,59 @@
             this.mainScreenMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.mainScreenMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mainScreenMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsToolStripMenuItem,
-            this.dataToolStripMenuItem});
+            this.toolsToolStripMenuItem1});
             this.mainScreenMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainScreenMenuStrip.Name = "mainScreenMenuStrip";
             this.mainScreenMenuStrip.Size = new System.Drawing.Size(1095, 24);
             this.mainScreenMenuStrip.TabIndex = 17;
             this.mainScreenMenuStrip.Text = "menuStrip1";
+            // 
+            // toolsToolStripMenuItem1
+            // 
+            this.toolsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cANToolStripMenuItem1,
+            this.databaseToolStripMenuItem2});
+            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem1.Text = "Tools";
+            // 
+            // cANToolStripMenuItem1
+            // 
+            this.cANToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.communicationToolStripMenuItem1});
+            this.cANToolStripMenuItem1.Name = "cANToolStripMenuItem1";
+            this.cANToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.cANToolStripMenuItem1.Text = "CAN";
+            // 
+            // communicationToolStripMenuItem1
+            // 
+            this.communicationToolStripMenuItem1.Name = "communicationToolStripMenuItem1";
+            this.communicationToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.communicationToolStripMenuItem1.Text = "Communication";
+            this.communicationToolStripMenuItem1.Click += new System.EventHandler(this.communicationToolStripMenuItem1_Click);
+            // 
+            // databaseToolStripMenuItem2
+            // 
+            this.databaseToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chartToolStripMenuItem1,
+            this.rawViewToolStripMenuItem1});
+            this.databaseToolStripMenuItem2.Name = "databaseToolStripMenuItem2";
+            this.databaseToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.databaseToolStripMenuItem2.Text = "Database";
+            // 
+            // chartToolStripMenuItem1
+            // 
+            this.chartToolStripMenuItem1.Name = "chartToolStripMenuItem1";
+            this.chartToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.chartToolStripMenuItem1.Text = "Chart";
+            this.chartToolStripMenuItem1.Click += new System.EventHandler(this.chartToolStripMenuItem1_Click);
+            // 
+            // rawViewToolStripMenuItem1
+            // 
+            this.rawViewToolStripMenuItem1.Name = "rawViewToolStripMenuItem1";
+            this.rawViewToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.rawViewToolStripMenuItem1.Text = "Raw View";
+            this.rawViewToolStripMenuItem1.Click += new System.EventHandler(this.rawViewToolStripMenuItem1_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -1022,7 +1046,7 @@
             this.cANToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.communicationToolStripMenuItem});
             this.cANToolStripMenuItem.Name = "cANToolStripMenuItem";
-            this.cANToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.cANToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.cANToolStripMenuItem.Text = "CAN";
             // 
             // communicationToolStripMenuItem
@@ -1036,15 +1060,14 @@
             this.databaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rawViewToolStripMenuItem});
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // rawViewToolStripMenuItem
             // 
             this.rawViewToolStripMenuItem.Name = "rawViewToolStripMenuItem";
-            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.rawViewToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.rawViewToolStripMenuItem.Text = "Raw view";
-            this.rawViewToolStripMenuItem.Click += new System.EventHandler(this.rawViewToolStripMenuItem_Click);
             // 
             // dataToolStripMenuItem
             // 
@@ -1059,27 +1082,33 @@
             this.databaseToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chartToolStripMenuItem});
             this.databaseToolStripMenuItem1.Name = "databaseToolStripMenuItem1";
-            this.databaseToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.databaseToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.databaseToolStripMenuItem1.Text = "Database";
             // 
             // chartToolStripMenuItem
             // 
             this.chartToolStripMenuItem.Name = "chartToolStripMenuItem";
-            this.chartToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.chartToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.chartToolStripMenuItem.Text = "Chart";
-            this.chartToolStripMenuItem.Click += new System.EventHandler(this.chartToolStripMenuItem_Click);
+            // 
+            // timerUpdateLables
+            // 
+            this.timerUpdateLables.Interval = 1000;
+            this.timerUpdateLables.Tick += new System.EventHandler(this.timerUpdateLables_Tick);
+            // 
+            // timerUpdateWeatherSun
+            // 
+            this.timerUpdateWeatherSun.Interval = 300000;
+            this.timerUpdateWeatherSun.Tick += new System.EventHandler(this.updateWeatherSun_Tick);
+            // 
+            // stevE_DatabaseDataSet1
+            // 
+            this.stevE_DatabaseDataSet1.DataSetName = "STEVE_DatabaseDataSet";
+            this.stevE_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bmS_PDO1TableAdapter1
             // 
             this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
-            // 
-            // solarCellsPanel
-            // 
-            this.solarCellsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.solarCellsPanel.Location = new System.Drawing.Point(3, 3);
-            this.solarCellsPanel.Name = "solarCellsPanel";
-            this.solarCellsPanel.Size = new System.Drawing.Size(1079, 600);
-            this.solarCellsPanel.TabIndex = 0;
             // 
             // Form1
             // 
@@ -1096,7 +1125,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JU SOLAR TEAM";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.mainScreenTabControl.ResumeLayout(false);
             this.Overview.ResumeLayout(false);
             this.Speed.ResumeLayout(false);
@@ -1119,7 +1148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxWeather)).EndInit();
             this.solarLocation.ResumeLayout(false);
             this.panelSolarLocationTL.ResumeLayout(false);
             this.panelSolarLocationTL.PerformLayout();
@@ -1128,13 +1157,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSolarLocation)).EndInit();
             this.panelSolarLocationR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Dev.ResumeLayout(false);
-            this.Dev.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).EndInit();
+            this.tabSettings.ResumeLayout(false);
+            this.grbPosition.ResumeLayout(false);
+            this.grbPosition.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numlong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLat)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.mainScreenMenuStrip.ResumeLayout(false);
             this.mainScreenMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1142,27 +1173,13 @@
 
         #endregion
         private System.Windows.Forms.TabControl mainScreenTabControl;
-        private System.Windows.Forms.TabPage Overview;
         private System.Windows.Forms.TabPage Speed;
         private System.Windows.Forms.TabPage Battery;
         private System.Windows.Forms.TabPage Weather;
-        private System.Windows.Forms.TabPage Dev;
-        private System.Windows.Forms.Button testBTN;
-        private System.Windows.Forms.TextBox TBdatabase;
-        private System.Windows.Forms.TextBox TBserver;
-        private System.Windows.Forms.RichTextBox statusRTXB;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button loadDataBTN;
+        private System.Windows.Forms.TabPage tabSettings;
         private System.Windows.Forms.TabPage solarLocation;
-        public System.Windows.Forms.Timer timer_rec;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button dev_CANalyst_btnConnect;
-        private System.Windows.Forms.Button dev_CANalyst_btnDisconnect;
-        private System.Windows.Forms.Button dev_CANalyst_btnSend;
-        private System.Windows.Forms.RichTextBox dev_CANalyst_Console;
+        public System.Windows.Forms.Timer timer_rec_can;
         private STEVE_DatabaseDataSet stevE_DatabaseDataSet1;
-        private System.Windows.Forms.Button btnCreateTables;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem hiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helloToolStripMenuItem;
@@ -1175,8 +1192,6 @@
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem;
-        private System.Windows.Forms.Button btnSunInfo;
-        private System.Windows.Forms.Button btnWeatherTest;
         private System.Windows.Forms.PictureBox pictureBoxSolarLocation;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Panel panelSolarLocationTL;
@@ -1198,14 +1213,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbAirPressure;
-        private System.Windows.Forms.Label lbWindLevels;
         private System.Windows.Forms.Label lbCrossWind;
         private System.Windows.Forms.Label lbHeadWind;
         private System.Windows.Forms.Label lbWindDirection;
         private System.Windows.Forms.Label lbWindspeed;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picBoxWeather;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbHumidity;
         private System.Windows.Forms.Label lbCurrentTemp;
@@ -1228,7 +1242,29 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label lbBatteryHealth;
         private STEVE_DatabaseDataSetTableAdapters.BMS_PDO1TableAdapter bmS_PDO1TableAdapter1;
-        private System.Windows.Forms.Panel solarCellsPanel;
+        private System.Windows.Forms.TabPage Overview;
+        private System.Windows.Forms.Panel graphPanel;
+        private System.Windows.Forms.Label lbCharge;
+        private System.Windows.Forms.Label lbBatteryCurrent;
+        private System.Windows.Forms.Label lbBatteryVoltage;
+        private System.Windows.Forms.Label lbCellBalance;
+        private System.Windows.Forms.Label lbCurrentPeak;
+        private System.Windows.Forms.Label lbTemp;
+        private System.Windows.Forms.Timer timerUpdateLables;
+        private System.Windows.Forms.Timer timerUpdateWeatherSun;
+        private System.Windows.Forms.GroupBox grbPosition;
+        private System.Windows.Forms.Label lbLong;
+        private System.Windows.Forms.Label lbLat;
+        private System.Windows.Forms.NumericUpDown numLat;
+        private System.Windows.Forms.NumericUpDown numlong;
+        private System.Windows.Forms.Button btnUpdateLocation;
+        private System.Windows.Forms.Label lbLocation;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cANToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rawViewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem communicationToolStripMenuItem1;
     }
 }
 

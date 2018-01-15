@@ -77,6 +77,12 @@
     <Compile Include="Code\solarInformation.cs" />
     <Compile Include="Code\weatherInformation.cs" />
     <Compile Include="Code\WebService.cs" />
+    <Compile Include="FormsWindows\canCommunication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsWindows\canCommunication.Designer.cs">
+      <DependentUpon>canCommunication.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsWindows\ChartView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STEVE_DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormsWindows\canCommunication.resx">
+      <DependentUpon>canCommunication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsWindows\ChartView.resx">
       <DependentUpon>ChartView.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FormsWindows\STEVE Chase Car.resx">
       <DependentUpon>STEVE Chase Car.cs</DependentUpon>
@@ -153,7 +163,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
@@ -165,6 +174,45 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Cloud_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\cloud_sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\cloud_thunder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\thunder_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Thunder_rain_cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Wind_cloud_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\wind_cloud_rain_thunder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\wind_cloud_thunder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\wind_colud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Wind_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\clearSkies.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
