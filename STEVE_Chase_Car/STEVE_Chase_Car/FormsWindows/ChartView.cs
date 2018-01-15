@@ -138,9 +138,9 @@ namespace STEVE_Chase_Car.FormsWindows
                 }
 
             }
-            catch (Exception ee)
+            catch (Exception e)
             {
-                MessageBox.Show(ee.Message);
+                MessageBox.Show(e.Message);
             }
         }
 

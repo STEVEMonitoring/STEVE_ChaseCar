@@ -123,6 +123,18 @@
             this.timerUpdateWeatherSun = new System.Windows.Forms.Timer(this.components);
             this.stevE_DatabaseDataSet1 = new STEVE_Chase_Car.STEVE_DatabaseDataSet();
             this.bmS_PDO1TableAdapter1 = new STEVE_Chase_Car.STEVE_DatabaseDataSetTableAdapters.BMS_PDO1TableAdapter();
+<<<<<<< HEAD
+=======
+            this.grbCarSpecifics = new System.Windows.Forms.GroupBox();
+            this.numTireDiameter = new System.Windows.Forms.NumericUpDown();
+            this.lbWheelDiameter = new System.Windows.Forms.Label();
+            this.lbSpeed = new System.Windows.Forms.Label();
+            this.lbRecSpeed = new System.Windows.Forms.Label();
+            this.lbRoadInclination = new System.Windows.Forms.Label();
+            this.lbGainedEnergy = new System.Windows.Forms.Label();
+            this.lbSolarEnergy = new System.Windows.Forms.Label();
+            this.lbMotorConsumption = new System.Windows.Forms.Label();
+>>>>>>> f1708d1a1c9edce410e9b25c8f53f1cd1a6f7631
             this.mainScreenTabControl.SuspendLayout();
             this.Overview.SuspendLayout();
             this.Speed.SuspendLayout();
@@ -153,6 +165,8 @@
             this.contextMenuStrip1.SuspendLayout();
             this.mainScreenMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).BeginInit();
+            this.grbCarSpecifics.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTireDiameter)).BeginInit();
             this.SuspendLayout();
             // 
             // mainScreenTabControl
@@ -212,6 +226,9 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.lbRoadInclination);
+            this.panel3.Controls.Add(this.lbRecSpeed);
+            this.panel3.Controls.Add(this.lbSpeed);
             this.panel3.Controls.Add(this.lbCurrentSpeed);
             this.panel3.Controls.Add(this.pictureBox6);
             this.panel3.Location = new System.Drawing.Point(-2, 0);
@@ -245,6 +262,9 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(60)))));
+            this.panel4.Controls.Add(this.lbMotorConsumption);
+            this.panel4.Controls.Add(this.lbSolarEnergy);
+            this.panel4.Controls.Add(this.lbGainedEnergy);
             this.panel4.Controls.Add(this.lbMotorPower);
             this.panel4.Controls.Add(this.pictureBox5);
             this.panel4.Location = new System.Drawing.Point(531, 0);
@@ -870,6 +890,7 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.grbCarSpecifics);
             this.tabSettings.Controls.Add(this.grbPosition);
             this.tabSettings.Location = new System.Drawing.Point(4, 36);
             this.tabSettings.Name = "tabSettings";
@@ -887,14 +908,14 @@
             this.grbPosition.Controls.Add(this.lbLat);
             this.grbPosition.Location = new System.Drawing.Point(6, 3);
             this.grbPosition.Name = "grbPosition";
-            this.grbPosition.Size = new System.Drawing.Size(238, 133);
+            this.grbPosition.Size = new System.Drawing.Size(275, 133);
             this.grbPosition.TabIndex = 0;
             this.grbPosition.TabStop = false;
             this.grbPosition.Text = "Position";
             // 
             // btnUpdateLocation
             // 
-            this.btnUpdateLocation.Location = new System.Drawing.Point(152, 93);
+            this.btnUpdateLocation.Location = new System.Drawing.Point(189, 95);
             this.btnUpdateLocation.Name = "btnUpdateLocation";
             this.btnUpdateLocation.Size = new System.Drawing.Size(80, 34);
             this.btnUpdateLocation.TabIndex = 4;
@@ -905,7 +926,7 @@
             // numlong
             // 
             this.numlong.DecimalPlaces = 5;
-            this.numlong.Location = new System.Drawing.Point(112, 64);
+            this.numlong.Location = new System.Drawing.Point(149, 66);
             this.numlong.Name = "numlong";
             this.numlong.Size = new System.Drawing.Size(120, 23);
             this.numlong.TabIndex = 3;
@@ -918,7 +939,7 @@
             // numLat
             // 
             this.numLat.DecimalPlaces = 5;
-            this.numLat.Location = new System.Drawing.Point(112, 27);
+            this.numLat.Location = new System.Drawing.Point(149, 29);
             this.numLat.Name = "numLat";
             this.numLat.Size = new System.Drawing.Size(120, 23);
             this.numLat.TabIndex = 1;
@@ -931,7 +952,7 @@
             // lbLong
             // 
             this.lbLong.AutoSize = true;
-            this.lbLong.Location = new System.Drawing.Point(6, 66);
+            this.lbLong.Location = new System.Drawing.Point(6, 68);
             this.lbLong.Name = "lbLong";
             this.lbLong.Size = new System.Drawing.Size(80, 17);
             this.lbLong.TabIndex = 2;
@@ -940,7 +961,7 @@
             // lbLat
             // 
             this.lbLat.AutoSize = true;
-            this.lbLat.Location = new System.Drawing.Point(6, 29);
+            this.lbLat.Location = new System.Drawing.Point(6, 31);
             this.lbLat.Name = "lbLat";
             this.lbLat.Size = new System.Drawing.Size(67, 17);
             this.lbLat.TabIndex = 0;
@@ -1093,7 +1114,7 @@
             // 
             // timerUpdateLables
             // 
-            this.timerUpdateLables.Interval = 1000;
+            this.timerUpdateLables.Interval = 3000;
             this.timerUpdateLables.Tick += new System.EventHandler(this.timerUpdateLables_Tick);
             // 
             // timerUpdateWeatherSun
@@ -1110,6 +1131,98 @@
             // 
             this.bmS_PDO1TableAdapter1.ClearBeforeFill = true;
             // 
+<<<<<<< HEAD
+=======
+            // grbCarSpecifics
+            // 
+            this.grbCarSpecifics.Controls.Add(this.lbWheelDiameter);
+            this.grbCarSpecifics.Controls.Add(this.numTireDiameter);
+            this.grbCarSpecifics.Location = new System.Drawing.Point(6, 142);
+            this.grbCarSpecifics.Name = "grbCarSpecifics";
+            this.grbCarSpecifics.Size = new System.Drawing.Size(275, 273);
+            this.grbCarSpecifics.TabIndex = 1;
+            this.grbCarSpecifics.TabStop = false;
+            this.grbCarSpecifics.Text = "Car Specifics";
+            // 
+            // numTireDiameter
+            // 
+            this.numTireDiameter.Location = new System.Drawing.Point(149, 52);
+            this.numTireDiameter.Name = "numTireDiameter";
+            this.numTireDiameter.Size = new System.Drawing.Size(120, 23);
+            this.numTireDiameter.TabIndex = 4;
+            this.numTireDiameter.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // lbWheelDiameter
+            // 
+            this.lbWheelDiameter.AutoSize = true;
+            this.lbWheelDiameter.Location = new System.Drawing.Point(6, 54);
+            this.lbWheelDiameter.Name = "lbWheelDiameter";
+            this.lbWheelDiameter.Size = new System.Drawing.Size(139, 17);
+            this.lbWheelDiameter.TabIndex = 5;
+            this.lbWheelDiameter.Text = "Tire Diameter(cm)";
+            // 
+            // lbSpeed
+            // 
+            this.lbSpeed.AutoSize = true;
+            this.lbSpeed.Location = new System.Drawing.Point(151, 332);
+            this.lbSpeed.Name = "lbSpeed";
+            this.lbSpeed.Size = new System.Drawing.Size(118, 17);
+            this.lbSpeed.TabIndex = 3;
+            this.lbSpeed.Text = "Current Speed:";
+            // 
+            // lbRecSpeed
+            // 
+            this.lbRecSpeed.AutoSize = true;
+            this.lbRecSpeed.Location = new System.Drawing.Point(106, 374);
+            this.lbRecSpeed.Name = "lbRecSpeed";
+            this.lbRecSpeed.Size = new System.Drawing.Size(166, 17);
+            this.lbRecSpeed.TabIndex = 4;
+            this.lbRecSpeed.Text = "Reccomended Speed:";
+            // 
+            // lbRoadInclination
+            // 
+            this.lbRoadInclination.AutoSize = true;
+            this.lbRoadInclination.Location = new System.Drawing.Point(142, 417);
+            this.lbRoadInclination.Name = "lbRoadInclination";
+            this.lbRoadInclination.Size = new System.Drawing.Size(130, 17);
+            this.lbRoadInclination.TabIndex = 5;
+            this.lbRoadInclination.Text = "Road Inclination:";
+            // 
+            // lbGainedEnergy
+            // 
+            this.lbGainedEnergy.AutoSize = true;
+            this.lbGainedEnergy.ForeColor = System.Drawing.Color.White;
+            this.lbGainedEnergy.Location = new System.Drawing.Point(176, 332);
+            this.lbGainedEnergy.Name = "lbGainedEnergy";
+            this.lbGainedEnergy.Size = new System.Drawing.Size(121, 17);
+            this.lbGainedEnergy.TabIndex = 6;
+            this.lbGainedEnergy.Text = "Gained Energy:";
+            // 
+            // lbSolarEnergy
+            // 
+            this.lbSolarEnergy.AutoSize = true;
+            this.lbSolarEnergy.ForeColor = System.Drawing.Color.White;
+            this.lbSolarEnergy.Location = new System.Drawing.Point(190, 374);
+            this.lbSolarEnergy.Name = "lbSolarEnergy";
+            this.lbSolarEnergy.Size = new System.Drawing.Size(107, 17);
+            this.lbSolarEnergy.TabIndex = 7;
+            this.lbSolarEnergy.Text = "Solar Energy:";
+            // 
+            // lbMotorConsumption
+            // 
+            this.lbMotorConsumption.AutoSize = true;
+            this.lbMotorConsumption.ForeColor = System.Drawing.Color.White;
+            this.lbMotorConsumption.Location = new System.Drawing.Point(145, 417);
+            this.lbMotorConsumption.Name = "lbMotorConsumption";
+            this.lbMotorConsumption.Size = new System.Drawing.Size(152, 17);
+            this.lbMotorConsumption.TabIndex = 8;
+            this.lbMotorConsumption.Text = "Motor Consumption:";
+            // 
+>>>>>>> f1708d1a1c9edce410e9b25c8f53f1cd1a6f7631
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1166,6 +1279,9 @@
             this.mainScreenMenuStrip.ResumeLayout(false);
             this.mainScreenMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stevE_DatabaseDataSet1)).EndInit();
+            this.grbCarSpecifics.ResumeLayout(false);
+            this.grbCarSpecifics.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTireDiameter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1265,6 +1381,15 @@
         private System.Windows.Forms.ToolStripMenuItem chartToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rawViewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem communicationToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox grbCarSpecifics;
+        private System.Windows.Forms.Label lbWheelDiameter;
+        private System.Windows.Forms.NumericUpDown numTireDiameter;
+        private System.Windows.Forms.Label lbRoadInclination;
+        private System.Windows.Forms.Label lbRecSpeed;
+        private System.Windows.Forms.Label lbSpeed;
+        private System.Windows.Forms.Label lbMotorConsumption;
+        private System.Windows.Forms.Label lbSolarEnergy;
+        private System.Windows.Forms.Label lbGainedEnergy;
     }
 }
 
